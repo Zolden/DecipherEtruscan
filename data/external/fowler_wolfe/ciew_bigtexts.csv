@@ -305,7 +305,7 @@ entry,col,line,text,flags,ocr,title
 9002,96,6,vamalasial 1 zeronai [[-]] morinail,ocr-fixed ocr?,VAMALASIAL 1 ZERONAI [[!]] MORINAIL,Лемносская стела
 9002,96,7,aker t tav [[•]] arzio,ocr?,AKER t TAV [[•]] ARZ10,Лемносская стела
 9002,96,8,ho<l>a-v<z>l > 4okiasiale - zerozale - evirθo <-> tovero<m>a-,ocr?,H0<L>A!V<Z>l > 40KIASIALE ! ZEROZAle ■ EVIR60  <■> T0VER0<M>A+,Лемносская стела
-9002,96,9,-rom i haralio - zivai i ep[t]ezio - ara i <i> t i- • 4oke .,ocr?,+R0M i HARAL10 ■ ZIVAI i EP[T]EZI0 ■ ARA I <i> T I* • 40KE .,Лемносская стела
+9002,96,9,-rom i haralio - zivai i ep[t]ezio - ara i <i> t i- • 4oke .,ocr-fixed ocr?,+R0M i HARAL10 ■ ZIVAI i EP[T]EZI0 ■ ARA I <i> T I* • 40KE .,Лемносская стела
 9002,96,10,zivai - aviz - sialχviz [•] mara-- - aviz . aom a i,ocr?,ZIVAI : AVIZ ■ SIALXVIZ [•] MARA*! ■ AV1Z . AOM A I,Лемносская стела
 9002,96,11,arzir,,ARZIR,Лемносская стела
 9002,96,13,pa śl aze/,ocr-fixed,PA OL AZE/,Лемносская стела

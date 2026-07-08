@@ -43,5 +43,5 @@ region: {'∅': 3910, 'Cl': 1372, 'Pe': 555, 'Ta': 215, 'AS': 183, 'Vs': 174, 'A
 флаги токенов: {'braced': 11, 'caps': 1, 'damaged': 856, 'emended': 819, 'expanded': 1804, 'line_split': 124, 'restored': 529, 'scribal_extra': 126, 'stripped_chars': 16, 'uncertain': 50}
 ascii-типов: ETP 1219, CIEP 4670, общих 292 — сопоставимость частей
 
-записан data\etr_corpus.pkl: 7338 записей, sha256=ffb9f28a9a5b1a08d58b68cb6206138c2dee97923548a068ae5bd8a1d070971d
+записан data\etr_corpus.pkl: 7338 записей, sha256=9923611a4e48a5e95c5cba40a791147fdad8688369b9d4ea5381e2c847d3a211
 записана выборка для ручной сверки: validation\sample50.md
