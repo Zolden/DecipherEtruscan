@@ -42,6 +42,14 @@
   из которых можно выявить автоматически, — ключевые результаты следующих
   этапов реплицируются на чистой ETP-части (см. §0 отчёта).
 
+v0.4 — источник CIEW (Fowler & Wolfe 1965, парсинг tools/etr_ciew_parse.py
+  → data/external/fowler_wolfe/ciew_bigtexts.csv): большие тексты
+  построчно — 7002 Tabula Capuana, 9001 Liber Linteus (Runes), 9002
+  Лемносская стела (lang='lemn'), 9003 печень Пьяченцы, 9011–9016
+  Харсекин; 9021 (Пирги) НЕ грузится (дубль supplement-а). Флаги OCR
+  ('ocr?', 'ocr-fixed') — на уровне записи. Токены из одних цифр —
+  числительные (F&W конвертировал римские в арабские).
+
 v0.3 — слияние ВАРИАНТОВ ЧТЕНИЯ одного памятника (негатив N4 отчёта):
   записи с одинаковым (src, eid, key), одинаковым числом словоформ и
   совпадением ≥80% ascii-токенов считаются вариантами чтения; канон —
@@ -81,7 +89,12 @@ from collections import Counter
 sys.stdout.reconfigure(encoding='utf-8')
 
 NORM_VERSION = '0.1'
-FREEZE_VERSION = '0.3'
+FREEZE_VERSION = '0.4'
+CIEW_CSV = os.path.join('data', 'external', 'fowler_wolfe',
+                        'ciew_bigtexts.csv')
+CIEW_SKIP = {'9021'}  # Пирги уже в supplements (двойной счёт)
+CIEW_META = {'7002': ('Cm', 'Capua')}  # регион/город, где известны
+CIEW_LANG = {'9002': 'lemn'}
 DATA = 'data'
 BURMAN_CSV = os.path.join('data', 'external', 'burman',
                           'burman_concordance_1.0.3.csv')
@@ -260,6 +273,8 @@ def parse_segment(seg, stats):
         return {'form': '-', 'kind': 'G', 'flags': tuple(sorted(flags))}
     if re.fullmatch(r'[ivxlcIVXLC]+', seg) and re.search(r'[IVXLC]', seg):
         return {'form': seg.upper(), 'kind': 'N', 'flags': tuple(sorted(flags))}
+    if re.fullmatch(r'\d+', seg):  # арабские числительные (источник CIEW)
+        return {'form': seg, 'kind': 'N', 'flags': tuple(sorted(flags))}
     if re.search(r'[A-Z]', seg):
         flags.add('caps')
     seg = seg.lower()
@@ -508,6 +523,41 @@ def build_records():
                 })
                 n_supp += 1
     log(f'supplements: файлов {len(supp_files)}, записей {n_supp}')
+
+    # --- источник CIEW (большие тексты Fowler & Wolfe) ---------------------
+    n_ciew = 0
+    if os.path.exists(CIEW_CSV):
+        with open(CIEW_CSV, encoding='utf-8') as f:
+            for row in csv.DictReader(f):
+                e = row['entry'].strip()
+                if e in CIEW_SKIP:
+                    continue
+                raw = (row['text'] or '').strip()
+                if not raw:
+                    continue
+                toks, n_lines = parse_text(raw, dash_split=False, stats=stats)
+                region, city = CIEW_META.get(e, (None, None))
+                rflags = tuple(sorted(set((row['flags'] or '').split())))
+                records.append({
+                    'rid': f'CIEW:{e}:{row["col"]}.{row["line"]}',
+                    'src': 'CIEW', 'eid': e,
+                    'key': f'{row["col"]}.{row["line"]}',
+                    'city': city, 'y_from': None, 'y_to': None,
+                    'region': region,
+                    'region_name': REGION_NAMES.get(region),
+                    'xref': None, 'flags': rflags,
+                    'lang': CIEW_LANG.get(e, 'etr'),
+                    'kind': classify_kind(toks),
+                    'raw': raw, 'raw_T': None, 'raw_C': None, 'reading': '',
+                    'trs': [],
+                    'toks': toks, 'n_lines': n_lines,
+                    'seg': seg_class(toks),
+                })
+                n_ciew += 1
+        log(f'CIEW: записей {n_ciew} (из {CIEW_CSV}; 9021 пропущен — '
+            f'дубль supplement-а Пирги)')
+    else:
+        log('CIEW: файл не найден, источник не подключён')
     return records, stats, larth, etp_fix, ciep
 
 
@@ -675,6 +725,8 @@ def main():
     # --- сборка и сериализация --------------------------------------------
     if os.path.exists(BURMAN_CSV):
         in_sha['burman_concordance_1.0.3.csv'] = sha256_file(BURMAN_CSV)
+    if os.path.exists(CIEW_CSV):
+        in_sha['ciew_bigtexts.csv'] = sha256_file(CIEW_CSV)
     corpus = {
         'meta': {
             'norm_version': NORM_VERSION,
