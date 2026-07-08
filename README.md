@@ -23,5 +23,7 @@ massive (-s: 876 types). Data: Larth-Etruscan-NLP compilation
 (Vico & Niculae 2023) + ETP/CIEP derivatives — see `data/` and credits in
 `CLAUDE.md`.
 
-Status: scaffolding; work proceeds in staged, fully reproducible steps
-(seed=42, PYTHONHASHSEED=0).
+Status: stage 0 done — frozen, validated corpus
+(`data/etr_corpus.pkl`: 6,361 records, 6,238 in the Etruscan text view;
+see `etruscan_report.md` §0). Work proceeds in staged, fully reproducible
+steps (seed=42, PYTHONHASHSEED=0; empty `git diff` after full rerun).
