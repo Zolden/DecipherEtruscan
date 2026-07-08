@@ -203,6 +203,25 @@ def collect_big(body):
                 d[key] = d[key].rstrip('/') + ' ' + txt
             elif len(txt) > len(d[key]):
                 d[key] = txt
+        # v2: на одно-записных страницах подбираем НЕнумерованные текстовые
+        # строки (колонко-расщеплённый OCR потерял их номера); ключ
+        # (page, 900+idx), флаг у потребителя — по отсутствию номера ≤300
+        if big_here is not None:
+            u_idx = 0
+            for raw in page.split('\n'):
+                raw = raw.strip()
+                if not raw or bare_re.match(raw) or any(
+                        rx.match(raw) for rx in ent_res.values()):
+                    continue
+                if re.fullmatch(r'[\d\s]+', raw):
+                    continue
+                letters = len(re.findall(r'[A-Za-z]', raw))
+                if letters >= 8 and letters >= 0.5 * len(raw.replace(' ', '')):
+                    key = (p_i, 900 + u_idx)
+                    if key not in out[big_here]:
+                        out[big_here][key] = raw
+                        order[big_here].append(key)
+                        u_idx += 1
     return {e: [(k, out[e][k]) for k in order[e]] for e in BIG}
 
 
@@ -245,11 +264,15 @@ def main():
             dec, fl = decode_line(cleaned, lexicon, stats)
             n_words += len([x for x in dec.split()
                             if re.search(r'[a-zθχśê]', x)])
+            if num >= 900:
+                fl = sorted(set(fl) | {'unaligned'})
             out_rows.append({'entry': e, 'col': page, 'line': num,
                              'ocr': raw[:120], 'text': dec,
                              'flags': ' '.join(fl),
                              'title': TITLE[e]})
-        log(f'  {e} ({TITLE[e]}): строк {len(rows)}, словоформ ~{n_words}')
+        n_un = sum(1 for (_, n_), _ in rows if n_ >= 900)
+        log(f'  {e} ({TITLE[e]}): строк {len(rows)} '
+            f'(из них ненумерованных v2: {n_un}), словоформ ~{n_words}')
     with open(OUT_CSV, 'w', encoding='utf-8', newline='') as f:
         w = csv.DictWriter(f, fieldnames=['entry', 'col', 'line', 'text',
                                           'flags', 'ocr', 'title'])
@@ -320,6 +343,31 @@ def main():
         for c_, r_, num, a, b in ratios[-5:]:
             log(f'  CIE {num}: влож {c_:.2f} симм {r_:.2f}  CIEW={a!r} '
                 f'CIEP={b!r}')
+
+    # --- CIE-записи CIEW как кандидат-источник v0.5 -------------------------
+    shared = set(both)
+    cont_of = {num: c_ for c_, _, num, _, _ in ratios}
+    out2 = os.path.join('data', 'external', 'fowler_wolfe',
+                        'ciew_cie_entries.csv')
+    n_excl = 0
+    with open(out2, 'w', encoding='utf-8', newline='') as f:
+        w = csv.DictWriter(f, fieldnames=['entry', 'text', 'flags',
+                                          'shared_with_ciep', 'containment'])
+        w.writeheader()
+        for num in sorted(cie_rows, key=int):
+            s = ' '.join(txt for _, txt in sorted(cie_rows[num]))
+            dec, fl = decode_line(pre_clean(s), lexicon, stats)
+            if len(re.sub(r'[^a-zθχśê]', '', dec)) < 3:
+                continue
+            sh = num in shared
+            n_excl += not sh
+            w.writerow({'entry': num, 'text': dec, 'flags': ' '.join(fl),
+                        'shared_with_ciep': int(sh),
+                        'containment': f'{cont_of.get(num, ""):.2f}'
+                        if num in cont_of else ''})
+    log()
+    log(f'CIE-записи CIEW: {out2}; CIEW-эксклюзивных (нет в CIEP, '
+        f'кандидаты в корпус v0.5): {n_excl}')
 
     with open(OUT_LOG, 'w', encoding='utf-8') as f:
         f.write('\n'.join(LOG) + '\n')

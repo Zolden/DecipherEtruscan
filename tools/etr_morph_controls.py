@@ -77,7 +77,7 @@ def strat_test(U_by, A, B, rng):
 def main():
     os.makedirs('logs', exist_ok=True)
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
-    assert corpus['meta'].get('freeze_version') == '0.4'
+    assert corpus['meta'].get('freeze_version') == '0.5'
     view = view_of(corpus)
     vocab = {w for w in Counter(t['ascii'] for r in view for t in r['toks']
                                 if t['kind'] == 'W')

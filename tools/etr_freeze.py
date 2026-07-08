@@ -42,6 +42,14 @@
   из которых можно выявить автоматически, — ключевые результаты следующих
   этапов реплицируются на чистой ETP-части (см. §0 отчёта).
 
+v0.5 — CIEW-эксклюзивные CIE-записи (ciew_cie_entries.csv,
+  shared_with_ciep=0): надписи CIE, которых НЕТ в CIEP-части (у Хилла
+  пропущены) — src='CIEW-CIE', метаданные (регион/язык/подделки) через
+  тот же join Бурман по CIE-номеру; порог качества — глобальная
+  валидация CIEW↔CIEP (вложенность медиана 0.91), плюс флаг 'ocr?' на
+  записях с неразрешённой дизамбигуацией. Общие с CIEP номера НЕ
+  грузятся (двойной счёт).
+
 v0.4 — источник CIEW (Fowler & Wolfe 1965, парсинг tools/etr_ciew_parse.py
   → data/external/fowler_wolfe/ciew_bigtexts.csv): большие тексты
   построчно — 7002 Tabula Capuana, 9001 Liber Linteus (Runes), 9002
@@ -89,7 +97,9 @@ from collections import Counter
 sys.stdout.reconfigure(encoding='utf-8')
 
 NORM_VERSION = '0.1'
-FREEZE_VERSION = '0.4'
+FREEZE_VERSION = '0.5'
+CIEW_CIE_CSV = os.path.join('data', 'external', 'fowler_wolfe',
+                            'ciew_cie_entries.csv')
 CIEW_CSV = os.path.join('data', 'external', 'fowler_wolfe',
                         'ciew_bigtexts.csv')
 CIEW_SKIP = {'9021'}  # Пирги уже в supplements (двойной счёт)
@@ -558,6 +568,50 @@ def build_records():
             f'дубль supplement-а Пирги)')
     else:
         log('CIEW: файл не найден, источник не подключён')
+
+    # --- v0.5: CIEW-эксклюзивные CIE-записи --------------------------------
+    n_cie = 0
+    if os.path.exists(CIEW_CIE_CSV):
+        cie_lang = Counter()
+        with open(CIEW_CIE_CSV, encoding='utf-8') as f:
+            for row in csv.DictReader(f):
+                if row['shared_with_ciep'] == '1':
+                    continue
+                num = row['entry'].strip()
+                raw = (row['text'] or '').strip()
+                toks, n_lines = parse_text(raw, dash_split=False, stats=stats)
+                lang = 'etr'
+                region = None
+                xref = None
+                rflags = set((row['flags'] or '').split())
+                b = burman.get(num)
+                if b is not None:
+                    region = et_region(b['et']) if b['et'] else None
+                    xref = {'tm': b['tm'], 'et': b['et'], 'tle': b['tle']}
+                    if b['et']:
+                        pass
+                    elif b['bakkum']:
+                        lang = 'fal'
+                    elif b['cil']:
+                        lang = 'lat'
+                    if any(n_.startswith('Considered') for n_ in b['notes']):
+                        rflags.add('forgery?')
+                cie_lang[lang] += 1
+                records.append({
+                    'rid': f'CIEW-CIE:{num}',
+                    'src': 'CIEW-CIE', 'eid': num, 'key': '',
+                    'city': None, 'y_from': None, 'y_to': None,
+                    'region': region,
+                    'region_name': REGION_NAMES.get(region),
+                    'xref': xref, 'flags': tuple(sorted(rflags)),
+                    'lang': lang, 'kind': classify_kind(toks),
+                    'raw': raw, 'raw_T': None, 'raw_C': None, 'reading': '',
+                    'trs': [],
+                    'toks': toks, 'n_lines': n_lines,
+                    'seg': seg_class(toks),
+                })
+                n_cie += 1
+        log(f'CIEW-CIE (v0.5): записей {n_cie}, языки {dict(cie_lang)}')
     return records, stats, larth, etp_fix, ciep
 
 
@@ -727,6 +781,8 @@ def main():
         in_sha['burman_concordance_1.0.3.csv'] = sha256_file(BURMAN_CSV)
     if os.path.exists(CIEW_CSV):
         in_sha['ciew_bigtexts.csv'] = sha256_file(CIEW_CSV)
+    if os.path.exists(CIEW_CIE_CSV):
+        in_sha['ciew_cie_entries.csv'] = sha256_file(CIEW_CIE_CSV)
     corpus = {
         'meta': {
             'norm_version': NORM_VERSION,

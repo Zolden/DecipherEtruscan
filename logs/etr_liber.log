@@ -1,55 +1,59 @@
 === §5: структурный разбор Liber Linteus (копия CIEW) ===
-строк LL в корпусе: 125; пригодных (≥2 чистых словоформ): 112; покрытие памятника парсером ~30% (оговорка)
+строк LL в корпусе: 224; пригодных (≥2 чистых словоформ): 207; покрытие памятника парсером ~30% (оговорка)
 
 --- 1. формульный словарь ---
-строк с ≥1 формульным элементом: 66/112 (59%)
-  etnam      в 18 строках
-  vacl       в 14 строках
-  fler       в 9 строках
-  календ.    в 9 строках
-  теонимы    в 8 строках
-  spur-      в 7 строках
-  cilth-     в 7 строках
-  nunthen-   в 6 строках
-  sacni-     в 5 строках
+строк с ≥1 формульным элементом: 112/207 (54%)
+  etnam      в 29 строках
+  теонимы    в 22 строках
+  vacl       в 20 строках
+  календ.    в 20 строках
+  fler       в 15 строках
+  nunthen-   в 14 строках
+  cilth-     в 14 строках
+  spur-      в 13 строках
+  sacni-     в 12 строках
+  trin       в 9 строках
+  methlum-   в 7 строках
+  thez-      в 5 строках
+  cletram    в 5 строках
   hia        в 5 строках
   ciz        в 5 строках
-  cletram    в 4 строках
   srenchve   в 4 строках
-  methlum-   в 4 строках
   ceia       в 4 строках
-  thez-      в 3 строках
-  trin       в 3 строках
   male       в 3 строках
 
 --- 2. рефренные семейства (Жаккар ≥0.5) ---
-семейств размера ≥2: 3; крупнейшие: [4, 2, 2, 1, 1, 1]
-нуль (перестановка токенов, R=1000): max семейство 1.0±, максимум 2; наблюдаемое 4; p=0.0010
+семейств размера ≥2: 7; крупнейшие: [4, 4, 4, 4, 2, 2]
+нуль (перестановка токенов, R=1000): max семейство 1.1±, максимум 3; наблюдаемое 4; p=0.0010
+  семейство ×4:
+    92.51: tiurim avils chis cisum pute tul thans
+    94.186: tiurim avils chis cisum ute tul thans
+    94.937: avils chis cisum pute tul bans hae
+    95.922: tiurim avilg chis cisum pute tul
   семейство ×4:
     93.125: ceia hia etnam ciz vacl trin velthre
     93.126: male ceia hia etnam ciz vacl aisval
     93.127: male ceia hia trinth etnam ciz ale
     93.128: male ceia hia etnam ciz vacl vile vale
-  семейство ×2:
-    92.51: tiurim avils chis cisum pute tul thans
-    94.186: tiurim avils chis cisum ute tul thans
-  семейство ×2:
-    94.180: repinec sacnicleri cilthl spureri
-    94.196: sacnicleri cilthl spureri methlumeric
+  семейство ×4:
+    93.905: enas ethrse tinsi tiurim avils ch is
+    94.185: cilths spurestres enas ethrse tinsi
+    94.933: cilths spurestres enas egrse tinsi
+    94.936: spurestres enas ethrse tinsi tiurim
 
 --- 3. слот «(male) ceia hia etnam ciz vacl X» ---
 строк рефрена ceia-hia: 4; заполнители слота: ['trin velthre', 'aisval', '(без vacl): ciz ale', 'vile vale']
 
 --- 4. позиция vacl в строке ---
-vacl: 14 вхождений, начальная позиция 4 (29%); нуль равномерный: p=0.1872
+vacl: 20 вхождений, начальная позиция 5 (25%); нуль равномерный: p=0.2259
 
 --- 5. календарные метки ---
-строк с календарными метками: 9
+строк с календарными метками: 20
   92.51: tiurim avils chis cisum pute tul thans
   92.56: ethrse tinsi tiurim avils chis ecn zer
+  92.902: var celi sue hechsth vinm trin fler
   93.112: zathrumsne lusas fler thezeri
   93.117: eslem zafrumis acale tinsin sarve
-  94.186: tiurim avils chis cisum ute tul thans
-  95.233: acale etnam
-  95.234: vacl vinum santisas celi pen tr utum
-  95.235: thapnests tritanasa hanthin celi
+  93.905: enas ethrse tinsi tiurim avils ch is
+  93.911: var celi sub nunthenth eiser sic seuc
+  93.917: celi sue vacl thesnin rach cresverae

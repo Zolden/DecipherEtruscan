@@ -54,7 +54,7 @@ def century_bin(y):
 def main():
     os.makedirs('logs', exist_ok=True)
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
-    assert corpus['meta'].get('freeze_version') == '0.4'
+    assert corpus['meta'].get('freeze_version') == '0.5'
     view = [r for r in corpus['records']
             if r['lang'] == 'etr' and r['kind'] == 'text'
             and 'forgery?' not in r['flags'] and r.get('variant_of') is None
