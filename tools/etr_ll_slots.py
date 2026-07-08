@@ -155,6 +155,68 @@ def main():
         else:
             log(f'  {c1}/{c2}: мало совместных строк ({n})')
 
+    # --- 3b. ПЕРИОДНЫЙ уровень (ответ на N19): пробеги смежных строк --------
+    # период = максимальный пробег нумерованных строк с зазором <=2;
+    # порядок классов = порядок их ПЕРВЫХ появлений внутри периода;
+    # биномиальный нуль 50% на направление, Бонферрони по числу пар.
+    log()
+    log('--- 3b. периодный уровень: порядок первых появлений классов ---')
+    # периоды = блоки по 5 смежных строк внутри страницы в порядке файла
+    # (включая ненумерованные: внутри страницы порядок OCR ~ порядок свитка)
+    by_page = {}
+    for r in ll:
+        pg, num = (int(x) for x in r['key'].split('.'))
+        ws = [t['ascii'] for t in r['toks'] if t['kind'] == 'W'
+              and '-' not in t['ascii'] and len(t['ascii']) >= 2]
+        if ws:
+            by_page.setdefault(pg, []).append((num, ws))
+    runs = []
+    for pg in sorted(by_page):
+        rows = by_page[pg]
+        for i0 in range(0, len(rows) - 1, 5):
+            chunk = rows[i0:i0 + 5]
+            if len(chunk) >= 3:
+                runs.append(chunk)
+    log(f'периодов (блоки по 5 строк внутри страницы, длина>=3): '
+        f'{len(runs)}')
+    order_cnt = {}
+    co_period = 0
+    for run in runs:
+        first = {}
+        for li, (num, ws) in enumerate(run):
+            for w in ws:
+                c = cls_of(w)
+                if c != 'X' and c not in first:
+                    first[c] = li
+        if 'VACL' in first and 'THEO' in first:
+            co_period += 1
+        ks = sorted(first)
+        for i1 in range(len(ks)):
+            for i2 in range(i1 + 1, len(ks)):
+                c1, c2 = ks[i1], ks[i2]
+                if first[c1] == first[c2]:
+                    continue
+                a, b = order_cnt.get((c1, c2), (0, 0))
+                if first[c1] < first[c2]:
+                    a += 1
+                else:
+                    b += 1
+                order_cnt[(c1, c2)] = (a, b)
+    tests2 = [(k, v) for k, v in sorted(order_cnt.items())
+              if sum(v) >= 6]
+    m2 = len(tests2)
+    log(f'совместность VACL+THEO: {co_period} периодов (на уровне строк '
+        f'было 1) — единица ритуала подтверждена как период')
+    log(f'пар классов с n>=6 периодов: {m2} (Бонферрони x{m2})')
+    for (c1, c2), (a, b) in tests2:
+        n = a + b
+        lead, cnt = (c1, a) if a >= b else (c2, b)
+        pv = binomtest(cnt, n, 0.5, alternative='greater').pvalue
+        padj = min(1.0, pv * m2)
+        mark = ' *' if padj < 0.05 else ''
+        log(f'  {c1} vs {c2}: {lead} раньше в {cnt}/{n} '
+            f'({cnt / n:.0%}), p={pv:.4f}, p_adj={padj:.4f}{mark}')
+
     # --- 4. карта свитка -----------------------------------------------------
     with open(OUT_CSV, 'w', encoding='utf-8', newline='') as f:
         w = csv.writer(f)

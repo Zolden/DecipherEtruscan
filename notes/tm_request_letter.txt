@@ -1,0 +1,28 @@
+Subject: Request for date/provenance export for 2,944 TM identifiers (Etruscan corpus study)
+
+Dear Trismegistos team,
+
+I am working on an open, reproducible statistical study of Etruscan
+epigraphy (corpus built from the Larth-Etruscan-NLP dataset, Jeff Hill's
+CIE-in-progress compilation, and Annie Burman's digital concordance,
+Zenodo 10.5281/zenodo.17209666). Through the concordance we have
+cross-referenced 2,944 inscriptions in our corpus to Trismegistos text
+identifiers.
+
+Would it be possible to obtain a one-time export (CSV or similar) of
+basic metadata for these TM ids - specifically date_from/date_to,
+provenance, and material, if available? The list of TM ids is attached
+(tm_ids.csv, one id per line). We would use it to add century-level
+dating strata to our statistical analyses; Trismegistos would of course
+be credited as the source of this metadata in the project report and any
+resulting publication, following your citation guidelines.
+
+If a bulk export is not possible, I would appreciate guidance on the
+appropriate way to access this metadata programmatically (our automated
+requests receive HTTP 403, which we respect as a bot policy).
+
+Thank you for building and maintaining this indispensable resource.
+
+Best regards,
+[Zolden — подставьте имя/аффилиацию]
+github.com/Zolden/DecipherLinearA (sister project; Etruscan repo to be published)
