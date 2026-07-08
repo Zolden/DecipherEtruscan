@@ -1,0 +1,55 @@
+=== §5: структурный разбор Liber Linteus (копия CIEW) ===
+строк LL в корпусе: 125; пригодных (≥2 чистых словоформ): 112; покрытие памятника парсером ~30% (оговорка)
+
+--- 1. формульный словарь ---
+строк с ≥1 формульным элементом: 66/112 (59%)
+  etnam      в 18 строках
+  vacl       в 14 строках
+  fler       в 9 строках
+  календ.    в 9 строках
+  теонимы    в 8 строках
+  spur-      в 7 строках
+  cilth-     в 7 строках
+  nunthen-   в 6 строках
+  sacni-     в 5 строках
+  hia        в 5 строках
+  ciz        в 5 строках
+  cletram    в 4 строках
+  srenchve   в 4 строках
+  methlum-   в 4 строках
+  ceia       в 4 строках
+  thez-      в 3 строках
+  trin       в 3 строках
+  male       в 3 строках
+
+--- 2. рефренные семейства (Жаккар ≥0.5) ---
+семейств размера ≥2: 3; крупнейшие: [4, 2, 2, 1, 1, 1]
+нуль (перестановка токенов, R=1000): max семейство 1.0±, максимум 2; наблюдаемое 4; p=0.0010
+  семейство ×4:
+    93.125: ceia hia etnam ciz vacl trin velthre
+    93.126: male ceia hia etnam ciz vacl aisval
+    93.127: male ceia hia trinth etnam ciz ale
+    93.128: male ceia hia etnam ciz vacl vile vale
+  семейство ×2:
+    92.51: tiurim avils chis cisum pute tul thans
+    94.186: tiurim avils chis cisum ute tul thans
+  семейство ×2:
+    94.180: repinec sacnicleri cilthl spureri
+    94.196: sacnicleri cilthl spureri methlumeric
+
+--- 3. слот «(male) ceia hia etnam ciz vacl X» ---
+строк рефрена ceia-hia: 4; заполнители слота: ['trin velthre', 'aisval', '(без vacl): ciz ale', 'vile vale']
+
+--- 4. позиция vacl в строке ---
+vacl: 14 вхождений, начальная позиция 4 (29%); нуль равномерный: p=0.1872
+
+--- 5. календарные метки ---
+строк с календарными метками: 9
+  92.51: tiurim avils chis cisum pute tul thans
+  92.56: ethrse tinsi tiurim avils chis ecn zer
+  93.112: zathrumsne lusas fler thezeri
+  93.117: eslem zafrumis acale tinsin sarve
+  94.186: tiurim avils chis cisum ute tul thans
+  95.233: acale etnam
+  95.234: vacl vinum santisas celi pen tr utum
+  95.235: thapnests tritanasa hanthin celi
