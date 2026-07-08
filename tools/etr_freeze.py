@@ -42,6 +42,16 @@
   из которых можно выявить автоматически, — ключевые результаты следующих
   этапов реплицируются на чистой ETP-части (см. §0 отчёта).
 
+v0.2 — метаданные из кросс-таблицы Бурман (data/external/burman/,
+  Zenodo 10.5281/zenodo.17209666, CC0; версия 1.0.3): join по CIE-номеру
+  даёт CIEP-записям (а) регион по сигле ET Рикса/Майзера, (б) уточнение
+  языка по составу ссылок (только Bakkum → фалискский 'fal'; только
+  CIL → 'lat'), (в) флаг 'forgery?' по Notes «Considered …» (подделки/
+  подозрительные — исключаются из канонического вида), (г) xref
+  (Trismegistos/ET1/ET2/TLE). eid ≥ ~14000 в кросс-таблице отсутствуют —
+  это до-нумерация Хилла («CIE in progressu»), не настоящие CIE-номера.
+  ETP-части регион ставится по сигле её собственного eid (Cr 2.20 → Cr).
+
 Детерминизм: порядок файлов фиксирован, множества сериализуются
   сортированными, timestamp-ов нет; повторный прогон обязан давать
   пустой git diff (pkl побайтово, sha256 в data/etr_corpus.sha256).
@@ -64,7 +74,24 @@ from collections import Counter
 sys.stdout.reconfigure(encoding='utf-8')
 
 NORM_VERSION = '0.1'
+FREEZE_VERSION = '0.2'
 DATA = 'data'
+BURMAN_CSV = os.path.join('data', 'external', 'burman',
+                          'burman_concordance_1.0.3.csv')
+
+# Сиглы регионов ET (Rix/Meiser); имена — только уверенно отождествляемые,
+# прочие сиглы хранятся как есть.
+REGION_SIGLA = {'Cr', 'Ta', 'AT', 'Vc', 'AV', 'Vs', 'Ve', 'Cl', 'Pe', 'Ar',
+                'Co', 'Vt', 'Fs', 'Ru', 'Vn', 'Po', 'Cm', 'Fa', 'La', 'AS',
+                'AH', 'Ad', 'OA', 'OI', 'Um', 'Sp', 'Li', 'Na', 'Af'}
+REGION_NAMES = {'Cr': 'Caere', 'Ta': 'Tarquinii', 'AT': 'ager Tarquiniensis',
+                'Vc': 'Vulci', 'AV': 'ager Vulcentanus', 'Vs': 'Volsinii',
+                'Ve': 'Veii', 'Cl': 'Clusium', 'Pe': 'Perusia',
+                'Ar': 'Arretium', 'Co': 'Cortona', 'Vt': 'Volaterrae',
+                'Fs': 'Faesulae', 'Ru': 'Rusellae', 'Vn': 'Vetulonia',
+                'Po': 'Populonia', 'Cm': 'Campania', 'Fa': 'Falerii',
+                'La': 'Latium', 'AS': 'ager Saenensis', 'AH': 'ager Hortanus',
+                'Ad': 'Atria', 'Um': 'Umbria'}
 OUT_PKL = os.path.join(DATA, 'etr_corpus.pkl')
 OUT_SHA = os.path.join(DATA, 'etr_corpus.sha256')
 OUT_LOG = os.path.join('logs', 'etr_freeze.log')
@@ -122,6 +149,52 @@ def load_csv(name):
 
 def clean_tr(s):
     return re.sub(r'\s+', ' ', (s or '')).strip()
+
+
+def load_burman():
+    """Кросс-таблица Бурман: CIE-номер → метаданные (регион/язык/подделка/xref).
+
+    Ключ — CIE-номер без ведущих нулей (+суффикс, если есть), как в eid
+    CIEP-части. При нескольких строках на номер: ET берётся первый
+    непустой, ссылки объединяются по ИЛИ, Notes конкатенируются.
+    """
+    out = {}
+    if not os.path.exists(BURMAN_CSV):
+        return out
+    with open(BURMAN_CSV, encoding='utf-8-sig') as f:
+        rows = list(csv.reader(f, delimiter=';'))
+    hdr = rows[0]
+    for row in rows[1:]:
+        r = dict(zip(hdr, row))
+        m = re.match(r'CIE (\d+)(.*)$', (r.get('CIE') or '').strip())
+        if not m:
+            continue
+        key = str(int(m.group(1))) + m.group(2).strip()
+        et = (r.get('Rix. ET1') or '').strip() or (r.get('Meiser. ET2') or '').strip()
+        d = out.setdefault(key, {'et': '', 'bakkum': False, 'cil': False,
+                                 'notes': [], 'tm': '', 'tle': ''})
+        if et and not d['et']:
+            d['et'] = et
+        d['bakkum'] = d['bakkum'] or bool((r.get('Bakkum') or '').strip())
+        d['cil'] = d['cil'] or any((r.get(c) or '').strip() for c in
+                                   ['CIL I', 'CIL I(2)', 'CIL III',
+                                    'CIL VI', 'CIL XI'])
+        nt = (r.get('Notes') or '').strip()
+        if nt:
+            d['notes'].append(nt)
+        if not d['tm']:
+            d['tm'] = (r.get('Trismegistos') or '').strip()
+        if not d['tle']:
+            d['tle'] = (r.get('TLE') or '').strip()
+    return out
+
+
+def et_region(et_siglum):
+    """'ET1 Cl 1.0234' → 'Cl'; None, если сиглы нет/не распознана."""
+    m = re.match(r'ET[12] ([A-Za-z]+)[ .]', et_siglum + ' ')
+    if m and m.group(1) in REGION_SIGLA:
+        return m.group(1)
+    return None
 
 
 def to_ascii(form):
@@ -287,12 +360,16 @@ def build_records():
         id_seq[eid] += 1
         toks, n_lines = parse_text(raw, dash_split=False, stats=stats)
         lang, why = LANG_BY_ETP.get(eid, ('etr', ''))
+        pref = eid.split()[0] if ' ' in eid else ''
+        region = pref if pref in REGION_SIGLA else None
         rec = {
             'rid': f'ETP:{eid}' + (f'#{id_seq[eid]}' if id_seq[eid] > 1 else ''),
             'src': 'ETP', 'eid': eid, 'key': '',
             'city': (r['City'] or '').strip() or None,
             'y_from': parse_year(r['Year - From']),
             'y_to': parse_year(r['Year - To']),
+            'region': region, 'region_name': REGION_NAMES.get(region),
+            'xref': None, 'flags': (),
             'lang': lang, 'kind': classify_kind(toks),
             'raw': raw, 'raw_T': None, 'raw_C': None, 'reading': '',
             'trs': [tr] if tr else [],
@@ -333,6 +410,8 @@ def build_records():
         f'не сопоставлено {n_bad} (ожидание: 0)')
     assert n_bad == 0, 'larth CIEP-часть не является проекцией T/C'
 
+    burman = load_burman()
+    bj = Counter()  # статистика join
     ik_seq = Counter()
     n_tc = {'C': 0, 'T': 0}
     for r in ciep:
@@ -348,11 +427,36 @@ def build_records():
         ik_seq[ik] += 1
         toks, n_lines = parse_text(raw, dash_split=True, stats=stats)
         lang, why = LANG_BY_CIE.get(num, ('etr', ''))
+        # join с кросс-таблицей Бурман (регион/язык/подделки/xref)
+        region = None
+        xref = None
+        rflags = set()
+        b = burman.get(num)
+        if b is not None:
+            bj['eid найден'] += 1
+            region = et_region(b['et']) if b['et'] else None
+            xref = {'tm': b['tm'], 'et': b['et'], 'tle': b['tle']}
+            if num not in LANG_BY_CIE:
+                if b['et']:
+                    pass  # есть в Etruskische Texte → этрусская, lang как есть
+                elif b['bakkum']:
+                    lang = 'fal'
+                    bj['язык → fal (Bakkum)'] += 1
+                elif b['cil']:
+                    lang = 'lat'
+                    bj['язык → lat (только CIL)'] += 1
+            if any(n.startswith('Considered') for n in b['notes']):
+                rflags.add('forgery?')
+                bj['флаг forgery?'] += 1
+            if region:
+                bj['есть регион'] += 1
         rec = {
             'rid': f'CIEP:{num}:{key}'
                    + (f'#{ik_seq[ik]}' if ik_seq[ik] > 1 else ''),
             'src': 'CIEP', 'eid': num, 'key': key,
             'city': None, 'y_from': None, 'y_to': None,
+            'region': region, 'region_name': REGION_NAMES.get(region),
+            'xref': xref, 'flags': tuple(sorted(rflags)),
             'lang': lang, 'kind': classify_kind(toks),
             'raw': raw, 'raw_T': t_raw or None, 'raw_C': c_raw or None,
             'reading': reading,
@@ -365,6 +469,8 @@ def build_records():
     log(f'CIEP-часть: {len(ciep)} записей (чтение C: {n_tc["C"]}, '
         f'только T: {n_tc["T"]}); двойных чтений T&C: '
         f'{sum(1 for r in ciep if (r["T"] or "").strip() and (r["C"] or "").strip())}')
+    log(f'join Бурман (по записям): {dict(sorted(bj.items()))}'
+        if bj else 'join Бурман: кросс-таблица не найдена, метаданные не добавлены')
 
     # --- supplement-механизм ---------------------------------------------
     supp_files = sorted(glob.glob(os.path.join(DATA, 'supplements', '*.csv')))
@@ -385,6 +491,8 @@ def build_records():
                     'city': (r.get('city') or '').strip() or None,
                     'y_from': parse_year(r.get('date_from')),
                     'y_to': parse_year(r.get('date_to')),
+                    'region': None, 'region_name': None,
+                    'xref': None, 'flags': (),
                     'lang': (r.get('language') or 'etr').strip(),
                     'kind': classify_kind(toks),
                     'raw': raw, 'raw_T': None, 'raw_C': None, 'reading': '',
@@ -476,11 +584,16 @@ def main():
         c = Counter((r[field].split(":")[0] if field == "src" else r[field])
                     for r in records)
         log(f'{field}: {dict(sorted(c.items()))}')
+    creg = Counter(r['region'] or '∅' for r in records)
+    log(f'region: {dict(sorted(creg.items(), key=lambda x: -x[1]))}')
+    log(f'записей с флагом forgery?: '
+        f'{sum(1 for r in records if "forgery?" in r["flags"])}')
 
-    # --- канонические числа (основной вид: lang=etr, kind=text) -----------
+    # --- канонические числа (вид: lang=etr, kind=text, не подделка) -------
     log()
-    log('=== канонические числа (lang=etr, kind=text) ===')
-    view = [r for r in records if r['lang'] == 'etr' and r['kind'] == 'text']
+    log('=== канонические числа (lang=etr, kind=text, без forgery?) ===')
+    view = [r for r in records if r['lang'] == 'etr' and r['kind'] == 'text'
+            and 'forgery?' not in r['flags']]
     words = [t['form'] for r in view for t in r['toks'] if t['kind'] == 'W']
     vocab = Counter(words)
     hapax = sum(1 for c in vocab.values() if c == 1)
@@ -491,12 +604,14 @@ def main():
         f'типов: {len(vocab)}; гапаксов: {hapax} ({hapax / len(vocab):.0%})')
     log(f'числительных-токенов: {n_num}; лакун-токенов: {n_gap}')
     log(f'записей с переводом: {with_tr} ({with_tr / len(view):.0%})')
-    for part in ['ETP', 'CIEP']:
-        pv = [r for r in view if r['src'] == part]
+    for part in ['ETP', 'CIEP', 'SUPP']:
+        pv = [r for r in view if r['src'].split(':')[0] == part]
         pw = [t['form'] for r in pv for t in r['toks'] if t['kind'] == 'W']
         ptr = sum(1 for r in pv if r['trs'])
         log(f'  {part}: записей {len(pv)}, токенов {len(pw)}, '
             f'типов {len(set(pw))}, с переводом {ptr}')
+    vreg = sum(1 for r in view if r['region'] or r['city'])
+    log(f'записей вида с регионом или городом: {vreg} ({vreg / len(view):.0%})')
     fl = Counter(f for r in view for t in r['toks'] for f in t['flags'])
     log(f'флаги токенов: {dict(sorted(fl.items()))}')
 
@@ -509,17 +624,23 @@ def main():
         f'общих {len(etp_asc & ciep_asc)} — сопоставимость частей')
 
     # --- сборка и сериализация --------------------------------------------
+    if os.path.exists(BURMAN_CSV):
+        in_sha['burman_concordance_1.0.3.csv'] = sha256_file(BURMAN_CSV)
     corpus = {
         'meta': {
             'norm_version': NORM_VERSION,
+            'freeze_version': FREEZE_VERSION,
             'builder': 'tools/etr_freeze.py',
             'inputs_sha256': in_sha,
             'lang_rules': {'by_cie': LANG_BY_CIE, 'by_etp': LANG_BY_ETP,
+                           'burman': 'Bakkum-only→fal; CIL-only→lat; '
+                                     'Notes Considered…→flags forgery?',
                            'default': 'etr'},
             'ascii_map': ASCII_MAP,
+            'region_names': REGION_NAMES,
             'note': 'Замороженный корпус: НЕ редактировать; добавления — '
                     'data/supplements/*.csv. Основной аналитический вид: '
-                    "lang=='etr' and kind=='text'.",
+                    "lang=='etr' and kind=='text' and 'forgery?' not in flags.",
         },
         'records': records,
     }
