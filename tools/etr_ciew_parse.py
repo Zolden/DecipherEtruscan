@@ -233,7 +233,7 @@ def main():
     # (наши же декодированные слова меняли бы дизамбигуацию при перепрогоне)
     view = [r for r in corpus['records']
             if r['lang'] in ('etr', 'lemn') and r['kind'] == 'text'
-            and r['src'] != 'CIEW']
+            and not r['src'].startswith('CIEW')]
     lexicon = {t2['ascii'] for r in view for t2 in r['toks']
                if t2['kind'] == 'W'}
     # опорные слова известных больших текстов (изданий) — для дизамбигуации
