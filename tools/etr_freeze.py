@@ -42,6 +42,13 @@
   из которых можно выявить автоматически, — ключевые результаты следующих
   этапов реплицируются на чистой ETP-части (см. §0 отчёта).
 
+v0.3 — слияние ВАРИАНТОВ ЧТЕНИЯ одного памятника (негатив N4 отчёта):
+  записи с одинаковым (src, eid, key), одинаковым числом словоформ и
+  совпадением ≥80% ascii-токенов считаются вариантами чтения; канон —
+  первая запись группы (порядок файла), остальные получают variant_of
+  (исключаются из аналитического вида), их переводы вливаются в канон.
+  Пример: ETP:LL 6 (luśao/luśaσ/luśaσ' — одна строка LL в трёх чтениях).
+
 v0.2 — метаданные из кросс-таблицы Бурман (data/external/burman/,
   Zenodo 10.5281/zenodo.17209666, CC0; версия 1.0.3): join по CIE-номеру
   даёт CIEP-записям (а) регион по сигле ET Рикса/Майзера, (б) уточнение
@@ -74,7 +81,7 @@ from collections import Counter
 sys.stdout.reconfigure(encoding='utf-8')
 
 NORM_VERSION = '0.1'
-FREEZE_VERSION = '0.2'
+FREEZE_VERSION = '0.3'
 DATA = 'data'
 BURMAN_CSV = os.path.join('data', 'external', 'burman',
                           'burman_concordance_1.0.3.csv')
@@ -504,6 +511,45 @@ def build_records():
     return records, stats, larth, etp_fix, ciep
 
 
+def merge_variants(records):
+    """Помечает варианты чтения одного памятника (см. докстринг, v0.3).
+
+    Возвращает число записей, помеченных как варианты. Детерминизм:
+    группы и каноны — в порядке следования записей.
+    """
+    groups = {}
+    for r in records:
+        r['variant_of'] = None
+        groups.setdefault((r['src'], r['eid'], r['key']), []).append(r)
+    n_var = 0
+    for g in groups.values():
+        if len(g) < 2:
+            continue
+        canon = []  # [(запись, ascii-сигнатура словоформ)]
+        for r in g:
+            sig = [t['ascii'] for t in r['toks'] if t['kind'] == 'W']
+            if not sig:
+                continue  # пустые/только-лакуны не сливаем
+            hit = None
+            for c, csig in canon:
+                if len(sig) == len(csig):
+                    agree = sum(a == b for a, b in zip(sig, csig))
+                    if agree >= 0.8 * len(sig):
+                        hit = c
+                        break
+            if hit is None:
+                canon.append((r, sig))
+            else:
+                r['variant_of'] = hit['rid']
+                hit['flags'] = tuple(sorted(set(hit['flags'])
+                                            | {'has_variants'}))
+                for tr in r['trs']:
+                    if tr not in hit['trs']:
+                        hit['trs'].append(tr)
+                n_var += 1
+    return n_var
+
+
 def losslessness_check(records):
     """Буквенный состав raw (минус {..}-вычеркнутое) == буквенный состав форм."""
     def sig_raw(raw):
@@ -547,6 +593,8 @@ def main():
     log()
 
     records, stats, larth, etp_fix, ciep = build_records()
+    n_var = merge_variants(records)
+    log(f'варианты чтения (v0.3): помечено variant_of {n_var} записей')
 
     # --- внутренние проверки ---------------------------------------------
     log()
@@ -589,11 +637,12 @@ def main():
     log(f'записей с флагом forgery?: '
         f'{sum(1 for r in records if "forgery?" in r["flags"])}')
 
-    # --- канонические числа (вид: lang=etr, kind=text, не подделка) -------
+    # --- канонические числа (вид: etr, text, не подделка, не вариант) -----
     log()
-    log('=== канонические числа (lang=etr, kind=text, без forgery?) ===')
+    log('=== канонические числа (lang=etr, kind=text, без forgery?, '
+        'без variant_of) ===')
     view = [r for r in records if r['lang'] == 'etr' and r['kind'] == 'text'
-            and 'forgery?' not in r['flags']]
+            and 'forgery?' not in r['flags'] and r['variant_of'] is None]
     words = [t['form'] for r in view for t in r['toks'] if t['kind'] == 'W']
     vocab = Counter(words)
     hapax = sum(1 for c in vocab.values() if c == 1)
@@ -640,7 +689,8 @@ def main():
             'region_names': REGION_NAMES,
             'note': 'Замороженный корпус: НЕ редактировать; добавления — '
                     'data/supplements/*.csv. Основной аналитический вид: '
-                    "lang=='etr' and kind=='text' and 'forgery?' not in flags.",
+                    "lang=='etr' and kind=='text' and 'forgery?' not in "
+                    "flags and variant_of is None.",
         },
         'records': records,
     }
