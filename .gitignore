@@ -2,3 +2,6 @@
 __pycache__/
 *.pyc
 .claude/
+
+# защищённое копирайтом сырьё (см. data/external/fowler_wolfe/README.md)
+data/external/fowler_wolfe/fowler_wolfe_vol1_djvu.txt

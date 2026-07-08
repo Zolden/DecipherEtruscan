@@ -72,3 +72,12 @@ Meer 2007 (fler etnam tesim etnam celucn cletram śrenχve trin θezine …).
 4. Валидация: пословная сверка выборки CIE-записей с CIEP-частью корпуса
    (одинаковые CIE-номера!) — это даст количественную оценку OCR-ошибок.
 5. supplement/источник v0.4 с флагом качества OCR.
+
+## Воспроизводимость без файла в репо
+
+Файл исключён из публичного репозитория (копирайт до ~2061). Для полного
+перепрогона конвейера скачайте его локально:
+
+    curl -sL "https://archive.org/download/MaterialsForTheStudyOfTheEtruscanLanguage/MaterialsForTheStudyOfTheEtruscanLanguage-vol.1-fowlerAndWolfe-1965_djvu.txt" -o data/external/fowler_wolfe/fowler_wolfe_vol1_djvu.txt
+
+Без него заморозка работает на закоммиченных производных ciew_*.csv.
