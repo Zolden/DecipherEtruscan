@@ -167,6 +167,24 @@ def main():
     ctx_vocab = [w for w, _ in word_freq.most_common(200)]
     ctx_set = set(ctx_vocab)
 
+    # v6: межстрочный контекст LL — слова соседних строк свитка (сквозная
+    # нумерация F&W) добавляются в контекст слов строки
+    ll_recs = sorted(
+        ((int(r['key'].split('.')[1]), r) for r in view
+         if r['src'] == 'CIEW' and r['eid'] == '9001'
+         and int(r['key'].split('.')[1]) < 900), key=lambda x: x[0])
+    for idx, (num, r) in enumerate(ll_recs):
+        nbr_words = set()
+        for j in (idx - 1, idx + 1):
+            if 0 <= j < len(ll_recs) and abs(ll_recs[j][0] - num) <= 2:
+                nbr_words.update(t['ascii'] for t in ll_recs[j][1]['toks']
+                                 if t['kind'] == 'W')
+        for t in r['toks']:
+            if (t['kind'] == 'W' and '-' not in t['ascii']
+                    and len(t['ascii']) >= 3):
+                word_ctx.setdefault(t['ascii'], Counter()).update(
+                    x for x in nbr_words if x in ctx_set)
+
     # --- метки ---------------------------------------------------------------
     hill = {}
     for w, gs in word_glosses.items():

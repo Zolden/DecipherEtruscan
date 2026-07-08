@@ -204,30 +204,51 @@ def main():
     for key, ws in cal[:8]:
         log(f'  {key}: {" ".join(ws)[:80]}')
 
-    # --- 6. календарная сетка: порядок меток по страницам-колонкам ----------
+    # --- 6. календарная сетка v3: сквозная нумерация строк F&W --------------
+    # ключ = «страница.номер»; номера < 900 — сквозные по свитку (проверка
+    # монотонности ниже), >=900 — ненумерованные (исключены из сетки)
     log()
-    log('--- 6. календарная сетка (порядок по страницам книги F&W) ---')
-    MONTHS = {'acal': 'acale (месяц)', 'celi': 'celi (месяц)',
-              'zathrum': 'zaθrum- «20(-й)»', 'eslem': 'eslem «минус/18+»',
-              'tiur': 'tiur- «месяц/луна»'}
-    grid = []
+    log('--- 6. календарная сетка v3 (только нумерованные строки) ---')
+    numbered = []
     for key, ws in lines:
-        hits = [lab for pre, lab in MONTHS.items()
-                if any(w.startswith(pre) for w in ws)]
+        pg, num = key.split('.')
+        if int(num) < 900:
+            numbered.append((int(num), int(pg), ws))
+    numbered.sort()
+    seq_pages = [pg for _, pg, _ in numbered]
+    mono = all(seq_pages[i] <= seq_pages[i + 1]
+               for i in range(len(seq_pages) - 1))
+    log(f'нумерованных строк: {len(numbered)}; max номер: '
+        f'{numbered[-1][0] if numbered else 0}; сквозная нумерация '
+        f'(страницы монотонны по номерам): {"ДА" if mono else "НЕТ"}')
+    MONTHS = {'acal': 'acale', 'celi': 'celi', 'zathrum': 'zathrum-20',
+              'eslem': 'eslem', 'tiur': 'tiur'}
+    grid = []
+    for num, pg, ws in numbered:
+        hits = sorted({lab for pre, lab in MONTHS.items()
+                       if any(w.startswith(pre) for w in ws)})
         if hits:
-            grid.append((key, hits, ' '.join(ws)[:60]))
-    for key, hits, txt in grid:
-        log(f'  {key:<8} {"+".join(sorted(set(hits)))[:40]:<42} {txt}')
-    pages = [int(k.split('.')[0]) for k, _, _ in grid]
-    acale_p = [int(k.split('.')[0]) for k, h, _ in grid
-               if any('acale' in x for x in h)]
-    celi_p = [int(k.split('.')[0]) for k, h, _ in grid
-              if any('celi' in x for x in h)]
-    if acale_p and celi_p:
-        log(f'порядок месяцев: acale на стр. {sorted(set(acale_p))}, '
-            f'celi на стр. {sorted(set(celi_p))} — '
-            + ('acale ПРЕДШЕСТВУЕТ celi (июнь<сентябрь ✓)'
-               if max(acale_p) <= min(celi_p) else 'порядок смешанный'))
+            grid.append((num, hits, ' '.join(ws)[:58]))
+    log('хронологическая последовательность календарных строк (по свитку):')
+    for num, hits, txt in grid:
+        log(f'  стр.{num:>3}  {"+".join(hits):<22} {txt}')
+    ac = [n for n, h, _ in grid if 'acale' in h]
+    ce = [n for n, h, _ in grid if 'celi' in h]
+    if ac and ce:
+        log(f'порядок месяцев по свитку: acale @ {ac}, celi @ {ce} — '
+            + ('acale < celi (июнь<сентябрь, ожидаемо)'
+               if max(ac) < min(ce) else 'смешанный'))
+    fam_pos = {}
+    for num, pg, ws in numbered:
+        st = set(ws)
+        if 'ceia' in st and 'hia' in st:
+            fam_pos.setdefault('ceia-hia', []).append(num)
+        if 'cisum' in st or ('tul' in st and 'avils' in st):
+            fam_pos.setdefault('датировочная', []).append(num)
+        if 'sacnicleri' in st or 'spurestres' in st or 'sacnicstres' in st:
+            fam_pos.setdefault('община', []).append(num)
+    for fam, ps in sorted(fam_pos.items()):
+        log(f'  семейство {fam}: строки {sorted(ps)}')
 
     with open(OUT_LOG, 'w', encoding='utf-8') as f:
         f.write('\n'.join(LOG) + '\n')

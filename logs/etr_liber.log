@@ -58,25 +58,19 @@ vacl: 20 вхождений, начальная позиция 5 (25%); нуль
   93.911: var celi sub nunthenth eiser sic seuc
   93.917: celi sue vacl thesnin rach cresverae
 
---- 6. календарная сетка (порядок по страницам книги F&W) ---
-  92.51    tiur- «месяц/луна»                         tiurim avils chis cisum pute tul thans
-  92.56    tiur- «месяц/луна»                         ethrse tinsi tiurim avils chis ecn zer
-  92.902   celi (месяц)                               var celi sue hechsth vinm trin fler
-  93.112   zaθrum- «20(-й)»                           zathrumsne lusas fler thezeri
-  93.117   acale (месяц)+eslem «минус/18+»            eslem zafrumis acale tinsin sarve
-  93.905   tiur- «месяц/луна»                         enas ethrse tinsi tiurim avils ch is
-  93.911   celi (месяц)                               var celi sub nunthenth eiser sic seuc
-  93.917   celi (месяц)                               celi sue vacl thesnin rach cresverae
-  94.186   tiur- «месяц/луна»                         tiurim avils chis cisum ute tul thans
-  94.913   celi (месяц)+zaθrum- «20(-й)»              celi huthis zathrumis flerchva nethunsl
-  94.925   tiur- «месяц/луна»                         ethrse tinsi tiurim avils chis hetrn
-  94.936   tiur- «месяц/луна»                         spurestres enas ethrse tinsi tiurim
-  95.233   acale (месяц)                              acale etnam
-  95.234   celi (месяц)                               vacl vinum santisas celi pen tr utum
-  95.235   celi (месяц)                               thapnests tritanasa hanthin celi
-  95.240   eslem «минус/18+»+zaθrum- «20(-й)»         pethereni eslem zathrum mur in veleinefi
-  95.900   eslem «минус/18+»                          eslem cealchus etnam aisna cesal
-  95.903   zaθrum- «20(-й)»                           etnam aisna ich huthis zathrumis
-  95.906   eslem «минус/18+»                          thunem cialchus etnam ich eslem cialchus
-  95.922   tiur- «месяц/луна»                         tiurim avilg chis cisum pute tul
-порядок месяцев: acale на стр. [93, 95], celi на стр. [92, 93, 94, 95] — порядок смешанный
+--- 6. календарная сетка v3 (только нумерованные строки) ---
+нумерованных строк: 112; max номер: 242; сквозная нумерация (страницы монотонны по номерам): ДА
+хронологическая последовательность календарных строк (по свитку):
+  стр. 51  tiur                   tiurim avils chis cisum pute tul thans
+  стр. 56  tiur                   ethrse tinsi tiurim avils chis ecn zer
+  стр.112  zathrum-20             zathrumsne lusas fler thezeri
+  стр.117  acale+eslem            eslem zafrumis acale tinsin sarve
+  стр.186  tiur                   tiurim avils chis cisum ute tul thans
+  стр.233  acale                  acale etnam
+  стр.234  celi                   vacl vinum santisas celi pen tr utum
+  стр.235  celi                   thapnests tritanasa hanthin celi
+  стр.240  eslem+zathrum-20       pethereni eslem zathrum mur in veleinefi
+порядок месяцев по свитку: acale @ [117, 233], celi @ [234, 235] — acale < celi (июнь<сентябрь, ожидаемо)
+  семейство ceia-hia: строки [125, 126, 127, 128]
+  семейство датировочная: строки [51, 57, 186, 195]
+  семейство община: строки [50, 141, 180, 185, 187, 196]
