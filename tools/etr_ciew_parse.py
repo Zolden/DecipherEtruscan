@@ -210,8 +210,11 @@ def main():
     os.makedirs('logs', exist_ok=True)
     t = open(SRC, encoding='utf-8').read()
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
+    # лексикон — ТОЛЬКО из не-CIEW источников: иначе петля обратной связи
+    # (наши же декодированные слова меняли бы дизамбигуацию при перепрогоне)
     view = [r for r in corpus['records']
-            if r['lang'] in ('etr', 'lemn') and r['kind'] == 'text']
+            if r['lang'] in ('etr', 'lemn') and r['kind'] == 'text'
+            and r['src'] != 'CIEW']
     lexicon = {t2['ascii'] for r in view for t2 in r['toks']
                if t2['kind'] == 'W'}
     # опорные слова известных больших текстов (изданий) — для дизамбигуации
