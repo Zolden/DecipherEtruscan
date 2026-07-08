@@ -222,6 +222,34 @@ def collect_big(body):
                         out[big_here][key] = raw
                         order[big_here].append(key)
                         u_idx += 1
+    # v3: нумерованные ОГРЫЗКИ колонко-расщеплённых страниц наследуют текст
+    # ненумерованной строки той же страницы, начинающейся теми же буквами
+    # (выравнивание + дедупликация); использованные ненумерованные удаляются
+    for e in BIG:
+        d = out[e]
+        by_page = {}
+        for (p, num) in list(d):
+            by_page.setdefault(p, []).append(num)
+        for p, nums in by_page.items():
+            tiny = [n for n in sorted(nums) if n < 900 and len(
+                re.findall(r'[A-Za-z]', d[(p, n)])) <= 4]
+            unal = [n for n in sorted(nums) if n >= 900]
+            used = set()
+            for n in tiny:
+                pref = re.sub(r'[^A-Za-z]', '', d[(p, n)]).upper()[:3]
+                if len(pref) < 2:
+                    continue
+                for u in unal:
+                    if u in used:
+                        continue
+                    ut = re.sub(r'[^A-Za-z]', '', d[(p, u)]).upper()
+                    if ut.startswith(pref):
+                        d[(p, n)] = d[(p, u)]
+                        used.add(u)
+                        break
+            for u in used:
+                del d[(p, u)]
+                order[e].remove((p, u))
     return {e: [(k, out[e][k]) for k in order[e]] for e in BIG}
 
 

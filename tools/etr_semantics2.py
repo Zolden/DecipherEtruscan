@@ -121,7 +121,7 @@ def main():
     os.makedirs('logs', exist_ok=True)
     os.makedirs('results', exist_ok=True)
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
-    assert corpus['meta'].get('freeze_version') == '0.5'
+    assert corpus['meta'].get('freeze_version') == '0.6'
     view = view_of(corpus)
     log('=== Семантика v2: контекст + ETP_POS (этап 3v2) ===')
     log(f'вид: {len(view)} записей; R_perm={R_PERM}, seed={SEED}')
@@ -369,8 +369,19 @@ def main():
                 f'калибр={float(cal_te[mm].mean()):.1%}')
 
     # --- гипотезы v2 ----------------------------------------------------------
+    REGISTRY = set('mi mini mine clan clens clensi sec sech puia ati apa '
+                   'lupu lupuce svalce svalthas svalas avils avil ril turce '
+                   'turuce turice turke muluvanice muluvanike mulvanice '
+                   'mulvenice mulvannice muluvenice zinace zinake zilath '
+                   'zilach zilth zilc zilci zilachnce zilachnuce suthi suti '
+                   'suthith suthiu thui cver cvera tular spur spurana '
+                   'spureni ais eis aisar eiser ame amce naper tiur tiurs '
+                   'itun ita ica eca ca cn cen cehen etnam vacl fler'.split())
     unlabeled = sorted(w for w in word_freq
-                       if w not in labeled and len(w) >= 3 and '-' not in w)
+                       if w not in labeled and len(w) >= 3 and '-' not in w
+                       and w not in REGISTRY)
+    log(f'(v5: из гипотез исключены {len(REGISTRY)} форм реестра §1 — '
+        f'функциональные слова, см. N15/§3.9)')
     Xu = np.zeros((len(unlabeled), nF), dtype=np.int8)
     for i, w in enumerate(unlabeled):
         for f in word_feats(w):

@@ -13,6 +13,7 @@ Westfall–Young по семейству.
 import os
 import pickle
 import sys
+from collections import Counter
 
 import numpy as np
 
@@ -45,7 +46,7 @@ def log(m=''):
 def main():
     os.makedirs('logs', exist_ok=True)
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
-    assert corpus['meta'].get('freeze_version') == '0.5'
+    assert corpus['meta'].get('freeze_version') == '0.6'
     view = [r for r in corpus['records']
             if r['lang'] == 'etr' and r['kind'] == 'text'
             and 'forgery?' not in r['flags'] and r.get('variant_of') is None]
@@ -85,6 +86,40 @@ def main():
         mark = ' *' if padj < 0.05 else ''
         log(f'{n:<12} {len(o):>4} {obs[j]:>4} ({obs[j] / len(o):>4.0%}) '
             f'{p_raw[j]:>8.4f} {padj:>8.4f}{mark}')
+    # --- открытость инвентарей позиций (ответ на §BW LA) --------------------
+    log()
+    log('--- открытость инвентарей: позиция 1 vs 2 (записи ≥3 словоформ) ---')
+    DEIX = {'mi', 'mini', 'mine', 'itun', 'ita', 'ica', 'eca', 'ca', 'cn',
+            'cen', 'cehen', 'thui'}
+    p1, p2 = [], []
+    for rec in view:
+        ws = [t['ascii'] for t in rec['toks'] if t['kind'] == 'W']
+        if len(ws) < 3:
+            continue
+        seq = [w for w in ws]
+        if seq[0] in DEIX:  # после дейктического открытия сдвиг
+            seq = seq[1:]
+        if len(seq) >= 2:
+            p1.append(seq[0])
+            p2.append(seq[1])
+    ttr1 = len(set(p1)) / len(p1)
+    ttr2 = len(set(p2)) / len(p2)
+    # нуль: перестановка слов между позициями внутри пар
+    rng3 = np.random.default_rng(SEED)
+    diffs = np.zeros(R)
+    arr = np.array(list(zip(p1, p2)))
+    for r_i in range(R):
+        flip = rng3.random(len(arr)) < 0.5
+        a = np.where(flip, arr[:, 1], arr[:, 0])
+        b = np.where(flip, arr[:, 0], arr[:, 1])
+        diffs[r_i] = (len(set(a.tolist())) - len(set(b.tolist()))) / len(arr)
+    obs_d = ttr1 - ttr2
+    p_open = float(((diffs >= obs_d).sum() + 1) / (R + 1))
+    log(f'пар позиций: {len(p1)}; TTR(поз.1)={ttr1:.2f}, '
+        f'TTR(поз.2)={ttr2:.2f}; Δ={obs_d:+.2f}; '
+        f'нуль (обмен внутри пар): p={p_open:.4f}')
+    log(f'топ слов позиции 2: {Counter(p2).most_common(8)}')
+
     with open(OUT_LOG, 'w', encoding='utf-8') as f:
         f.write('\n'.join(LOG) + '\n')
     print(f'\nлог записан: {OUT_LOG}')

@@ -66,7 +66,7 @@ FORMULA = {
 def main():
     os.makedirs('logs', exist_ok=True)
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
-    assert corpus['meta'].get('freeze_version') == '0.5'
+    assert corpus['meta'].get('freeze_version') == '0.6'
     ll = [r for r in corpus['records']
           if r['src'] == 'CIEW' and r['eid'] == '9001']
     lines = []
@@ -75,9 +75,12 @@ def main():
               and '-' not in t['ascii'] and len(t['ascii']) >= 2]
         if len(ws) >= 2:
             lines.append((r['key'], ws))
+    n_words_all = sum(1 for r in ll for t in r['toks'] if t['kind'] == 'W')
     log('=== §5: структурный разбор Liber Linteus (копия CIEW) ===')
     log(f'строк LL в корпусе: {len(ll)}; пригодных (≥2 чистых словоформ): '
-        f'{len(lines)}; покрытие памятника парсером ~30% (оговорка)')
+        f'{len(lines)}; словоформ {n_words_all} ≈ '
+        f'{n_words_all / 1330:.0%} опубликованного объёма (~1330 слов); '
+        f'выравнивание строк частичное (флаг unaligned)')
 
     # --- 1. формульное покрытие --------------------------------------------
     log()
@@ -200,6 +203,31 @@ def main():
     log(f'строк с календарными метками: {len(cal)}')
     for key, ws in cal[:8]:
         log(f'  {key}: {" ".join(ws)[:80]}')
+
+    # --- 6. календарная сетка: порядок меток по страницам-колонкам ----------
+    log()
+    log('--- 6. календарная сетка (порядок по страницам книги F&W) ---')
+    MONTHS = {'acal': 'acale (месяц)', 'celi': 'celi (месяц)',
+              'zathrum': 'zaθrum- «20(-й)»', 'eslem': 'eslem «минус/18+»',
+              'tiur': 'tiur- «месяц/луна»'}
+    grid = []
+    for key, ws in lines:
+        hits = [lab for pre, lab in MONTHS.items()
+                if any(w.startswith(pre) for w in ws)]
+        if hits:
+            grid.append((key, hits, ' '.join(ws)[:60]))
+    for key, hits, txt in grid:
+        log(f'  {key:<8} {"+".join(sorted(set(hits)))[:40]:<42} {txt}')
+    pages = [int(k.split('.')[0]) for k, _, _ in grid]
+    acale_p = [int(k.split('.')[0]) for k, h, _ in grid
+               if any('acale' in x for x in h)]
+    celi_p = [int(k.split('.')[0]) for k, h, _ in grid
+              if any('celi' in x for x in h)]
+    if acale_p and celi_p:
+        log(f'порядок месяцев: acale на стр. {sorted(set(acale_p))}, '
+            f'celi на стр. {sorted(set(celi_p))} — '
+            + ('acale ПРЕДШЕСТВУЕТ celi (июнь<сентябрь ✓)'
+               if max(acale_p) <= min(celi_p) else 'порядок смешанный'))
 
     with open(OUT_LOG, 'w', encoding='utf-8') as f:
         f.write('\n'.join(LOG) + '\n')

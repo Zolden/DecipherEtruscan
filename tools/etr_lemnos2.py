@@ -48,7 +48,7 @@ def feats(w):
 def main():
     os.makedirs('logs', exist_ok=True)
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
-    assert corpus['meta'].get('freeze_version') == '0.5'
+    assert corpus['meta'].get('freeze_version') == '0.6'
     recs = corpus['records']
 
     def toks_of(lang):

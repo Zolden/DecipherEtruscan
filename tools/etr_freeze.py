@@ -97,12 +97,12 @@ from collections import Counter
 sys.stdout.reconfigure(encoding='utf-8')
 
 NORM_VERSION = '0.1'
-FREEZE_VERSION = '0.5'
+FREEZE_VERSION = '0.6'
 CIEW_CIE_CSV = os.path.join('data', 'external', 'fowler_wolfe',
                             'ciew_cie_entries.csv')
 CIEW_CSV = os.path.join('data', 'external', 'fowler_wolfe',
                         'ciew_bigtexts.csv')
-CIEW_SKIP = {'9021'}  # Пирги уже в supplements (двойной счёт)
+CIEW_SKIP = {'9021', '9002'}  # Пирги и Лемнос уже в supplements (двойной счёт)
 CIEW_META = {'7002': ('Cm', 'Capua')}  # регион/город, где известны
 CIEW_LANG = {'9002': 'lemn'}
 DATA = 'data'
