@@ -23,6 +23,11 @@ massive (-s: 876 types). Data: Larth-Etruscan-NLP compilation
 (Vico & Niculae 2023) + ETP/CIEP derivatives — see `data/` and credits in
 `CLAUDE.md`.
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21279781.svg)](https://doi.org/10.5281/zenodo.21279781)
+
+Cite: Zolden & Claude (2026). DecipherEtruscan: statistical extension of
+Etruscan understanding (v0.6.1). Zenodo. doi:10.5281/zenodo.21279781
+
 Status: stage 0 done — frozen, validated corpus
 (`data/etr_corpus.pkl`: 6,361 records, 6,238 in the Etruscan text view;
 see `etruscan_report.md` §0). Work proceeds in staged, fully reproducible

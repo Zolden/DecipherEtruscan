@@ -219,7 +219,8 @@ def main():
 
     # --- 4. карта свитка -----------------------------------------------------
     with open(OUT_CSV, 'w', encoding='utf-8', newline='') as f:
-        w = csv.writer(f)
+        w = csv.writer(f, lineterminator='
+')
         w.writerow(['position', 'kind', 'key', 'classes', 'text'])
         for num, pg, ws in numbered:
             sig = ' '.join(sorted({cls_of(x) for x in ws} - {'X'})) or '—'

@@ -232,7 +232,8 @@ def main():
 
     with open(OUT_CSV, 'w', encoding='utf-8', newline='') as f:
         w = csv.DictWriter(f, fieldnames=['stem', 'n_occ', 'top_region',
-                                          'top_share', 'p', 'p_adj'])
+                                          'top_share', 'p', 'p_adj'], lineterminator='
+')
         w.writeheader()
         for row in sorted(rows_csv, key=lambda x: float(x['p_adj'])):
             w.writerow(row)

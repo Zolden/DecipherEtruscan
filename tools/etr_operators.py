@@ -400,7 +400,8 @@ def main():
               'p_init', 'p_fin', 'p_adj_init', 'p_adj_fin', 'n_translated',
               'kw_hits', 'precision', 'base_rate', 'p_assoc', 'p_assoc_adj']
     with open(OUT_CSV, 'w', encoding='utf-8', newline='') as f:
-        w = csv.DictWriter(f, fieldnames=fields)
+        w = csv.DictWriter(f, fieldnames=fields, lineterminator='
+')
         w.writeheader()
         for row in rows_csv:
             w.writerow({k: row.get(k, '') for k in fields})

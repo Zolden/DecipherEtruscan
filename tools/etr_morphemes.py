@@ -375,7 +375,8 @@ def main():
     with open(OUT_CSV, 'w', encoding='utf-8', newline='') as f:
         w = _csv.DictWriter(f, fieldnames=['suffix', 'k', 'n_types',
                                            'support', 'expected', 'p',
-                                           'p_adj'])
+                                           'p_adj'], lineterminator='
+')
         w.writeheader()
         for row in rows_csv:
             w.writerow(row)

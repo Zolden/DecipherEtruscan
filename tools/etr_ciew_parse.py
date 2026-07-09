@@ -256,6 +256,15 @@ def collect_big(body):
 def main():
     os.makedirs('logs', exist_ok=True)
     t = open(SRC, encoding='utf-8').read()
+    # защита от битой загрузки (archive.org может отдать заглушку/redirect)
+    assert len(t) > 400_000 and 'Corpus Inscriptionum' in t, (
+        f'вход {SRC} подозрительно мал ({len(t)} байт) или не тот файл — '
+        'перескачайте: см. data/external/fowler_wolfe/README.md')
+    t = t.replace('
+', '
+').replace('
+', '
+')  # нормализация eol
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
     # лексикон — ТОЛЬКО из не-CIEW источников: иначе петля обратной связи
     # (наши же декодированные слова меняли бы дизамбигуацию при перепрогоне)
@@ -303,7 +312,8 @@ def main():
             f'(из них ненумерованных v2: {n_un}), словоформ ~{n_words}')
     with open(OUT_CSV, 'w', encoding='utf-8', newline='') as f:
         w = csv.DictWriter(f, fieldnames=['entry', 'col', 'line', 'text',
-                                          'flags', 'ocr', 'title'])
+                                          'flags', 'ocr', 'title'], lineterminator='
+')
         w.writeheader()
         for r in out_rows:
             w.writerow(r)
@@ -380,7 +390,8 @@ def main():
     n_excl = 0
     with open(out2, 'w', encoding='utf-8', newline='') as f:
         w = csv.DictWriter(f, fieldnames=['entry', 'text', 'flags',
-                                          'shared_with_ciep', 'containment'])
+                                          'shared_with_ciep', 'containment'], lineterminator='
+')
         w.writeheader()
         for num in sorted(cie_rows, key=int):
             s = ' '.join(txt for _, txt in sorted(cie_rows[num]))

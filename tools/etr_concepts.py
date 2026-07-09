@@ -309,7 +309,8 @@ def main():
     # --- 4. туман для непереведённых ----------------------------------------
     n_fog = 0
     with open(OUT_CSV, 'w', encoding='utf-8', newline='') as f:
-        wcsv = csv.writer(f)
+        wcsv = csv.writer(f, lineterminator='
+')
         wcsv.writerow(['word', 'freq', 'known_gloss', 'concept_en',
                        'concept_ru', 'domain', 'lang', 'form', 'sim',
                        'tier'])
