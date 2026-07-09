@@ -83,6 +83,13 @@ def stem_of(w):
     return w
 
 
+# не-имена, просочившиеся в разметку (операторы/формульные слова) — вон
+NOT_NAMES = set(('mi mini mine clan clens sec sech puia ati apa lupu lupuce '
+                 'svalce avils avil ril turce turuce muluvanice mulvanice '
+                 'zinace zilath zilc suthi thui cver tular ame amce itun ita '
+                 'ica eca ca cn cen etnam vacl fler naper tiur').split())
+
+
 def name_types(view):
     """Типы NAME-M/F: глоссы Хилла (одно-словные) + ETP_POS masc/fem."""
     names = set()
@@ -98,7 +105,7 @@ def name_types(view):
                                 or (row.get('fem') or '').strip() == '1'):
                 if (row.get('theo') or '').strip() != '1':
                     names.add(w)
-    return names
+    return names - NOT_NAMES
 
 
 def main():
