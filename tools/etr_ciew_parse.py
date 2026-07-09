@@ -260,11 +260,7 @@ def main():
     assert len(t) > 400_000 and 'Corpus Inscriptionum' in t, (
         f'вход {SRC} подозрительно мал ({len(t)} байт) или не тот файл — '
         'перескачайте: см. data/external/fowler_wolfe/README.md')
-    t = t.replace('
-', '
-').replace('
-', '
-')  # нормализация eol
+    t = t.replace('\r\n', '\n').replace('\r', '\n')  # нормализация eol
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
     # лексикон — ТОЛЬКО из не-CIEW источников: иначе петля обратной связи
     # (наши же декодированные слова меняли бы дизамбигуацию при перепрогоне)
