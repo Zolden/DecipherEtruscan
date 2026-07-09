@@ -312,8 +312,7 @@ def main():
             f'(из них ненумерованных v2: {n_un}), словоформ ~{n_words}')
     with open(OUT_CSV, 'w', encoding='utf-8', newline='') as f:
         w = csv.DictWriter(f, fieldnames=['entry', 'col', 'line', 'text',
-                                          'flags', 'ocr', 'title'], lineterminator='
-')
+                                          'flags', 'ocr', 'title'], lineterminator='\n')
         w.writeheader()
         for r in out_rows:
             w.writerow(r)
@@ -390,8 +389,7 @@ def main():
     n_excl = 0
     with open(out2, 'w', encoding='utf-8', newline='') as f:
         w = csv.DictWriter(f, fieldnames=['entry', 'text', 'flags',
-                                          'shared_with_ciep', 'containment'], lineterminator='
-')
+                                          'shared_with_ciep', 'containment'], lineterminator='\n')
         w.writeheader()
         for num in sorted(cie_rows, key=int):
             s = ' '.join(txt for _, txt in sorted(cie_rows[num]))

@@ -419,8 +419,7 @@ def main():
     log(f'калиброванная уверенность ≥0.7: {int((cal_u >= 0.7).sum())}; '
         f'≥0.6: {int((cal_u >= 0.6).sum())}')
     with open(OUT_CSV, 'w', encoding='utf-8', newline='') as f:
-        wcsv = csv.writer(f, lineterminator='
-')
+        wcsv = csv.writer(f, lineterminator='\n')
         wcsv.writerow(['word', 'freq', 'pred_class', 'prob_raw', 'prob_cal']
                       + [f'p_{c}' for c in classes])
         order = np.argsort(-cal_u, kind='stable')

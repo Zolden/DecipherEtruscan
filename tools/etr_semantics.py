@@ -339,8 +339,7 @@ def main():
     conf_u = Pu.max(axis=1)
     cal_u = calibrate(conf_u)
     with open(OUT_CSV, 'w', encoding='utf-8', newline='') as f:
-        wcsv = csv.writer(f, lineterminator='
-')
+        wcsv = csv.writer(f, lineterminator='\n')
         wcsv.writerow(['word', 'freq', 'pred_class', 'prob_raw',
                        'prob_cal'] + [f'p_{c}' for c in classes])
         order = np.argsort(-cal_u, kind='stable')
