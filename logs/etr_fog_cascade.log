@@ -1,0 +1,20 @@
+=== §7.2: каскад арбитров тумана (по рекомендации LA) ===
+арбитр 1 (sim=1.0, ярус A, непереведённые): 105 кандидатов из 2757 туман-строк
+базлайн жанров (по вхождениям слов): other:76%, ritual:14%, epit:5%, mi:5%; рядом с NUM: 5.0%
+
+слово            n концепт            домен     жанры                      NUM док.завис.
+ethrse          12 ox/bull            animal    ritual:7+other:5           0% 2 док.
+turza           11 ox/bull            animal    ritual:9+other:2           9% 2 док.
+petrual          4 father             kinship   other:4                    0% 4 док.
+cemnac           3 cumin              plantfood ritual:3                   0% один-док!
+afunas           2 oven               tech      other:2                    0% 2 док.
+carta            2 letter-missive     tech      other:2                    0% 2 док.
+cealchus         2 cup                vessel    ritual:2                   0% один-док!
+ciarthiesa       2 letter-missive     tech      other:2                    0% 2 док.
+cumnial          2 cumin              plantfood other:2                    0% 2 док.
+fastial          2 letter-missive     tech      mi:1+other:1               0% 2 док.
+panzas           2 oven               tech      other:2                    0% 2 док.
+spur             2 letter-missive     tech      other:2                    0% 2 док.
+
+кандидатов с n≥2 вхождений: 12; из них в ≥2 документах: 10 (арбитр зависимости документов — LA-оговорка)
+чтение: интересен кандидат, чей жанровый/NUM-профиль СОГЛАСУЕТСЯ с доменом концепта (напр. measure/time — при NUM выше базлайна; vessel — в mi-записях) И который живёт в ≥2 документах. Слой разведочный: p не заявляем (мал n), список — для ручной проверки и для симметричного прогона на стороне LA.
