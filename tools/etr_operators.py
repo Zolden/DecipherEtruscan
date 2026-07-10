@@ -143,12 +143,10 @@ def load_etp_pos():
 def main():
     os.makedirs('logs', exist_ok=True)
     os.makedirs('results', exist_ok=True)
-    log('RETRACT 2026-07-10: Westfall–Young p̃ ниже невалидны, потому что '
-        'тесты не используют общую перестановку. См. §8 отчёта; доли '
-        'оставлены только как development diagnostics.')
+    log('FIXED 2026-07-10: совместный нуль — одна общая перестановка порядка слов в записи на replicate (R=5000); прежние p̃ отозваны в §8.')
     log()
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
-    assert corpus['meta'].get('freeze_version') == '0.6'
+    assert corpus['meta'].get('freeze_version') == '0.7'
     view = view_of(corpus)
     log(f'=== Реестр операторов v1 (этап 1) ===')
     log(f'вид: {len(view)} записей (lang=etr, text, без forgery?); '
@@ -179,7 +177,8 @@ def main():
             for i, w in enumerate(ws):
                 if w in fs:
                     occ.setdefault(name, []).append((i, len(ws)))
-    tests = []  # (name, side, obs, n, exp_rate)
+    tests = []  # (name, side, obs, n, o)
+    op_index = {}
     for name, forms, gloss, cls, kw in OPERATORS:
         o = occ.get(name, [])
         if len(o) < 5:
@@ -187,30 +186,56 @@ def main():
         n = len(o)
         ini = sum(1 for i, L in o if i == 0)
         fin = sum(1 for i, L in o if i == L - 1)
+        op_index[name] = len(op_index)
         tests.append((name, 'нач', ini, n, o))
         tests.append((name, 'фин', fin, n, o))
-    # симуляция: для каждого вхождения позиция ~ U[0,L)
-    sims = np.zeros((R, len(tests)), dtype=np.int32)
-    for j, (name, side, obs, n, o) in enumerate(tests):
-        Ls = np.array([L for _, L in o])
-        u = rng.random((R, len(o)))
-        if side == 'нач':
-            sims[:, j] = (u < 1.0 / Ls).sum(axis=1)
-        else:
-            sims[:, j] = (u >= 1.0 - 1.0 / Ls).sum(axis=1)
+    # СОВМЕСТНЫЙ нуль (исправление 2026-07-10, см. §8/§8.7): одна общая
+    # перестановка порядка слов внутри каждой записи на replicate; все
+    # статистики семейства считаются из одного разыгранного мира.
+    R_WY = 5000
+    rec_labels = []
+    tested_ops = set(op_index)
+    for rec in multi:
+        ws = words_ascii(rec)
+        lab = np.full(len(ws), -1, dtype=np.int16)
+        hit = False
+        for name in tested_ops:
+            fs = set(dict((n_, f_) for n_, f_, *_ in OPERATORS)[name])
+            for i, w in enumerate(ws):
+                if w in fs:
+                    lab[i] = op_index[name]
+                    hit = True
+        if hit:
+            rec_labels.append(lab)
+    nOps = len(op_index)
+    sims = np.zeros((R_WY, len(tests)), dtype=np.int32)
+    col_ini = {op_index[nm]: j for j, (nm, sd, *_ ) in enumerate(tests)
+               if sd == 'нач'}
+    col_fin = {op_index[nm]: j for j, (nm, sd, *_ ) in enumerate(tests)
+               if sd == 'фин'}
+    for r_i in range(R_WY):
+        for lab in rec_labels:
+            perm = rng.permutation(len(lab))
+            first = lab[perm[0]]
+            last = lab[perm[-1]]
+            if first >= 0:
+                sims[r_i, col_ini[first]] += 1
+            if last >= 0:
+                sims[r_i, col_fin[last]] += 1
+    R_eff = R_WY
     obs_arr = np.array([t[2] for t in tests])
-    p_raw = ((sims >= obs_arr).sum(axis=0) + 1) / (R + 1)
+    p_raw = ((sims >= obs_arr).sum(axis=0) + 1) / (R_eff + 1)
     # Westfall–Young min-p: p-значение каждого симулированного значения в
     # рамках его теста, затем распределение минимума по семейству
     p_sim = np.zeros_like(sims, dtype=np.float64)
     for j in range(len(tests)):
         col = sims[:, j]
         order = np.sort(col)
-        # P(sim >= x) для каждого x в col
         idx = np.searchsorted(order, col, side='left')
-        p_sim[:, j] = (R - idx + 1) / (R + 1)
+        p_sim[:, j] = (R_eff - idx + 1) / (R_eff + 1)
     minp = p_sim.min(axis=1)
-    p_adj = np.array([( (minp <= p) .sum() + 1) / (R + 1) for p in p_raw])
+    p_adj = np.array([((minp <= p).sum() + 1) / (R_eff + 1)
+                      for p in p_raw])
     log(f'{"оператор":<12} {"глосса":<22} {"n":>4} {"нач%":>5} {"фин%":>5} '
         f'{"p(нач)":>8} {"p(фин)":>8} {"p̃_сем(нач)":>10} {"p̃_сем(фин)":>10}')
     rows_csv = []

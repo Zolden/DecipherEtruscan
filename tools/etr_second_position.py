@@ -49,7 +49,7 @@ def main():
         'от других dedicatory verbs (Fisher p=.358). См. §8 отчёта.')
     log()
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
-    assert corpus['meta'].get('freeze_version') == '0.6'
+    assert corpus['meta'].get('freeze_version') == '0.7'
     view = [r for r in corpus['records']
             if r['lang'] == 'etr' and r['kind'] == 'text'
             and 'forgery?' not in r['flags'] and r.get('variant_of') is None]
@@ -69,23 +69,46 @@ def main():
         f'R={R}, seed={SEED}')
     tests = [(n, o) for n, o in sorted(occ.items()) if len(o) >= 5]
     rng = np.random.default_rng(SEED)
-    sims = np.zeros((R, len(tests)), np.int32)
+    # СОВМЕСТНЫЙ нуль (исправление 2026-07-10): общая перестановка
+    # порядка слов записи на replicate, статистика — позиция 1 (вторая).
+    R_WY = 5000
+    op_ix = {n: k for k, (n, _) in enumerate(tests)}
+    rec_labels = []
+    for rec in view:
+        ws = [t['ascii'] for t in rec['toks'] if t['kind'] == 'W']
+        if len(ws) < 3:
+            continue
+        lab = np.full(len(ws), -1, dtype=np.int16)
+        hit = False
+        for n, forms in OPS.items():
+            if n not in op_ix:
+                continue
+            for i, w in enumerate(ws):
+                if w in forms:
+                    lab[i] = op_ix[n]
+                    hit = True
+        if hit:
+            rec_labels.append(lab)
+    sims = np.zeros((R_WY, len(tests)), np.int32)
     obs = np.zeros(len(tests), int)
     for j, (n, o) in enumerate(tests):
-        Ls = np.array([L for _, L in o])
         obs[j] = sum(1 for i, _ in o if i == 1)
-        u = rng.random((R, len(o)))
-        sims[:, j] = ((u >= 1.0 / Ls) & (u < 2.0 / Ls)).sum(axis=1)
-    p_raw = ((sims >= obs[None, :]).sum(axis=0) + 1) / (R + 1)
+    for r_i in range(R_WY):
+        for lab in rec_labels:
+            perm = rng.permutation(len(lab))
+            second = lab[perm[1]]
+            if second >= 0:
+                sims[r_i, second] += 1
+    p_raw = ((sims >= obs[None, :]).sum(axis=0) + 1) / (R_WY + 1)
     p_sim = np.zeros_like(sims, float)
     for j in range(len(tests)):
         col = np.sort(sims[:, j])
         idx = np.searchsorted(col, sims[:, j], side='left')
-        p_sim[:, j] = (R - idx + 1) / (R + 1)
+        p_sim[:, j] = (R_WY - idx + 1) / (R_WY + 1)
     minp = p_sim.min(axis=1)
     log(f'{"оператор":<12} {"n":>4} {"2-я поз.":>8} {"p":>8} {"p̃_сем":>8}')
     for j, (n, o) in enumerate(tests):
-        padj = ((minp <= p_raw[j]).sum() + 1) / (R + 1)
+        padj = ((minp <= p_raw[j]).sum() + 1) / (R_WY + 1)
         mark = ' *' if padj < 0.05 else ''
         log(f'{n:<12} {len(o):>4} {obs[j]:>4} ({obs[j] / len(o):>4.0%}) '
             f'{p_raw[j]:>8.4f} {padj:>8.4f}{mark}')

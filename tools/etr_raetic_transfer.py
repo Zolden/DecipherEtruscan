@@ -738,7 +738,7 @@ def main() -> None:
     declared_sha = open(declared_path, encoding="utf-8").read().split()[0]
     assert corpus_sha == declared_sha, "etr_corpus.pkl does not match declared SHA-256"
     corpus = pickle.load(open(corpus_path, "rb"))
-    assert corpus["meta"].get("freeze_version") == "0.6"
+    assert corpus["meta"].get("freeze_version") == "0.7"
     input_paths = {
         "corpus": corpus_path,
         "tir_words": os.path.join("data", "external", "tir", "tir_words.csv"),

@@ -97,7 +97,7 @@ from collections import Counter
 sys.stdout.reconfigure(encoding='utf-8')
 
 NORM_VERSION = '0.1'
-FREEZE_VERSION = '0.6'
+FREEZE_VERSION = '0.7'
 CIEW_CIE_CSV = os.path.join('data', 'external', 'fowler_wolfe',
                             'ciew_cie_entries.csv')
 CIEW_CSV = os.path.join('data', 'external', 'fowler_wolfe',
@@ -634,6 +634,36 @@ def build_records():
     return records, stats, larth, etp_fix, ciep
 
 
+BIG_ART = {'9001': 'ART:LL', '7002': 'ART:TCap', '9002': 'ART:Lemnos',
+           '9003': 'ART:Liver'}
+CIE_ART = {'15910': 'ART:LL', '15911': 'ART:TCo', '8682': 'ART:TCap',
+           '15999': 'ART:Lemnos'}
+
+
+def artifact_of(rec):
+    """artifact_id (v0.7): один физический памятник для всех его чтений
+    из разных источников (ETP/CIEP/CIEW/supplement). Единица независимости
+    для confirmatory-перестановок (аудит Sol, §8.1)."""
+    e, src = rec['eid'], rec['src']
+    if src in ('CIEP', 'CIEW-CIE'):
+        return CIE_ART.get(e, f'CIE:{e}')
+    if src == 'CIEW':
+        return BIG_ART.get(e, f'CIEW:{e}')
+    if src == 'ETP':
+        if e.startswith('LL'):
+            return 'ART:LL'
+        if e == 'ETP 74':
+            return 'ART:TCo'
+        return f'ETP:{e}'
+    if src.startswith('SUPP'):
+        low = src.lower()
+        if 'pyrgi' in low:
+            return 'ART:Pyrgi'
+        if 'lemnos' in low:
+            return 'ART:Lemnos'
+    return f'{src}:{e}'
+
+
 def merge_variants(records):
     """Помечает варианты чтения одного памятника (см. докстринг, v0.3).
 
@@ -720,6 +750,10 @@ def main():
     log()
 
     records, stats, larth, etp_fix, ciep = build_records()
+    for rec in records:
+        rec['artifact_id'] = artifact_of(rec)
+    n_art = len({rec['artifact_id'] for rec in records})
+    log(f'artifact_id (v0.7): {n_art} памятников на {len(records)} записей')
     n_var = merge_variants(records)
     log(f'варианты чтения (v0.3): помечено variant_of {n_var} записей')
 

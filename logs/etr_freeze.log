@@ -14,6 +14,7 @@ join Бурман (по записям): {'eid найден': 3235, 'есть р
 supplements: файлов 2, записей 12
 CIEW: записей 347 (из data\external\fowler_wolfe\ciew_bigtexts.csv; 9021 пропущен — дубль supplement-а Пирги)
 CIEW-CIE (v0.5): записей 618, языки {'etr': 600, 'lat': 7, 'fal': 11}
+artifact_id (v0.7): 5582 памятников на 7338 записей
 варианты чтения (v0.3): помечено variant_of 28 записей
 
 === внутренние проверки ===
@@ -45,5 +46,5 @@ region: {'∅': 3910, 'Cl': 1372, 'Pe': 555, 'Ta': 215, 'AS': 183, 'Vs': 174, 'A
 флаги токенов: {'braced': 11, 'caps': 1, 'damaged': 856, 'emended': 819, 'expanded': 1804, 'line_split': 124, 'restored': 529, 'scribal_extra': 126, 'stripped_chars': 16, 'uncertain': 50}
 ascii-типов: ETP 1219, CIEP 4665, общих 292 — сопоставимость частей
 
-записан data\etr_corpus.pkl: 7338 записей, sha256=f5cba35eff9bf560a65bff7e63212e67d88e4cb896c267dc4ed66ea469770790
+записан data\etr_corpus.pkl: 7338 записей, sha256=cf6433490ee4a388467f02cc225e6350e5373807380cd40994a6cc5f6ee460d3
 записана выборка для ручной сверки: validation\sample50.md; предыдущих rid: 50; сохранено ручных отметок по rid: 0

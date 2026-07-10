@@ -117,7 +117,7 @@ def main():
     os.makedirs('logs', exist_ok=True)
     os.makedirs('results', exist_ok=True)
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
-    assert corpus['meta'].get('freeze_version') == '0.6'
+    assert corpus['meta'].get('freeze_version') == '0.7'
     view = view_of(corpus)
     log('=== Семантика с учителем: классы слов (этап 3) ===')
     log(f'вид: {len(view)} записей; R_perm={R_PERM}, seed={SEED}')
