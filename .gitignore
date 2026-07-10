@@ -9,3 +9,4 @@ data/external/fowler_wolfe/fowler_wolfe_vol1_djvu.txt
 # PDF без явной лицензии в корне external не публиковать; лицензированные
 # reference-подкаталоги обязаны иметь README с условиями и SHA256SUMS.
 data/external/*.pdf
+data/external/cie_online/*.pdf

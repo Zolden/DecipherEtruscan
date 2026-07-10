@@ -1,0 +1,12 @@
+=== §9.2: SPARQL-пилот ICCD (ArCo LOD) ===
+эндпоинт: https://dati.beniculturali.it/sparql
+CulturalProperty всего: 215715
+с 'etrusc*' в rdfs:label: 323
+  …из них с acd:hasDating: 302
+с 'iscrizione'+'etrusc*' в описании: 59
+выгружено label-объектов: 500; с текстом интервала датировки: 500
+выгружено descr-объектов: 200; с интервалом: 200
+CSV записан: results\iccd_pilot.csv
+примеры интервалов: ["Eta' antica", "Eta' del ferro I", 'Età antica', 'Età del ferro I', 'II a.C', 'II a.C.', 'II a.C. (?)', 'III a.C']
+
+вердикт: LOD-срез ICCD ТОНОК против веб-каталога (сотни, не десятки тысяч этрусских объектов); джойн с корпусом по CIE-номерам в LOD-описаниях не обнаружен. Датировки ДОСТАЮТСЯ (путь hasDating/hasDatingEvent/atTime), но масштаб точечный — для artifact-графа, не для стратиграфии корпуса; основной путь к датировкам остаётся TM (ждём ответ) и издания.
