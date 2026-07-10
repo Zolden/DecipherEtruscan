@@ -76,6 +76,9 @@ def strat_test(U_by, A, B, rng):
 
 def main():
     os.makedirs('logs', exist_ok=True)
+    log('AUDIT OVERRIDE 2026-07-10: пары выбраны post hoc из 91 и окончания '
+        'вложены. Использовать source-form longest-match audit, не 10/10 ниже.')
+    log()
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
     assert corpus['meta'].get('freeze_version') == '0.6'
     view = view_of(corpus)
@@ -119,7 +122,7 @@ def main():
         'эффекта фонотактическая; если p при стратах мал — остаток '
         'грамматический (классы основ), финалью не объясним.')
 
-    with open(OUT_LOG, 'w', encoding='utf-8') as f:
+    with open(OUT_LOG, 'w', encoding='utf-8', newline='\n') as f:
         f.write('\n'.join(LOG) + '\n')
     print(f'\nлог записан: {OUT_LOG}')
 

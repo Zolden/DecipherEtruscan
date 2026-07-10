@@ -302,8 +302,10 @@ def main():
 
     def calibrate(conf):
         b = np.searchsorted(BINS, conf, side='right') - 1
-        return np.array([bin_acc.get(int(x)) or float(conf[i])
-                         for i, x in enumerate(b)])
+        return np.array([
+            float(conf[i]) if bin_acc.get(int(x)) is None else bin_acc[int(x)]
+            for i, x in enumerate(b)
+        ])
 
     log()
     log('--- калибровка (CV-отображение бинов; проверка на тесте) ---')
@@ -353,7 +355,7 @@ def main():
     log(f'типов с калиброванной уверенностью ≥0.7: '
         f'{int((cal_u >= 0.7).sum())}; ≥0.6: {int((cal_u >= 0.6).sum())}')
 
-    with open(OUT_LOG, 'w', encoding='utf-8') as f:
+    with open(OUT_LOG, 'w', encoding='utf-8', newline='\n') as f:
         f.write('\n'.join(LOG) + '\n')
     print(f'\nлог записан: {OUT_LOG}')
 

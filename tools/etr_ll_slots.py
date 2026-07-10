@@ -69,6 +69,9 @@ def cls_of(w):
 def main():
     os.makedirs('logs', exist_ok=True)
     os.makedirs('results', exist_ok=True)
+    log('RETRACT 2026-07-10: Westfall–Young p̃ ниже невалидны без общей '
+        'перестановки семейства; слот-результаты считать описательными.')
+    log()
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
     assert corpus['meta'].get('freeze_version') == '0.6'
     ll = [r for r in corpus['records']
@@ -236,7 +239,7 @@ def main():
         f'покрытие позиционированием: '
         f'{(len(numbered) + n_int) / (len(numbered) + len(unaligned)):.0%}')
 
-    with open(OUT_LOG, 'w', encoding='utf-8') as f:
+    with open(OUT_LOG, 'w', encoding='utf-8', newline='\n') as f:
         f.write('\n'.join(LOG) + '\n')
     print(f'\nлог записан: {OUT_LOG}')
 

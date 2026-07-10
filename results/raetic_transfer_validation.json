@@ -1,0 +1,849 @@
+{
+  "meta": {
+    "seed": 42,
+    "permutations": 10000,
+    "alpha": 0.5,
+    "python": "3.12.13",
+    "numpy": "2.5.1",
+    "input_sha256": {
+      "corpus": "f5cba35eff9bf560a65bff7e63212e67d88e4cb896c267dc4ed66ea469770790",
+      "tir_words": "719b7604d44f35dfb446d256cf7fa7ef317cf5e9ba2a4971c6847e260372d304",
+      "etp_pos": "4f9d5875d7ed0899a4d98cc579a08fedb5611825841cfce45f7504dbd48918ce",
+      "script": "c3985dbce3a15bdb7bbd05e77debfbc2dee5542977407408e19e2baa5eb5412d"
+    },
+    "declared_corpus_sha256": "f5cba35eff9bf560a65bff7e63212e67d88e4cb896c267dc4ed66ea469770790"
+  },
+  "strict": {
+    "accuracy": 0.6235955056179775,
+    "balanced_accuracy": 0.7186519189054907,
+    "macro_f1": 0.585244210327912,
+    "confusion_rows_true_cols_pred": [
+      [
+        93,
+        62,
+        4
+      ],
+      [
+        10,
+        106,
+        57
+      ],
+      [
+        0,
+        1,
+        23
+      ]
+    ],
+    "per_class": {
+      "GEN": {
+        "n": 159,
+        "n_true": 159,
+        "n_predicted": 103,
+        "true_positive": 93,
+        "precision": 0.9029126213592233,
+        "precision_wilson_95ci": [
+          0.8304457619814031,
+          0.9464062289605603
+        ],
+        "recall": 0.5849056603773585,
+        "f1": 0.7099236641221373
+      },
+      "NOM": {
+        "n": 173,
+        "n_true": 173,
+        "n_predicted": 169,
+        "true_positive": 106,
+        "precision": 0.6272189349112426,
+        "precision_wilson_95ci": [
+          0.5522484113053742,
+          0.6965344923647935
+        ],
+        "recall": 0.6127167630057804,
+        "f1": 0.6198830409356726
+      },
+      "PERT": {
+        "n": 24,
+        "n_true": 24,
+        "n_predicted": 84,
+        "true_positive": 23,
+        "precision": 0.27380952380952384,
+        "precision_wilson_95ci": [
+          0.18992825695769278,
+          0.37747419161084395
+        ],
+        "recall": 0.9583333333333334,
+        "f1": 0.42592592592592593
+      }
+    },
+    "n_total": 480,
+    "n_evaluated": 356,
+    "n_abstained": 124,
+    "coverage": 0.7416666666666667,
+    "abstention_rate": 0.2583333333333333,
+    "analysis": "primary exploratory validation: uniform-class-prior nested suffix NB on evidence-covered types only; no preregistered protocol",
+    "class_prior": "uniform across GEN/NOM/PERT",
+    "evidence_rule": "at least one training suffix feature with k=1..4",
+    "normalization": "strict",
+    "n_raetic_train": 90,
+    "raetic_class_counts": {
+      "GEN": 15,
+      "PERT": 24,
+      "NOM": 51
+    },
+    "n_exact_train_test_surface_overlap": 0,
+    "exact_train_test_surface_overlap": [],
+    "n_etruscan_test": 480,
+    "etruscan_class_counts": {
+      "NOM": 234,
+      "GEN": 222,
+      "PERT": 24
+    },
+    "n_suffix_features": 151,
+    "balanced_accuracy_cluster_bootstrap_95ci": [
+      0.6713666180729332,
+      0.760539599968158
+    ],
+    "bootstrap_scope": "conditional target-family bootstrap with the fitted TIR training sample held fixed; not total transfer uncertainty",
+    "training_lemma_block_permutation": {
+      "R": 10000,
+      "p_raw": 0.0029997000299970002,
+      "p_bonferroni_4": 0.011998800119988001,
+      "null_mean": 0.39684789174876695,
+      "null_q95": 0.6343879133796244,
+      "n_lemma_blocks": 80,
+      "method": "permute whole label vectors among equal-size lemma blocks; global class marginals preserved"
+    },
+    "target_family_block_permutation": {
+      "R": 10000,
+      "p_raw": 9.999000099990002e-05,
+      "p_bonferroni_4": 0.00039996000399960006,
+      "null_mean": 0.33549699621914425,
+      "null_q95": 0.3912269301147587,
+      "family_rule": "strip longest of ial,ale,al,la,si,le,s,l",
+      "n_families": 346,
+      "method": "permute whole label vectors among equal-size target-family blocks; global class marginals preserved"
+    },
+    "multiple_testing": "Bonferroni correction across four reported tests: two normalizations x two block-permutation nulls",
+    "tir_checklevel_0_sensitivity": {
+      "accuracy": 0.6140350877192983,
+      "balanced_accuracy": 0.7114779874213837,
+      "macro_f1": 0.5708841221772699,
+      "confusion_rows_true_cols_pred": [
+        [
+          116,
+          39,
+          4
+        ],
+        [
+          33,
+          71,
+          55
+        ],
+        [
+          1,
+          0,
+          23
+        ]
+      ],
+      "per_class": {
+        "GEN": {
+          "n": 159,
+          "n_true": 159,
+          "n_predicted": 150,
+          "true_positive": 116,
+          "precision": 0.7733333333333333,
+          "precision_wilson_95ci": [
+            0.6999980606806022,
+            0.8330182057315159
+          ],
+          "recall": 0.7295597484276729,
+          "f1": 0.750809061488673
+        },
+        "NOM": {
+          "n": 159,
+          "n_true": 159,
+          "n_predicted": 110,
+          "true_positive": 71,
+          "precision": 0.6454545454545455,
+          "precision_wilson_95ci": [
+            0.5525341042264347,
+            0.7285585691413721
+          ],
+          "recall": 0.44654088050314467,
+          "f1": 0.5278810408921932
+        },
+        "PERT": {
+          "n": 24,
+          "n_true": 24,
+          "n_predicted": 82,
+          "true_positive": 23,
+          "precision": 0.2804878048780488,
+          "precision_wilson_95ci": [
+            0.19477150045908148,
+            0.3858507245755968
+          ],
+          "recall": 0.9583333333333334,
+          "f1": 0.4339622641509435
+        }
+      },
+      "n_total": 480,
+      "n_evaluated": 342,
+      "n_abstained": 138,
+      "coverage": 0.7125,
+      "abstention_rate": 0.2875,
+      "n_raetic_train": 66,
+      "raetic_class_counts": {
+        "GEN": 14,
+        "PERT": 14,
+        "NOM": 38
+      },
+      "inferential_status": "descriptive sensitivity only"
+    },
+    "empirical_class_prior_sensitivity": {
+      "accuracy": 0.6629213483146067,
+      "balanced_accuracy": 0.7456268707359338,
+      "macro_f1": 0.6244808898735278,
+      "confusion_rows_true_cols_pred": [
+        [
+          93,
+          62,
+          4
+        ],
+        [
+          10,
+          120,
+          43
+        ],
+        [
+          0,
+          1,
+          23
+        ]
+      ],
+      "per_class": {
+        "GEN": {
+          "n": 159,
+          "n_true": 159,
+          "n_predicted": 103,
+          "true_positive": 93,
+          "precision": 0.9029126213592233,
+          "precision_wilson_95ci": [
+            0.8304457619814031,
+            0.9464062289605603
+          ],
+          "recall": 0.5849056603773585,
+          "f1": 0.7099236641221373
+        },
+        "NOM": {
+          "n": 173,
+          "n_true": 173,
+          "n_predicted": 183,
+          "true_positive": 120,
+          "precision": 0.6557377049180327,
+          "precision_wilson_95ci": [
+            0.5843332195569895,
+            0.7207382584745596
+          ],
+          "recall": 0.6936416184971098,
+          "f1": 0.6741573033707865
+        },
+        "PERT": {
+          "n": 24,
+          "n_true": 24,
+          "n_predicted": 70,
+          "true_positive": 23,
+          "precision": 0.32857142857142857,
+          "precision_wilson_95ci": [
+            0.22998869307186087,
+            0.4449906426116592
+          ],
+          "recall": 0.9583333333333334,
+          "f1": 0.4893617021276595
+        }
+      },
+      "n_total": 480,
+      "n_evaluated": 356,
+      "n_abstained": 124,
+      "coverage": 0.7416666666666667,
+      "abstention_rate": 0.2583333333333333,
+      "class_prior": "empirical TIR class frequencies",
+      "inferential_status": "descriptive sensitivity only"
+    },
+    "posthoc_longest_suffix_k2_4": {
+      "accuracy": 0.8863636363636364,
+      "balanced_accuracy": 0.9111111111111111,
+      "macro_f1": 0.8567343539988737,
+      "confusion_rows_true_cols_pred": [
+        [
+          84,
+          4,
+          2
+        ],
+        [
+          7,
+          56,
+          7
+        ],
+        [
+          0,
+          0,
+          16
+        ]
+      ],
+      "per_class": {
+        "GEN": {
+          "n": 90,
+          "n_true": 90,
+          "n_predicted": 91,
+          "true_positive": 84,
+          "precision": 0.9230769230769231,
+          "precision_wilson_95ci": [
+            0.849640728767747,
+            0.962240498677047
+          ],
+          "recall": 0.9333333333333333,
+          "f1": 0.9281767955801106
+        },
+        "NOM": {
+          "n": 70,
+          "n_true": 70,
+          "n_predicted": 60,
+          "true_positive": 56,
+          "precision": 0.9333333333333333,
+          "precision_wilson_95ci": [
+            0.8407464268680283,
+            0.9737713012754938
+          ],
+          "recall": 0.8,
+          "f1": 0.8615384615384616
+        },
+        "PERT": {
+          "n": 16,
+          "n_true": 16,
+          "n_predicted": 25,
+          "true_positive": 16,
+          "precision": 0.64,
+          "precision_wilson_95ci": [
+            0.44518497748164865,
+            0.7975211922554178
+          ],
+          "recall": 1.0,
+          "f1": 0.7804878048780487
+        }
+      },
+      "n_total": 480,
+      "n_evaluated": 176,
+      "n_abstained": 304,
+      "coverage": 0.36666666666666664,
+      "abstention_rate": 0.6333333333333333,
+      "model": "one longest known suffix, k=2..4",
+      "selection_status": "post-hoc descriptive",
+      "candidate_like_freq_ge_2": {
+        "accuracy": 0.9264705882352942,
+        "balanced_accuracy": 0.946236559139785,
+        "macro_f1": 0.7617512249091196,
+        "confusion_rows_true_cols_pred": [
+          [
+            36,
+            0,
+            0
+          ],
+          [
+            2,
+            26,
+            3
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "per_class": {
+          "GEN": {
+            "n": 36,
+            "n_true": 36,
+            "n_predicted": 38,
+            "true_positive": 36,
+            "precision": 0.9473684210526315,
+            "precision_wilson_95ci": [
+              0.8271453786822962,
+              0.9854457918527075
+            ],
+            "recall": 1.0,
+            "f1": 0.972972972972973
+          },
+          "NOM": {
+            "n": 31,
+            "n_true": 31,
+            "n_predicted": 26,
+            "true_positive": 26,
+            "precision": 1.0,
+            "precision_wilson_95ci": [
+              0.8712710781407846,
+              1.0
+            ],
+            "recall": 0.8387096774193549,
+            "f1": 0.9122807017543859
+          },
+          "PERT": {
+            "n": 1,
+            "n_true": 1,
+            "n_predicted": 4,
+            "true_positive": 1,
+            "precision": 0.25,
+            "precision_wilson_95ci": [
+              0.04558726080970055,
+              0.6993581574175981
+            ],
+            "recall": 1.0,
+            "f1": 0.4
+          }
+        },
+        "n_total": 480,
+        "n_evaluated": 68,
+        "n_abstained": 412,
+        "coverage": 0.14166666666666666,
+        "abstention_rate": 0.8583333333333334,
+        "matching_criteria": "one known TIR suffix with k=2..4 and clean corpus frequency >=2",
+        "selection_status": "post-hoc descriptive calibration"
+      }
+    },
+    "conflicting_normalized_types": [
+      "larθia"
+    ],
+    "excluded_gold_types_without_clean_token_attestation": [
+      "atelinas",
+      "lav",
+      "lurmicla",
+      "peθunus",
+      "truφun"
+    ]
+  },
+  "minimal": {
+    "accuracy": 0.6758620689655173,
+    "balanced_accuracy": 0.7561120624048706,
+    "macro_f1": 0.6134984691603512,
+    "confusion_rows_true_cols_pred": [
+      [
+        158,
+        57,
+        4
+      ],
+      [
+        22,
+        113,
+        57
+      ],
+      [
+        0,
+        1,
+        23
+      ]
+    ],
+    "per_class": {
+      "GEN": {
+        "n": 219,
+        "n_true": 219,
+        "n_predicted": 180,
+        "true_positive": 158,
+        "precision": 0.8777777777777778,
+        "precision_wilson_95ci": [
+          0.8218832510299916,
+          0.9178845949847896
+        ],
+        "recall": 0.7214611872146118,
+        "f1": 0.7919799498746866
+      },
+      "NOM": {
+        "n": 192,
+        "n_true": 192,
+        "n_predicted": 171,
+        "true_positive": 113,
+        "precision": 0.6608187134502924,
+        "precision_wilson_95ci": [
+          0.587021360775503,
+          0.7275493387083327
+        ],
+        "recall": 0.5885416666666666,
+        "f1": 0.6225895316804408
+      },
+      "PERT": {
+        "n": 24,
+        "n_true": 24,
+        "n_predicted": 84,
+        "true_positive": 23,
+        "precision": 0.27380952380952384,
+        "precision_wilson_95ci": [
+          0.18992825695769278,
+          0.37747419161084395
+        ],
+        "recall": 0.9583333333333334,
+        "f1": 0.42592592592592593
+      }
+    },
+    "n_total": 506,
+    "n_evaluated": 435,
+    "n_abstained": 71,
+    "coverage": 0.8596837944664032,
+    "abstention_rate": 0.1403162055335968,
+    "analysis": "primary exploratory validation: uniform-class-prior nested suffix NB on evidence-covered types only; no preregistered protocol",
+    "class_prior": "uniform across GEN/NOM/PERT",
+    "evidence_rule": "at least one training suffix feature with k=1..4",
+    "normalization": "minimal",
+    "n_raetic_train": 90,
+    "raetic_class_counts": {
+      "GEN": 15,
+      "PERT": 24,
+      "NOM": 51
+    },
+    "n_exact_train_test_surface_overlap": 0,
+    "exact_train_test_surface_overlap": [],
+    "n_etruscan_test": 506,
+    "etruscan_class_counts": {
+      "NOM": 250,
+      "GEN": 232,
+      "PERT": 24
+    },
+    "n_suffix_features": 151,
+    "balanced_accuracy_cluster_bootstrap_95ci": [
+      0.7137244495939075,
+      0.7948196994157037
+    ],
+    "bootstrap_scope": "conditional target-family bootstrap with the fitted TIR training sample held fixed; not total transfer uncertainty",
+    "training_lemma_block_permutation": {
+      "R": 10000,
+      "p_raw": 0.0006999300069993001,
+      "p_bonferroni_4": 0.0027997200279972004,
+      "null_mean": 0.39364643027016744,
+      "null_q95": 0.6456085901826483,
+      "n_lemma_blocks": 80,
+      "method": "permute whole label vectors among equal-size lemma blocks; global class marginals preserved"
+    },
+    "target_family_block_permutation": {
+      "R": 10000,
+      "p_raw": 9.999000099990002e-05,
+      "p_bonferroni_4": 0.00039996000399960006,
+      "null_mean": 0.34710200009512937,
+      "null_q95": 0.39873477929984785,
+      "family_rule": "strip longest of ial,ale,al,la,si,le,s,l",
+      "n_families": 412,
+      "method": "permute whole label vectors among equal-size target-family blocks; global class marginals preserved"
+    },
+    "multiple_testing": "Bonferroni correction across four reported tests: two normalizations x two block-permutation nulls",
+    "tir_checklevel_0_sensitivity": {
+      "accuracy": 0.6428571428571429,
+      "balanced_accuracy": 0.7228445940716663,
+      "macro_f1": 0.5753649078551191,
+      "confusion_rows_true_cols_pred": [
+        [
+          171,
+          44,
+          4
+        ],
+        [
+          45,
+          76,
+          56
+        ],
+        [
+          1,
+          0,
+          23
+        ]
+      ],
+      "per_class": {
+        "GEN": {
+          "n": 219,
+          "n_true": 219,
+          "n_predicted": 217,
+          "true_positive": 171,
+          "precision": 0.7880184331797235,
+          "precision_wilson_95ci": [
+            0.7288716369554741,
+            0.8371452724939884
+          ],
+          "recall": 0.7808219178082192,
+          "f1": 0.7844036697247707
+        },
+        "NOM": {
+          "n": 177,
+          "n_true": 177,
+          "n_predicted": 120,
+          "true_positive": 76,
+          "precision": 0.6333333333333333,
+          "precision_wilson_95ci": [
+            0.5442242408550699,
+            0.7141706480999424
+          ],
+          "recall": 0.4293785310734463,
+          "f1": 0.5117845117845117
+        },
+        "PERT": {
+          "n": 24,
+          "n_true": 24,
+          "n_predicted": 83,
+          "true_positive": 23,
+          "precision": 0.27710843373493976,
+          "precision_wilson_95ci": [
+            0.1923192775942012,
+            0.38161694477631736
+          ],
+          "recall": 0.9583333333333334,
+          "f1": 0.4299065420560748
+        }
+      },
+      "n_total": 506,
+      "n_evaluated": 420,
+      "n_abstained": 86,
+      "coverage": 0.8300395256916996,
+      "abstention_rate": 0.1699604743083004,
+      "n_raetic_train": 66,
+      "raetic_class_counts": {
+        "GEN": 14,
+        "PERT": 14,
+        "NOM": 38
+      },
+      "inferential_status": "descriptive sensitivity only"
+    },
+    "empirical_class_prior_sensitivity": {
+      "accuracy": 0.7080459770114943,
+      "balanced_accuracy": 0.7804176179604262,
+      "macro_f1": 0.6516939016842479,
+      "confusion_rows_true_cols_pred": [
+        [
+          158,
+          57,
+          4
+        ],
+        [
+          22,
+          127,
+          43
+        ],
+        [
+          0,
+          1,
+          23
+        ]
+      ],
+      "per_class": {
+        "GEN": {
+          "n": 219,
+          "n_true": 219,
+          "n_predicted": 180,
+          "true_positive": 158,
+          "precision": 0.8777777777777778,
+          "precision_wilson_95ci": [
+            0.8218832510299916,
+            0.9178845949847896
+          ],
+          "recall": 0.7214611872146118,
+          "f1": 0.7919799498746866
+        },
+        "NOM": {
+          "n": 192,
+          "n_true": 192,
+          "n_predicted": 185,
+          "true_positive": 127,
+          "precision": 0.6864864864864865,
+          "precision_wilson_95ci": [
+            0.6164169546186546,
+            0.7489689115513152
+          ],
+          "recall": 0.6614583333333334,
+          "f1": 0.6737400530503979
+        },
+        "PERT": {
+          "n": 24,
+          "n_true": 24,
+          "n_predicted": 70,
+          "true_positive": 23,
+          "precision": 0.32857142857142857,
+          "precision_wilson_95ci": [
+            0.22998869307186087,
+            0.4449906426116592
+          ],
+          "recall": 0.9583333333333334,
+          "f1": 0.4893617021276595
+        }
+      },
+      "n_total": 506,
+      "n_evaluated": 435,
+      "n_abstained": 71,
+      "coverage": 0.8596837944664032,
+      "abstention_rate": 0.1403162055335968,
+      "class_prior": "empirical TIR class frequencies",
+      "inferential_status": "descriptive sensitivity only"
+    },
+    "posthoc_longest_suffix_k2_4": {
+      "accuracy": 0.8875968992248062,
+      "balanced_accuracy": 0.8964705882352941,
+      "macro_f1": 0.8621959824694283,
+      "confusion_rows_true_cols_pred": [
+        [
+          144,
+          4,
+          2
+        ],
+        [
+          16,
+          62,
+          7
+        ],
+        [
+          0,
+          0,
+          23
+        ]
+      ],
+      "per_class": {
+        "GEN": {
+          "n": 150,
+          "n_true": 150,
+          "n_predicted": 160,
+          "true_positive": 144,
+          "precision": 0.9,
+          "precision_wilson_95ci": [
+            0.8437374796961266,
+            0.9375055641666694
+          ],
+          "recall": 0.96,
+          "f1": 0.9290322580645162
+        },
+        "NOM": {
+          "n": 85,
+          "n_true": 85,
+          "n_predicted": 66,
+          "true_positive": 62,
+          "precision": 0.9393939393939394,
+          "precision_wilson_95ci": [
+            0.8542709132143579,
+            0.9761813851676816
+          ],
+          "recall": 0.7294117647058823,
+          "f1": 0.8211920529801323
+        },
+        "PERT": {
+          "n": 23,
+          "n_true": 23,
+          "n_predicted": 32,
+          "true_positive": 23,
+          "precision": 0.71875,
+          "precision_wilson_95ci": [
+            0.5462549057408342,
+            0.8443541950225723
+          ],
+          "recall": 1.0,
+          "f1": 0.8363636363636363
+        }
+      },
+      "n_total": 506,
+      "n_evaluated": 258,
+      "n_abstained": 248,
+      "coverage": 0.5098814229249012,
+      "abstention_rate": 0.49011857707509876,
+      "model": "one longest known suffix, k=2..4",
+      "selection_status": "post-hoc descriptive",
+      "candidate_like_freq_ge_2": {
+        "accuracy": 0.9313725490196079,
+        "balanced_accuracy": 0.9385964912280702,
+        "macro_f1": 0.8444904531861054,
+        "confusion_rows_true_cols_pred": [
+          [
+            61,
+            0,
+            0
+          ],
+          [
+            4,
+            31,
+            3
+          ],
+          [
+            0,
+            0,
+            3
+          ]
+        ],
+        "per_class": {
+          "GEN": {
+            "n": 61,
+            "n_true": 61,
+            "n_predicted": 65,
+            "true_positive": 61,
+            "precision": 0.9384615384615385,
+            "precision_wilson_95ci": [
+              0.852178481344768,
+              0.9758109450336497
+            ],
+            "recall": 1.0,
+            "f1": 0.9682539682539683
+          },
+          "NOM": {
+            "n": 38,
+            "n_true": 38,
+            "n_predicted": 31,
+            "true_positive": 31,
+            "precision": 1.0,
+            "precision_wilson_95ci": [
+              0.889744604539564,
+              1.0
+            ],
+            "recall": 0.8157894736842105,
+            "f1": 0.898550724637681
+          },
+          "PERT": {
+            "n": 3,
+            "n_true": 3,
+            "n_predicted": 6,
+            "true_positive": 3,
+            "precision": 0.5,
+            "precision_wilson_95ci": [
+              0.1876163064826506,
+              0.8123836935173494
+            ],
+            "recall": 1.0,
+            "f1": 0.6666666666666666
+          }
+        },
+        "n_total": 506,
+        "n_evaluated": 102,
+        "n_abstained": 404,
+        "coverage": 0.2015810276679842,
+        "abstention_rate": 0.7984189723320159,
+        "matching_criteria": "one known TIR suffix with k=2..4 and clean corpus frequency >=2",
+        "selection_status": "post-hoc descriptive calibration"
+      }
+    },
+    "conflicting_normalized_types": [
+      "larθia"
+    ],
+    "excluded_gold_types_without_clean_token_attestation": [
+      "atelinas",
+      "lav",
+      "lurmikla",
+      "lusas",
+      "peθunus",
+      "truφun"
+    ]
+  },
+  "candidate_output": {
+    "path": "results\\raetic_transfer_candidates.csv",
+    "n": 265,
+    "n_already_present_in_etp_pos": 23,
+    "predicted_class_counts": {
+      "PERT": 20,
+      "GEN": 127,
+      "NOM": 118
+    },
+    "n_tir_suffix_support_ge_2": 132,
+    "n_artifact_clusters_ge_2": 206,
+    "n_both_support_ge_2": 91,
+    "model": "post-hoc one longest known TIR suffix, k=2..4",
+    "eligibility": "clean corpus frequency >=2 and not in clean single-case ETP_POS gold; already_present_in_etp_pos flags other ETP_POS occurrences; support/artifact columns expose the main uncertainty filters",
+    "score_definition": "difference between top two smoothed suffix log-likelihoods; not a probability, calibrated confidence, or individual test statistic",
+    "calibration": "post-hoc ETP_POS subset matching suffix evidence and clean frequency >=2",
+    "warning": "Exploratory ranking queue, not deciphered meanings. No candidate has an individual hypothesis test or FDR control; post-hoc class precision may not transport to unlabeled types."
+  }
+}

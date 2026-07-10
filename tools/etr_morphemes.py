@@ -87,6 +87,9 @@ def suffix_test(vocab, k, min_types=MIN_TYPES):
 def main():
     os.makedirs('logs', exist_ok=True)
     os.makedirs('results', exist_ok=True)
+    log('AUDIT OVERRIDE 2026-07-10: all-match вкладывает окончания и завышает '
+        '10/10. Канон — source-form longest-match в etr_method_audit_sol.py.')
+    log()
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
     assert corpus['meta'].get('freeze_version') == '0.6'
     view = view_of(corpus)
@@ -381,7 +384,7 @@ def main():
             w.writerow(row)
     log()
     log(f'таблица суффиксов записана: {OUT_CSV}')
-    with open(OUT_LOG, 'w', encoding='utf-8') as f:
+    with open(OUT_LOG, 'w', encoding='utf-8', newline='\n') as f:
         f.write('\n'.join(LOG) + '\n')
     print(f'\nлог записан: {OUT_LOG}')
 

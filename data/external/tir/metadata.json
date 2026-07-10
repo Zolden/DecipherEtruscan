@@ -1,0 +1,26 @@
+{
+  "source": "Thesaurus Inscriptionum Raeticarum",
+  "source_url": "https://tir.univie.ac.at/",
+  "api_url": "https://tir.univie.ac.at/api.php",
+  "retrieved_at": "2026-07-10T10:43:44.840929+00:00",
+  "license": "CC BY-SA 3.0 and GFDL; see upstream Terms of Use",
+  "license_url": "https://tir.univie.ac.at/wiki/Project:Terms_of_Use",
+  "counts": {
+    "inscriptions": 389,
+    "objects": 293,
+    "words": 154,
+    "morphemes": 11,
+    "inscriptions_joined_to_objects": 386
+  },
+  "reading_validation": {
+    "source": "rendered Category:Inscription plain-text column",
+    "compared": 389,
+    "exact_matches": 389
+  },
+  "sha256": {
+    "tir_inscriptions.csv": "d7edbced77b7f866aa64f69bcfdbf442a40e36fb130a38d9d1f418a1c0fe93da",
+    "tir_objects.csv": "2de474b346e334eb7eb4c5d54ff17134ec3fcaf60b74fb686925ea538ac1b99f",
+    "tir_words.csv": "719b7604d44f35dfb446d256cf7fa7ef317cf5e9ba2a4971c6847e260372d304",
+    "tir_morphemes.csv": "f0d641c4f2166db96c937a193aae3f6d0d893d440aca527da97f911c648fbdfd"
+  }
+}

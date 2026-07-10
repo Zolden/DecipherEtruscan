@@ -1,2 +1,9 @@
 # байты канонические: никакой eol-конверсии (sha256 входов зашиты в pkl)
 * -text
+# CRLF во внешних byte-exact snapshots допустим, но прочий whitespace проверяется.
+* whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Pinned upstream EpiDoc сохраняется побайтово, включая исходное форматирование.
+data/external/usep_tyrsenian/transcribed/** -whitespace
+data/external/usep_tyrsenian/metadata_only/** -whitespace
+data/external/usep_tyrsenian/resources/** -whitespace
+data/external/usep_tyrsenian/UPSTREAM_README.md -whitespace

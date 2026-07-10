@@ -55,6 +55,9 @@ def genre_of(r, ws):
 
 def main():
     os.makedirs('logs', exist_ok=True)
+    log('AUDIT OVERRIDE 2026-07-10: ritual raw p=.038 не переживает '
+        'Bonferroni по пяти жанрам (p=.190); это тренд, не открытие.')
+    log()
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
     assert corpus['meta'].get('freeze_version') == '0.6'
     view = [r for r in corpus['records']
@@ -98,7 +101,7 @@ def main():
     log()
     log('чтение: Δ>0 при малом p — позиция 1 ОТКРЫТЕЕ (LA-схема); Δ<0 — '
         'закрытое открытие (ономастическая формула).')
-    with open(OUT_LOG, 'w', encoding='utf-8') as f:
+    with open(OUT_LOG, 'w', encoding='utf-8', newline='\n') as f:
         f.write('\n'.join(LOG) + '\n')
     print(f'\nлог записан: {OUT_LOG}')
 

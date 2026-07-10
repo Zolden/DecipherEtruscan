@@ -374,8 +374,10 @@ def main():
 
     def calibrate(conf):
         b = np.searchsorted(BINS, conf, side='right') - 1
-        return np.array([bin_acc.get(int(x)) or float(conf[i])
-                         for i, x in enumerate(b)])
+        return np.array([
+            float(conf[i]) if bin_acc.get(int(x)) is None else bin_acc[int(x)]
+            for i, x in enumerate(b)
+        ])
 
     confdc = P_te.max(axis=1)
     cal_te = calibrate(confdc)
@@ -430,7 +432,7 @@ def main():
                           [f'{Pu[i, c]:.3f}' for c in range(nC)])
     log(f'гипотезы записаны: {OUT_CSV}')
 
-    with open(OUT_LOG, 'w', encoding='utf-8') as f:
+    with open(OUT_LOG, 'w', encoding='utf-8', newline='\n') as f:
         f.write('\n'.join(LOG) + '\n')
     print(f'\nлог записан: {OUT_LOG}')
 

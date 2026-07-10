@@ -116,7 +116,7 @@ def main():
         'согласуется ли туман со структурным жанром (слабый приор §7 '
         'работает, только если хотя бы один из них мал).')
 
-    with open(OUT_LOG, 'w', encoding='utf-8') as f:
+    with open(OUT_LOG, 'w', encoding='utf-8', newline='\n') as f:
         f.write('\n'.join(LOG) + '\n')
     print(f'\nлог записан: {OUT_LOG}')
 

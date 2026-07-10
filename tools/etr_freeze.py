@@ -138,6 +138,9 @@ LANG_BY_CIE = {
                      'prinuvatus; глоссы "make-sacrifice", "onbehalfofthepeople"'),
     '14651': ('cel', 'цизальпинско-кельтский: камень Брионы — kuitos lekatos, '
                      'tanotaliknoi, anokopokios, setupokios'),
+    '15999': ('lemn', 'лемнийский: фрагменты стелы из Каминьи — sivai, '
+                      'fokiasiale, evistho; памятник также представлен '
+                      'полным supplement-изданием'),
     # найдены ручным просмотром выборки sample50 (первый проход):
     '17299': ('lat', 'ранняя латынь: fovrio c(aii) = M. Furius, формула '
                      '«de praidad» (из добычи)'),
@@ -402,6 +405,7 @@ def build_records():
             'y_to': parse_year(r['Year - To']),
             'region': region, 'region_name': REGION_NAMES.get(region),
             'xref': None, 'flags': (),
+            'provenance': None, 'note': None,
             'lang': lang, 'kind': classify_kind(toks),
             'raw': raw, 'raw_T': None, 'raw_C': None, 'reading': '',
             'trs': [tr] if tr else [],
@@ -489,6 +493,7 @@ def build_records():
             'city': None, 'y_from': None, 'y_to': None,
             'region': region, 'region_name': REGION_NAMES.get(region),
             'xref': xref, 'flags': tuple(sorted(rflags)),
+            'provenance': None, 'note': None,
             'lang': lang, 'kind': classify_kind(toks),
             'raw': raw, 'raw_T': t_raw or None, 'raw_C': c_raw or None,
             'reading': reading,
@@ -510,10 +515,20 @@ def build_records():
     for path in supp_files:
         fname = os.path.basename(path)
         with open(path, encoding='utf-8') as f:
-            for i, r in enumerate(csv.DictReader(f)):
+            reader = csv.DictReader(f)
+            required = {'text', 'provenance'}
+            missing_cols = required - set(reader.fieldnames or ())
+            assert not missing_cols, (
+                f'{path}: отсутствуют обязательные колонки supplement: '
+                f'{sorted(missing_cols)}')
+            for i, r in enumerate(reader):
                 raw = (r.get('text') or '').strip()
                 if not raw:
                     continue
+                provenance = (r.get('provenance') or '').strip()
+                assert provenance, (
+                    f'{path}, строка CSV {i + 2}: для непустого text '
+                    'обязателен provenance')
                 toks, n_lines = parse_text(raw, dash_split=False, stats=stats)
                 tr = clean_tr(r.get('translation'))
                 records.append({
@@ -525,6 +540,8 @@ def build_records():
                     'y_to': parse_year(r.get('date_to')),
                     'region': None, 'region_name': None,
                     'xref': None, 'flags': (),
+                    'provenance': provenance,
+                    'note': (r.get('note') or '').strip() or None,
                     'lang': (r.get('language') or 'etr').strip(),
                     'kind': classify_kind(toks),
                     'raw': raw, 'raw_T': None, 'raw_C': None, 'reading': '',
@@ -556,6 +573,7 @@ def build_records():
                     'region': region,
                     'region_name': REGION_NAMES.get(region),
                     'xref': None, 'flags': rflags,
+                    'provenance': None, 'note': None,
                     'lang': CIEW_LANG.get(e, 'etr'),
                     'kind': classify_kind(toks),
                     'raw': raw, 'raw_T': None, 'raw_C': None, 'reading': '',
@@ -604,6 +622,7 @@ def build_records():
                     'region': region,
                     'region_name': REGION_NAMES.get(region),
                     'xref': xref, 'flags': tuple(sorted(rflags)),
+                    'provenance': None, 'note': None,
                     'lang': lang, 'kind': classify_kind(toks),
                     'raw': raw, 'raw_T': None, 'raw_C': None, 'reading': '',
                     'trs': [],
@@ -694,6 +713,10 @@ def main():
     for f in ['etruscan_larth.csv', 'ETP_fix.csv', 'CIEP_pymupdf.csv']:
         in_sha[f] = sha256_file(os.path.join(DATA, f))
         log(f'вход: {f}  sha256={in_sha[f][:16]}…')
+    for path in sorted(glob.glob(os.path.join(DATA, 'supplements', '*.csv'))):
+        key = os.path.relpath(path, DATA).replace(os.sep, '/')
+        in_sha[key] = sha256_file(path)
+        log(f'вход: {key}  sha256={in_sha[key][:16]}…')
     log()
 
     records, stats, larth, etp_fix, ciep = build_records()
@@ -714,11 +737,13 @@ def main():
         f'({1 - len(bad) / len(records):.2%} прошло)')
     for rid in bad[:20]:
         log(f'   несовпадение: {rid}')
+    assert not bad, 'потеря букв при нормализации raw ↔ токены'
 
     y_bad = [r['rid'] for r in records
              if r['y_from'] is not None and r['y_to'] is not None
              and r['y_from'] < r['y_to']]
     log(f'датировки с y_from < y_to (годы до н.э., ожидание 0): {len(y_bad)}')
+    assert not y_bad, 'некорректный порядок границ датировки'
 
     log(f'ETP-часть: dash-split не применялся (конвенция); '
         f'CIEP-часть: токенов, разрезанных по одиночному дефису: '
@@ -795,6 +820,10 @@ def main():
                            'default': 'etr'},
             'ascii_map': ASCII_MAP,
             'region_names': REGION_NAMES,
+            'supplement_schema': {
+                'required': ('text', 'provenance'),
+                'preserved': ('provenance', 'note'),
+            },
             'note': 'Замороженный корпус: НЕ редактировать; добавления — '
                     'data/supplements/*.csv. Основной аналитический вид: '
                     "lang=='etr' and kind=='text' and 'forgery?' not in "
@@ -805,7 +834,7 @@ def main():
     with open(OUT_PKL, 'wb') as f:
         pickle.dump(corpus, f, protocol=4)
     sha = sha256_file(OUT_PKL)
-    with open(OUT_SHA, 'w', encoding='utf-8') as f:
+    with open(OUT_SHA, 'w', encoding='utf-8', newline='\n') as f:
         f.write(f'{sha}  {os.path.basename(OUT_PKL)}  norm_v{NORM_VERSION}\n')
     log()
     log(f'записан {OUT_PKL}: {len(records)} записей, sha256={sha}')
@@ -813,7 +842,28 @@ def main():
     # --- выборка для ручной сверки (seed=42) -------------------------------
     rng = random.Random(42)
     sample = rng.sample(view, 50)
-    with open(OUT_SAMPLE, 'w', encoding='utf-8') as f:
+    # Keep human review persistent across deterministic freeze reruns.  The
+    # sample may change when the corpus changes, so preserve annotations by
+    # stable rid rather than by row number.
+    existing_ok = {}
+    existing_sample_rids = set()
+    if os.path.exists(OUT_SAMPLE):
+        with open(OUT_SAMPLE, encoding='utf-8') as old:
+            for line in old:
+                if not line.startswith('|'):
+                    continue
+                cells = [cell.strip() for cell in line.strip().strip('|').split('|')]
+                if len(cells) == 6 and cells[1] != 'rid' and cells[1] != '-----':
+                    existing_sample_rids.add(cells[1])
+                    if cells[5]:
+                        existing_ok[cells[1]] = cells[5]
+    new_sample_rids = {r['rid'] for r in sample}
+    lost_annotations = sorted(set(existing_ok) - new_sample_rids)
+    assert not lost_annotations, (
+        'новая sample50 вытесняет вручную проверенные rid; сохранить старую '
+        'выборку как versioned review перед freeze: ' + ', '.join(lost_annotations)
+    )
+    with open(OUT_SAMPLE, 'w', encoding='utf-8', newline='\n') as f:
         f.write('# Ручная валидационная выборка (50 записей, seed=42)\n\n'
                 'Сверить: чтение, разбор на токены, флаги, перевод. '
                 'Отметки в колонке «OK?» (да/нет/примечание).\n\n'
@@ -825,10 +875,14 @@ def main():
                 for t in r['toks'])
             tr = (r['trs'][0][:60] if r['trs'] else '—').replace('|', '¦')
             raw = r['raw'][:70].replace('|', '¦')
-            f.write(f'| {i} | {r["rid"]} | {raw} | {toks[:90]} | {tr} |  |\n')
-    log(f'записана выборка для ручной сверки: {OUT_SAMPLE}')
+            ok = existing_ok.get(r['rid'], '').replace('|', '¦')
+            f.write(f'| {i} | {r["rid"]} | {raw} | {toks[:90]} | {tr} | {ok} |\n')
+    preserved = sum(r['rid'] in existing_ok for r in sample)
+    log(f'записана выборка для ручной сверки: {OUT_SAMPLE}; '
+        f'предыдущих rid: {len(existing_sample_rids)}; '
+        f'сохранено ручных отметок по rid: {preserved}')
 
-    with open(OUT_LOG, 'w', encoding='utf-8') as f:
+    with open(OUT_LOG, 'w', encoding='utf-8', newline='\n') as f:
         f.write('\n'.join(LOG) + '\n')
     print(f'\nлог записан: {OUT_LOG}')
 

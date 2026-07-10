@@ -250,7 +250,7 @@ def main():
     for fam, ps in sorted(fam_pos.items()):
         log(f'  семейство {fam}: строки {sorted(ps)}')
 
-    with open(OUT_LOG, 'w', encoding='utf-8') as f:
+    with open(OUT_LOG, 'w', encoding='utf-8', newline='\n') as f:
         f.write('\n'.join(LOG) + '\n')
     print(f'\nлог записан: {OUT_LOG}')
 

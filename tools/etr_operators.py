@@ -143,6 +143,10 @@ def load_etp_pos():
 def main():
     os.makedirs('logs', exist_ok=True)
     os.makedirs('results', exist_ok=True)
+    log('RETRACT 2026-07-10: Westfall–Young p̃ ниже невалидны, потому что '
+        'тесты не используют общую перестановку. См. §8 отчёта; доли '
+        'оставлены только как development diagnostics.')
+    log()
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
     assert corpus['meta'].get('freeze_version') == '0.6'
     view = view_of(corpus)
@@ -406,7 +410,7 @@ def main():
             w.writerow({k: row.get(k, '') for k in fields})
     log()
     log(f'реестр записан: {OUT_CSV}')
-    with open(OUT_LOG, 'w', encoding='utf-8') as f:
+    with open(OUT_LOG, 'w', encoding='utf-8', newline='\n') as f:
         f.write('\n'.join(LOG) + '\n')
     print(f'\nлог записан: {OUT_LOG}')
 

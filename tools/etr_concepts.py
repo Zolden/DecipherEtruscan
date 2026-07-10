@@ -324,7 +324,7 @@ def main():
     log(f'туман записан: {OUT_CSV} — {n_fog} слов с sim≥{SIM_ETR}; '
         f'точность слоя оценивать по hit@1 валидации выше, не выше её')
 
-    with open(OUT_LOG, 'w', encoding='utf-8') as f:
+    with open(OUT_LOG, 'w', encoding='utf-8', newline='\n') as f:
         f.write('\n'.join(LOG) + '\n')
     print(f'\nлог записан: {OUT_LOG}')
 

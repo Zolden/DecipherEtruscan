@@ -402,7 +402,7 @@ def main():
     log(f'CIE-записи CIEW: {out2}; CIEW-эксклюзивных (нет в CIEP, '
         f'кандидаты в корпус v0.5): {n_excl}')
 
-    with open(OUT_LOG, 'w', encoding='utf-8') as f:
+    with open(OUT_LOG, 'w', encoding='utf-8', newline='\n') as f:
         f.write('\n'.join(LOG) + '\n')
     print(f'\nлог записан: {OUT_LOG}')
 

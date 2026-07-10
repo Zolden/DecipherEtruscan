@@ -1,0 +1,2386 @@
+{
+  "audit_version": "sol-2026-07-10",
+  "concept_convergence": {
+    "bh_q_lt_05_and_score_ge_2": 14,
+    "concepts": 290,
+    "conditional_p_lt_05_and_score_ge_2": 16,
+    "fwer_p_lt_05_and_score_ge_2": 2,
+    "global_count_ge_observed_p": 0.0004997501249375312,
+    "null_mean_score_ge_2": 0.211,
+    "null_q95_score_ge_2": 1.0,
+    "observed_score_ge_2": 16,
+    "permutations": 2000,
+    "top": [
+      {
+        "gloss_en": "shekel-weight",
+        "id": "106",
+        "n_languages": 5,
+        "p_conditional": 0.0004997501249375312,
+        "p_fwer_max_290": 0.0009995002498750624,
+        "q_bh_290": 0.016103059581320453,
+        "score": 6
+      },
+      {
+        "gloss_en": "cumin",
+        "id": "56",
+        "n_languages": 6,
+        "p_conditional": 0.0004997501249375312,
+        "p_fwer_max_290": 0.0009995002498750624,
+        "q_bh_290": 0.016103059581320453,
+        "score": 5
+      },
+      {
+        "gloss_en": "heart",
+        "id": "175",
+        "n_languages": 5,
+        "p_conditional": 0.0004997501249375312,
+        "p_fwer_max_290": 0.05297351324337831,
+        "q_bh_290": 0.016103059581320453,
+        "score": 3
+      },
+      {
+        "gloss_en": "garlic",
+        "id": "64",
+        "n_languages": 5,
+        "p_conditional": 0.0009995002498750624,
+        "p_fwer_max_290": 0.05297351324337831,
+        "q_bh_290": 0.024154589371980676,
+        "score": 3
+      },
+      {
+        "gloss_en": "cedar",
+        "id": "63",
+        "n_languages": 5,
+        "p_conditional": 0.0004997501249375312,
+        "p_fwer_max_290": 0.18690654672663667,
+        "q_bh_290": 0.016103059581320453,
+        "score": 2
+      },
+      {
+        "gloss_en": "cup",
+        "id": "22",
+        "n_languages": 5,
+        "p_conditional": 0.0004997501249375312,
+        "p_fwer_max_290": 0.18690654672663667,
+        "q_bh_290": 0.016103059581320453,
+        "score": 2
+      },
+      {
+        "gloss_en": "cypress",
+        "id": "62",
+        "n_languages": 5,
+        "p_conditional": 0.0004997501249375312,
+        "p_fwer_max_290": 0.18690654672663667,
+        "q_bh_290": 0.016103059581320453,
+        "score": 2
+      },
+      {
+        "gloss_en": "father",
+        "id": "158",
+        "n_languages": 4,
+        "p_conditional": 0.0004997501249375312,
+        "p_fwer_max_290": 0.18690654672663667,
+        "q_bh_290": 0.016103059581320453,
+        "score": 2
+      },
+      {
+        "gloss_en": "nut-almond",
+        "id": "230",
+        "n_languages": 4,
+        "p_conditional": 0.0004997501249375312,
+        "p_fwer_max_290": 0.18690654672663667,
+        "q_bh_290": 0.016103059581320453,
+        "score": 2
+      },
+      {
+        "gloss_en": "purple dye",
+        "id": "15",
+        "n_languages": 4,
+        "p_conditional": 0.0004997501249375312,
+        "p_fwer_max_290": 0.18690654672663667,
+        "q_bh_290": 0.016103059581320453,
+        "score": 2
+      },
+      {
+        "gloss_en": "letter-missive",
+        "id": "102",
+        "n_languages": 4,
+        "p_conditional": 0.0009995002498750624,
+        "p_fwer_max_290": 0.18690654672663667,
+        "q_bh_290": 0.024154589371980676,
+        "score": 2
+      },
+      {
+        "gloss_en": "oven",
+        "id": "93",
+        "n_languages": 4,
+        "p_conditional": 0.0009995002498750624,
+        "p_fwer_max_290": 0.18690654672663667,
+        "q_bh_290": 0.024154589371980676,
+        "score": 2
+      },
+      {
+        "gloss_en": "three",
+        "id": "211",
+        "n_languages": 6,
+        "p_conditional": 0.0014992503748125937,
+        "p_fwer_max_290": 0.18690654672663667,
+        "q_bh_290": 0.033444816053511704,
+        "score": 2
+      },
+      {
+        "gloss_en": "eight",
+        "id": "216",
+        "n_languages": 6,
+        "p_conditional": 0.001999000499750125,
+        "p_fwer_max_290": 0.18690654672663667,
+        "q_bh_290": 0.041407867494824016,
+        "score": 2
+      },
+      {
+        "gloss_en": "house",
+        "id": "89",
+        "n_languages": 6,
+        "p_conditional": 0.00399800099950025,
+        "p_fwer_max_290": 0.18690654672663667,
+        "q_bh_290": 0.07729468599033816,
+        "score": 2
+      },
+      {
+        "gloss_en": "ox/bull",
+        "id": "33",
+        "n_languages": 6,
+        "p_conditional": 0.006496751624187906,
+        "p_fwer_max_290": 0.18690654672663667,
+        "q_bh_290": 0.09916094584286804,
+        "score": 2
+      },
+      {
+        "gloss_en": "anchor",
+        "id": "77",
+        "n_languages": 2,
+        "p_conditional": 0.005497251374312844,
+        "p_fwer_max_290": 1.0,
+        "q_bh_290": 0.0937766410912191,
+        "score": 1
+      },
+      {
+        "gloss_en": "mint",
+        "id": "59",
+        "n_languages": 2,
+        "p_conditional": 0.005497251374312844,
+        "p_fwer_max_290": 1.0,
+        "q_bh_290": 0.0937766410912191,
+        "score": 1
+      },
+      {
+        "gloss_en": "amphora",
+        "id": "24",
+        "n_languages": 2,
+        "p_conditional": 0.005997001499250375,
+        "p_fwer_max_290": 1.0,
+        "q_bh_290": 0.0966183574879227,
+        "score": 1
+      },
+      {
+        "gloss_en": "key",
+        "id": "91",
+        "n_languages": 3,
+        "p_conditional": 0.00849575212393803,
+        "p_fwer_max_290": 1.0,
+        "q_bh_290": 0.12318840579710144,
+        "score": 1
+      },
+      {
+        "gloss_en": "drum",
+        "id": "239",
+        "n_languages": 3,
+        "p_conditional": 0.012993503248375811,
+        "p_fwer_max_290": 1.0,
+        "q_bh_290": 0.17943409247757072,
+        "score": 1
+      },
+      {
+        "gloss_en": "village",
+        "id": "128",
+        "n_languages": 4,
+        "p_conditional": 0.013993003498250875,
+        "p_fwer_max_290": 1.0,
+        "q_bh_290": 0.18273471959672338,
+        "score": 1
+      },
+      {
+        "gloss_en": "lamp",
+        "id": "92",
+        "n_languages": 4,
+        "p_conditional": 0.014492753623188406,
+        "p_fwer_max_290": 1.0,
+        "q_bh_290": 0.18273471959672338,
+        "score": 1
+      },
+      {
+        "gloss_en": "lily",
+        "id": "61",
+        "n_languages": 4,
+        "p_conditional": 0.015492253873063468,
+        "p_fwer_max_290": 1.0,
+        "q_bh_290": 0.1842905707640007,
+        "score": 1
+      },
+      {
+        "gloss_en": "demon-spirit",
+        "id": "139",
+        "n_languages": 4,
+        "p_conditional": 0.018490754622688656,
+        "p_fwer_max_290": 1.0,
+        "q_bh_290": 0.1842905707640007,
+        "score": 1
+      }
+    ]
+  },
+  "corpus": {
+    "artifact_proxy_clusters": 5242,
+    "ascii_collision_examples": {
+      "as": [
+        "as",
+        "aś",
+        "aσ'"
+      ],
+      "cusuthuras": [
+        "cusuthuras",
+        "cuśuθuraσ",
+        "cuσuθuras"
+      ],
+      "larisa": [
+        "larisa",
+        "lariśa",
+        "lariςa"
+      ],
+      "larisalisa": [
+        "larisalisa",
+        "larisaliς'a",
+        "larisaliσ'a",
+        "lariσaliσa"
+      ],
+      "larthalisa": [
+        "larθalisa",
+        "larθaliσ'a",
+        "larθaliσa"
+      ],
+      "mlakas": [
+        "mlakas",
+        "mlakaš",
+        "mlakaς"
+      ],
+      "petrus": [
+        "petrus",
+        "petruσ",
+        "pêtrus"
+      ],
+      "s": [
+        "s",
+        "σ",
+        "σ'"
+      ],
+      "scevas": [
+        "scevas",
+        "ścêvaσ",
+        "σcevas",
+        "σcêvas"
+      ],
+      "se": [
+        "se",
+        "śe",
+        "σê"
+      ],
+      "sethra": [
+        "sethra",
+        "seθra",
+        "σ'eθra"
+      ],
+      "sethre": [
+        "sethre",
+        "seθre",
+        "σ'eθre"
+      ],
+      "sethres": [
+        "sethres",
+        "seθres",
+        "σ'eθres"
+      ],
+      "sethrna": [
+        "sethrna",
+        "seθrna",
+        "σeθrna"
+      ],
+      "suthi": [
+        "suthi",
+        "śuθi",
+        "ς'uθi",
+        "σ'uθi"
+      ]
+    },
+    "ascii_collision_types": 212,
+    "ascii_hapax_types": 5740,
+    "ascii_types": 7152,
+    "by_source": {
+      "CIEP": {
+        "artifact_proxy_clusters": 4191,
+        "records": 5363,
+        "single_word_records": 4615,
+        "tokens": 6492,
+        "translated_records": 2027,
+        "translated_single_word": 1793
+      },
+      "CIEW": {
+        "artifact_proxy_clusters": 9,
+        "records": 347,
+        "single_word_records": 48,
+        "tokens": 1813,
+        "translated_records": 0,
+        "translated_single_word": 0
+      },
+      "CIEW-CIE": {
+        "artifact_proxy_clusters": 589,
+        "records": 592,
+        "single_word_records": 25,
+        "tokens": 2057,
+        "translated_records": 0,
+        "translated_single_word": 0
+      },
+      "ETP": {
+        "artifact_proxy_clusters": 461,
+        "records": 491,
+        "single_word_records": 110,
+        "tokens": 2030,
+        "translated_records": 211,
+        "translated_single_word": 2
+      },
+      "SUPP:pyrgi_wikipedia.csv": {
+        "artifact_proxy_clusters": 2,
+        "records": 2,
+        "single_word_records": 0,
+        "tokens": 58,
+        "translated_records": 0,
+        "translated_single_word": 0
+      }
+    },
+    "ciep_records": 5363,
+    "ciep_unique_eid": 4203,
+    "ciep_unique_tm": 2130,
+    "cross_artifact_exact_multiword_groups": 12,
+    "cross_source_exact_multiword_groups": 7,
+    "cross_source_examples": [
+      {
+        "records": [
+          "CIEP:15910:404",
+          "CIEP:15910:427",
+          "CIEW:9001:94.185"
+        ],
+        "text": "cilths spurestres enas ethrse tinsi"
+      },
+      {
+        "records": [
+          "ETP:Ve 3.30#2",
+          "CIEP:15552:1"
+        ],
+        "text": "mi mlach mlakas"
+      },
+      {
+        "records": [
+          "ETP:ETP 72",
+          "CIEW-CIE:8379"
+        ],
+        "text": "larth velarnies"
+      },
+      {
+        "records": [
+          "CIEP:15910:221",
+          "CIEW:9001:93.904"
+        ],
+        "text": "sacnicstres cilths spurestresc"
+      },
+      {
+        "records": [
+          "CIEP:15910:231",
+          "CIEW:9001:93.914"
+        ],
+        "text": "sacnicleri cilthl spureri methlumeri"
+      },
+      {
+        "records": [
+          "CIEP:15910:420",
+          "CIEW:9001:94.936"
+        ],
+        "text": "spurestres enas ethrse tinsi tiurim"
+      },
+      {
+        "records": [
+          "CIEP:15910:532",
+          "CIEW:9001:95.902"
+        ],
+        "text": "cntnam thesan fler veives thezeri"
+      }
+    ],
+    "downstream_rows_only_uncertain": {
+      "results/concept_fog_v1.csv": {
+        "only_uncertain_rows": 277,
+        "rows": 3016,
+        "share": 0.09184350132625994
+      },
+      "results/semantic_hypotheses_v2.csv": {
+        "only_uncertain_rows": 593,
+        "rows": 4355,
+        "share": 0.13616532721010333
+      }
+    },
+    "editorially_marked_token_share": 0.35646586345381526,
+    "editorially_marked_tokens": 4438,
+    "exact_multiword_duplicate_groups": 25,
+    "exact_multiword_duplicate_records": 51,
+    "known_cross_source_monument_aliases": {
+      "Liber_Linteus": {
+        "records": 285,
+        "source_eids": [
+          "CIEP:15910",
+          "CIEW:9001",
+          "ETP:LL 11",
+          "ETP:LL 2",
+          "ETP:LL 4",
+          "ETP:LL 5",
+          "ETP:LL 6",
+          "ETP:LL 8",
+          "ETP:LL 9"
+        ],
+        "sources": {
+          "CIEP": 49,
+          "CIEW": 224,
+          "ETP": 12
+        },
+        "tokens": 1460
+      },
+      "Tabula_Capuana": {
+        "records": 97,
+        "source_eids": [
+          "CIEP:8682",
+          "CIEW:7002"
+        ],
+        "sources": {
+          "CIEP": 23,
+          "CIEW": 74
+        },
+        "tokens": 547
+      }
+    },
+    "max_records_per_artifact_proxy": 285,
+    "record_flags": {
+      "has_variants": 26,
+      "ocr-fixed": 83,
+      "ocr?": 166,
+      "unaligned": 115
+    },
+    "records": 6795,
+    "single_word_records": 4798,
+    "surface_hapax_types": 5983,
+    "surface_types": 7384,
+    "token_flags": {
+      "braced": 11,
+      "caps": 1,
+      "damaged": 856,
+      "emended": 819,
+      "expanded": 1804,
+      "line_split": 124,
+      "restored": 529,
+      "scribal_extra": 126,
+      "stripped_chars": 16,
+      "uncertain": 50
+    },
+    "tokens": 12450,
+    "translated_records": 2238,
+    "translated_single_word": 1795,
+    "types": 7152,
+    "types_measure": "ASCII-projected forms",
+    "types_only_in_uncertain_tokens": 1470,
+    "uncertain_token_share": 0.20738955823293173,
+    "uncertain_tokens": 2582
+  },
+  "corpus_sha256_declared_file": "f5cba35eff9bf560a65bff7e63212e67d88e4cb896c267dc4ed66ea469770790  etr_corpus.pkl  norm_v0.1",
+  "distributional_anchor_pilot": {
+    "accuracy": 0.5193370165745856,
+    "balanced_accuracy": 0.39072248719307545,
+    "class_counts": {
+      "FUNC": 17,
+      "NAME-F": 27,
+      "NAME-M": 90,
+      "THEO": 10,
+      "VERB": 37
+    },
+    "classes": [
+      "FUNC",
+      "NAME-F",
+      "NAME-M",
+      "THEO",
+      "VERB"
+    ],
+    "confusion": [
+      [
+        4,
+        1,
+        5,
+        2,
+        5
+      ],
+      [
+        3,
+        12,
+        11,
+        0,
+        1
+      ],
+      [
+        13,
+        16,
+        57,
+        0,
+        4
+      ],
+      [
+        5,
+        0,
+        1,
+        1,
+        3
+      ],
+      [
+        9,
+        1,
+        5,
+        2,
+        20
+      ]
+    ],
+    "context_dimensions": 500,
+    "family_blocked_folds": 5,
+    "labeled_types_freq_ge_2": 181,
+    "macro_f1": 0.3914466988913286,
+    "majority_accuracy": 0.4972375690607735,
+    "nonzero_vectors": 171,
+    "null_accuracy_mean": 0.26137016574585636,
+    "null_balanced_mean": 0.19835322498969557,
+    "p_balanced": 0.0004997501249375312,
+    "per_class": {
+      "FUNC": {
+        "f1": 0.15686274509803924,
+        "precision": 0.11764705882352941,
+        "recall": 0.23529411764705882,
+        "support": 17
+      },
+      "NAME-F": {
+        "f1": 0.4210526315789474,
+        "precision": 0.4,
+        "recall": 0.4444444444444444,
+        "support": 27
+      },
+      "NAME-M": {
+        "f1": 0.6745562130177515,
+        "precision": 0.7215189873417721,
+        "recall": 0.6333333333333333,
+        "support": 90
+      },
+      "THEO": {
+        "f1": 0.13333333333333333,
+        "precision": 0.2,
+        "recall": 0.1,
+        "support": 10
+      },
+      "VERB": {
+        "f1": 0.5714285714285714,
+        "precision": 0.6060606060606061,
+        "recall": 0.5405405405405406,
+        "support": 37
+      }
+    },
+    "permutation_unit": "complete label vectors among equal-size case families",
+    "permutations": 2000,
+    "records_excluding_ciep": 1249
+  },
+  "lemnos_type_leakage": {
+    "control_units": {
+      "lat": {
+        "artifact_proxy_clusters": 144,
+        "records": 171,
+        "source_eids": 145
+      },
+      "umb": {
+        "artifact_proxy_clusters": 1,
+        "records": 95,
+        "source_eids": 1
+      }
+    },
+    "lemnian_tokens": 33,
+    "lemnian_unique_types": 27,
+    "original_token_split_exact_leakage": {
+      "etr": {
+        "holdout_exact_leak_share": 0.06347009391992091,
+        "holdout_tokens": 10115,
+        "holdout_tokens_exact_in_train": 642,
+        "holdout_unique_types_exact_in_train": 56,
+        "train_tokens": 120
+      },
+      "lat": {
+        "holdout_exact_leak_share": 0.2375,
+        "holdout_tokens": 80,
+        "holdout_tokens_exact_in_train": 19,
+        "holdout_unique_types_exact_in_train": 9,
+        "train_tokens": 120
+      },
+      "umb": {
+        "holdout_exact_leak_share": 0.3508771929824561,
+        "holdout_tokens": 57,
+        "holdout_tokens_exact_in_train": 20,
+        "holdout_unique_types_exact_in_train": 16,
+        "train_tokens": 120
+      }
+    },
+    "pool_tokens": {
+      "etr": 10235,
+      "lat": 200,
+      "umb": 177
+    },
+    "pool_unique_types": {
+      "etr": 6138,
+      "lat": 160,
+      "umb": 138
+    },
+    "type_disjoint_models": {
+      "bernoulli": {
+        "calibration_bag_accuracy": 0.9971666666666666,
+        "calibration_bags": 6000,
+        "lemnian_prediction_across_100_splits": {
+          "etr": 33,
+          "lat": 67
+        }
+      },
+      "multinomial": {
+        "calibration_bag_accuracy": 0.9973333333333333,
+        "calibration_bags": 6000,
+        "lemnian_prediction_across_100_splits": {
+          "etr": 31,
+          "lat": 69
+        }
+      },
+      "present_only_project": {
+        "calibration_bag_accuracy": 0.9971666666666666,
+        "calibration_bags": 6000,
+        "lemnian_prediction_across_100_splits": {
+          "etr": 30,
+          "lat": 70
+        }
+      }
+    },
+    "type_disjoint_train_types_per_language": 69
+  },
+  "meta": {
+    "declared_corpus_sha256": "f5cba35eff9bf560a65bff7e63212e67d88e4cb896c267dc4ed66ea469770790",
+    "input_sha256": {
+      "concept_fog_v1": "5bf092356946e4f923c3473135763bcf537349a76a56a93477a4342a8d329093",
+      "concept_lexicon": "7c53aff1e5fded5f43e588dfd3d9edb5ea40bd5cb27a26145b68160529b6a7be",
+      "corpus": "f5cba35eff9bf560a65bff7e63212e67d88e4cb896c267dc4ed66ea469770790",
+      "etp_pos": "4f9d5875d7ed0899a4d98cc579a08fedb5611825841cfce45f7504dbd48918ce",
+      "script": "4355e0802227ed09352a925688f96ca171d89597511ad01be6379100404df7ed",
+      "semantic_hypotheses_v2": "8b231d45a7c3f12e049a05bd55661bddc493ed09c2b4c9b9dc32ac827b24b0bd"
+    },
+    "numpy": "2.5.1",
+    "permutations": {
+      "cluster": 2000,
+      "concept": 2000,
+      "context": 2000,
+      "semantic": 500
+    },
+    "python": "3.12.13"
+  },
+  "morphology": {
+    "bh_91_lt_05": 52,
+    "clean_reading_longest_match_sensitivity": {
+      "all_pairs_bonferroni_lt_05": 27,
+      "definition": "form has >=1 token occurrence outside record flag ocr? and without token flags damaged/uncertain/restored/emended",
+      "eligible_token_occurrences": 9754,
+      "excluded_record_flag": "ocr?",
+      "excluded_token_flags": [
+        "damaged",
+        "emended",
+        "restored",
+        "uncertain"
+      ],
+      "nonnested_pairs": 86,
+      "nonnested_pairs_bonferroni_lt_05": 26,
+      "reported_ten": [
+        {
+          "expected": 15.769609910836095,
+          "nested_suffixes": false,
+          "observed": 4,
+          "p_bonf_longest_all": 0.0017835886687194496,
+          "p_bonf_longest_nonnested": 0.001685589291317282,
+          "p_lower": 1.9599875480433513e-05,
+          "pair": [
+            "s",
+            "al"
+          ],
+          "q_bh_longest_all": 9.510226416096655e-05,
+          "q_bh_longest_nonnested": 9.487002419964552e-05
+        },
+        {
+          "expected": 19.18292860758386,
+          "nested_suffixes": false,
+          "observed": 5,
+          "p_bonf_longest_all": 0.00014174297618024082,
+          "p_bonf_longest_nonnested": 0.00013395490056594187,
+          "p_lower": 1.5576151228597892e-06,
+          "pair": [
+            "s",
+            "l"
+          ],
+          "q_bh_longest_all": 1.012449829858863e-05,
+          "q_bh_longest_nonnested": 1.0304223120457067e-05
+        },
+        {
+          "expected": 5.627595652006117,
+          "nested_suffixes": true,
+          "observed": 3,
+          "p_bonf_longest_all": 1.0,
+          "p_lower": 0.1295561123960339,
+          "pair": [
+            "l",
+            "al"
+          ],
+          "q_bh_longest_all": 0.17596427206028487
+        },
+        {
+          "expected": 88.9144429480008,
+          "nested_suffixes": false,
+          "observed": 14,
+          "p_bonf_longest_all": 1.6481800094413766e-41,
+          "p_bonf_longest_nonnested": 1.5576206682632788e-41,
+          "p_lower": 1.811186823561952e-43,
+          "pair": [
+            "s",
+            "ial"
+          ],
+          "q_bh_longest_all": 1.6481800094413766e-41,
+          "q_bh_longest_nonnested": 1.5576206682632788e-41
+        },
+        {
+          "expected": 10.591751561030648,
+          "nested_suffixes": true,
+          "observed": 6,
+          "p_bonf_longest_all": 1.0,
+          "p_lower": 0.053234568596638096,
+          "pair": [
+            "l",
+            "ial"
+          ],
+          "q_bh_longest_all": 0.08807901349625576
+        },
+        {
+          "expected": 8.858111974115737,
+          "nested_suffixes": false,
+          "observed": 7,
+          "p_bonf_longest_all": 1.0,
+          "p_bonf_longest_nonnested": 1.0,
+          "p_lower": 0.2921212054590543,
+          "pair": [
+            "al",
+            "sa"
+          ],
+          "q_bh_longest_all": 0.36920874578852697,
+          "q_bh_longest_nonnested": 0.37496154730565173
+        },
+        {
+          "expected": 61.83070653957087,
+          "nested_suffixes": false,
+          "observed": 13,
+          "p_bonf_longest_all": 2.807786445982433e-22,
+          "p_bonf_longest_nonnested": 2.6535124654339475e-22,
+          "p_lower": 3.0854796109697065e-24,
+          "pair": [
+            "s",
+            "na"
+          ],
+          "q_bh_longest_all": 9.359288153274776e-23,
+          "q_bh_longest_nonnested": 8.845041551446492e-23
+        },
+        {
+          "expected": 6.497038511390023,
+          "nested_suffixes": false,
+          "observed": 1,
+          "p_bonf_longest_all": 0.3852683946325782,
+          "p_bonf_longest_nonnested": 0.3640998015208981,
+          "p_lower": 0.004233718622336025,
+          "pair": [
+            "l",
+            "sa"
+          ],
+          "q_bh_longest_all": 0.011331423371546419,
+          "q_bh_longest_nonnested": 0.011033327318815095
+        },
+        {
+          "expected": 28.95483412447783,
+          "nested_suffixes": false,
+          "observed": 6,
+          "p_bonf_longest_all": 2.1994817998918789e-07,
+          "p_bonf_longest_nonnested": 2.078631151546171e-07,
+          "p_lower": 2.4170129669141526e-09,
+          "pair": [
+            "ial",
+            "sa"
+          ],
+          "q_bh_longest_all": 3.1421168569883986e-08,
+          "q_bh_longest_nonnested": 2.9694730736373872e-08
+        },
+        {
+          "expected": 7.02185881431999,
+          "nested_suffixes": false,
+          "observed": 2,
+          "p_bonf_longest_all": 0.29731369043651645,
+          "p_bonf_longest_nonnested": 0.280977773379565,
+          "p_lower": 0.0032671834113902906,
+          "pair": [
+            "s",
+            "isa"
+          ],
+          "q_bh_longest_all": 0.00900950577080353,
+          "q_bh_longest_nonnested": 0.008780555418111406
+        }
+      ],
+      "reported_ten_bonferroni_lt_05": 5,
+      "tested_pairs": 91,
+      "universe_stems": 2716,
+      "vocab_types": 5909
+    },
+    "ial_ei_and_suffix_c_by_source": {
+      "CIEP": {
+        "ei_stems": 74,
+        "examples": [
+          "anin",
+          "arnth",
+          "arntl",
+          "atain",
+          "fel",
+          "fuln",
+          "larcn",
+          "larn",
+          "marcn",
+          "pepn",
+          "pulfn",
+          "purn",
+          "rin",
+          "tetin",
+          "vipin"
+        ],
+        "ial_stems": 447,
+        "overlap": 15,
+        "suffix_c": {
+          "K": 363,
+          "N": 4086,
+          "expected": 5.330396475770925,
+          "n_suffix": 60,
+          "p": 0.0805280820312687,
+          "support": 9
+        },
+        "vocab": 4214
+      },
+      "CIEW": {
+        "ei_stems": 6,
+        "examples": [],
+        "ial_stems": 1,
+        "overlap": 0,
+        "suffix_c": {
+          "K": 145,
+          "N": 804,
+          "expected": 11.361940298507463,
+          "n_suffix": 63,
+          "p": 0.0017137391032549577,
+          "support": 21
+        },
+        "vocab": 867
+      },
+      "CIEW-CIE": {
+        "ei_stems": 46,
+        "examples": [
+          "sein"
+        ],
+        "ial_stems": 49,
+        "overlap": 1,
+        "suffix_c": {
+          "K": 178,
+          "N": 801,
+          "expected": 0.6666666666666666,
+          "n_suffix": 3,
+          "p": 0.529996871088861,
+          "support": 1
+        },
+        "vocab": 849
+      },
+      "ETP": {
+        "ei_stems": 14,
+        "examples": [],
+        "ial_stems": 14,
+        "overlap": 0,
+        "suffix_c": {
+          "K": 144,
+          "N": 1094,
+          "expected": 5.923217550274223,
+          "n_suffix": 45,
+          "p": 0.0003063036481320037,
+          "support": 15
+        },
+        "vocab": 1147
+      },
+      "all": {
+        "ei_stems": 129,
+        "examples": [
+          "anain",
+          "anein",
+          "anin",
+          "arnth",
+          "arntl",
+          "atain",
+          "calisn",
+          "calun",
+          "carn",
+          "ceis",
+          "fel",
+          "fuln",
+          "fulun",
+          "larcn",
+          "larn",
+          "marcn",
+          "pepn",
+          "percumsn",
+          "pulfn",
+          "purn",
+          "rin",
+          "sein",
+          "tetin",
+          "velczn",
+          "veln",
+          "vetn",
+          "vipin"
+        ],
+        "ial_stems": 487,
+        "overlap": 27,
+        "suffix_c": {
+          "K": 1126,
+          "N": 6345,
+          "expected": 26.97431048069346,
+          "n_suffix": 152,
+          "p": 3.868684760842022e-12,
+          "support": 63
+        },
+        "vocab": 6534
+      },
+      "non_ETP": {
+        "ei_stems": 120,
+        "examples": [
+          "anain",
+          "anein",
+          "anin",
+          "arnth",
+          "arntl",
+          "atain",
+          "calisn",
+          "calun",
+          "carn",
+          "fel",
+          "fuln",
+          "fulun",
+          "larcn",
+          "larn",
+          "marcn",
+          "pepn",
+          "percumsn",
+          "pulfn",
+          "purn",
+          "rin",
+          "sein",
+          "tetin",
+          "velczn",
+          "veln",
+          "vetn",
+          "vipin"
+        ],
+        "ial_stems": 479,
+        "overlap": 26,
+        "suffix_c": {
+          "K": 892,
+          "N": 5497,
+          "expected": 18.985628524649808,
+          "n_suffix": 117,
+          "p": 3.306837213440255e-06,
+          "support": 39
+        },
+        "vocab": 5674
+      }
+    },
+    "longest_match": {
+      "all_pairs_bonferroni_lt_05": 28,
+      "nonnested_pairs": 86,
+      "nonnested_pairs_bonferroni_lt_05": 27,
+      "reported_ten": [
+        {
+          "expected": 21.417661030412532,
+          "nested_suffixes": false,
+          "observed": 5,
+          "p_bonf_longest_all": 1.6683646965337737e-05,
+          "p_bonf_longest_nonnested": 1.5766963066143358e-05,
+          "p_lower": 1.8333677983887625e-07,
+          "pair": [
+            "s",
+            "al"
+          ],
+          "q_bh_longest_all": 1.5093469546367972e-06,
+          "q_bh_longest_nonnested": 1.4333602787403053e-06
+        },
+        {
+          "expected": 22.912198756596705,
+          "nested_suffixes": false,
+          "observed": 6,
+          "p_bonf_longest_all": 8.965111384131925e-06,
+          "p_bonf_longest_nonnested": 8.472522846542258e-06,
+          "p_lower": 9.851770751793324e-08,
+          "pair": [
+            "s",
+            "l"
+          ],
+          "q_bh_longest_all": 1.1206389230164906e-06,
+          "q_bh_longest_nonnested": 1.0590653558177823e-06
+        },
+        {
+          "expected": 6.836140181491006,
+          "nested_suffixes": true,
+          "observed": 4,
+          "p_bonf_longest_all": 1.0,
+          "p_lower": 0.1351573009116402,
+          "pair": [
+            "l",
+            "al"
+          ],
+          "q_bh_longest_all": 0.1921767872337384
+        },
+        {
+          "expected": 93.62872611111979,
+          "nested_suffixes": false,
+          "observed": 14,
+          "p_bonf_longest_all": 4.491601959894394e-44,
+          "p_bonf_longest_nonnested": 4.2448106434166803e-44,
+          "p_lower": 4.935826329554279e-46,
+          "pair": [
+            "s",
+            "ial"
+          ],
+          "q_bh_longest_all": 4.491601959894394e-44,
+          "q_bh_longest_nonnested": 4.2448106434166803e-44
+        },
+        {
+          "expected": 12.294067452853376,
+          "nested_suffixes": true,
+          "observed": 6,
+          "p_bonf_longest_all": 1.0,
+          "p_lower": 0.01581732855335207,
+          "pair": [
+            "l",
+            "ial"
+          ],
+          "q_bh_longest_all": 0.03271311132625088
+        },
+        {
+          "expected": 9.816119400576419,
+          "nested_suffixes": false,
+          "observed": 8,
+          "p_bonf_longest_all": 1.0,
+          "p_bonf_longest_nonnested": 1.0,
+          "p_lower": 0.3091277756397862,
+          "pair": [
+            "al",
+            "sa"
+          ],
+          "q_bh_longest_all": 0.3750750344429406,
+          "q_bh_longest_nonnested": 0.3797855529288802
+        },
+        {
+          "expected": 68.83013763612807,
+          "nested_suffixes": false,
+          "observed": 15,
+          "p_bonf_longest_all": 1.654893115407857e-24,
+          "p_bonf_longest_nonnested": 1.5639649222535792e-24,
+          "p_lower": 1.8185638630855572e-26,
+          "pair": [
+            "s",
+            "na"
+          ],
+          "q_bh_longest_all": 5.5163103846928565e-25,
+          "q_bh_longest_nonnested": 5.213216407511931e-25
+        },
+        {
+          "expected": 7.975645830930689,
+          "nested_suffixes": false,
+          "observed": 1,
+          "p_bonf_longest_all": 0.06486859421921902,
+          "p_bonf_longest_nonnested": 0.06130438574563555,
+          "p_lower": 0.0007128416947166925,
+          "pair": [
+            "l",
+            "sa"
+          ],
+          "q_bh_longest_all": 0.0021622864739739675,
+          "q_bh_longest_nonnested": 0.0021139443360563984
+        },
+        {
+          "expected": 28.952246795060216,
+          "nested_suffixes": false,
+          "observed": 7,
+          "p_bonf_longest_all": 1.5443594918638943e-06,
+          "p_bonf_longest_nonnested": 1.4595045747285155e-06,
+          "p_lower": 1.697098342707576e-08,
+          "pair": [
+            "ial",
+            "sa"
+          ],
+          "q_bh_longest_all": 2.206227845519849e-07,
+          "q_bh_longest_nonnested": 2.0850065353264508e-07
+        },
+        {
+          "expected": 7.11817967200506,
+          "nested_suffixes": false,
+          "observed": 2,
+          "p_bonf_longest_all": 0.3001220042143656,
+          "p_bonf_longest_nonnested": 0.2836317842025872,
+          "p_lower": 0.0032980440023556656,
+          "pair": [
+            "s",
+            "isa"
+          ],
+          "q_bh_longest_all": 0.00857491440612473,
+          "q_bh_longest_nonnested": 0.008594902551593552
+        }
+      ],
+      "reported_ten_bonferroni_lt_05": 5,
+      "tested_pairs": 91,
+      "universe_stems": 2919
+    },
+    "lower_tail_bonferroni_91_lt_05": 35,
+    "orthography": "normalized source forms (token.form), not lossy ASCII projection",
+    "reported_ten_retested_in_full_family": [
+      {
+        "expected": 89.8981183311729,
+        "observed": 27,
+        "p_bonf_182": 1.1767756698321112e-26,
+        "p_bonf_91": 5.883878349160556e-27,
+        "p_lower": 6.465800383692919e-29,
+        "pair": [
+          "s",
+          "al"
+        ],
+        "q_bh_91": 1.9612927830535187e-27
+      },
+      {
+        "expected": 281.2075656841283,
+        "observed": 55,
+        "p_bonf_182": 2.0368678328615215e-152,
+        "p_bonf_91": 1.0184339164307607e-152,
+        "p_lower": 1.1191581499239128e-154,
+        "pair": [
+          "s",
+          "l"
+        ],
+        "q_bh_91": 1.0184339164307607e-152
+      },
+      {
+        "expected": 17.502360651006583,
+        "observed": 4,
+        "p_bonf_182": 9.828657609800819e-05,
+        "p_bonf_91": 4.9143288049004096e-05,
+        "p_lower": 5.400361324066384e-07,
+        "pair": [
+          "l",
+          "al"
+        ],
+        "q_bh_91": 2.457164402450205e-06
+      },
+      {
+        "expected": 94.98749939988018,
+        "observed": 17,
+        "p_bonf_182": 2.662459926112388e-37,
+        "p_bonf_91": 1.331229963056194e-37,
+        "p_lower": 1.462890069292521e-39,
+        "pair": [
+          "s",
+          "ial"
+        ],
+        "q_bh_91": 6.65614981528097e-38
+      },
+      {
+        "expected": 24.658659574825577,
+        "observed": 13,
+        "p_bonf_182": 0.13737409289154615,
+        "p_bonf_91": 0.06868704644577307,
+        "p_lower": 0.0007548027081953085,
+        "pair": [
+          "l",
+          "ial"
+        ],
+        "q_bh_91": 0.0019079735123825855
+      },
+      {
+        "expected": 64.57842314544394,
+        "observed": 17,
+        "p_bonf_182": 1.787881514380141e-21,
+        "p_bonf_91": 8.939407571900705e-22,
+        "p_lower": 9.823524804286488e-24,
+        "pair": [
+          "al",
+          "sa"
+        ],
+        "q_bh_91": 2.1465739606195033e-22
+      },
+      {
+        "expected": 56.923135428745,
+        "observed": 17,
+        "p_bonf_182": 1.0011271894196859e-12,
+        "p_bonf_91": 5.005635947098429e-13,
+        "p_lower": 5.500698842965307e-15,
+        "pair": [
+          "s",
+          "na"
+        ],
+        "q_bh_91": 6.257044933873037e-14
+      },
+      {
+        "expected": 53.16907309125412,
+        "observed": 16,
+        "p_bonf_182": 9.115088880872338e-13,
+        "p_bonf_91": 4.557544440436169e-13,
+        "p_lower": 5.0082905938859e-15,
+        "pair": [
+          "l",
+          "sa"
+        ],
+        "q_bh_91": 6.257044933873037e-14
+      },
+      {
+        "expected": 24.391964494912475,
+        "observed": 7,
+        "p_bonf_182": 0.00048527757620529647,
+        "p_bonf_91": 0.00024263878810264824,
+        "p_lower": 2.6663603088203103e-06,
+        "pair": [
+          "ial",
+          "sa"
+        ],
+        "q_bh_91": 1.1029035822847647e-05
+      },
+      {
+        "expected": 7.6467511005764885,
+        "observed": 2,
+        "p_bonf_182": 0.31543935022934094,
+        "p_bonf_91": 0.15771967511467047,
+        "p_lower": 0.0017331832430183569,
+        "pair": [
+          "s",
+          "isa"
+        ],
+        "q_bh_91": 0.003942991877866762
+      }
+    ],
+    "tested_pairs": 91,
+    "top_lower_tail": [
+      {
+        "expected": 281.2075656841283,
+        "observed": 55,
+        "p_bonf_182": 2.0368678328615215e-152,
+        "p_bonf_91": 1.0184339164307607e-152,
+        "p_lower": 1.1191581499239128e-154,
+        "pair": [
+          "s",
+          "l"
+        ],
+        "q_bh_91": 1.0184339164307607e-152
+      },
+      {
+        "expected": 94.98749939988018,
+        "observed": 17,
+        "p_bonf_182": 2.662459926112388e-37,
+        "p_bonf_91": 1.331229963056194e-37,
+        "p_lower": 1.462890069292521e-39,
+        "pair": [
+          "s",
+          "ial"
+        ],
+        "q_bh_91": 6.65614981528097e-38
+      },
+      {
+        "expected": 89.8981183311729,
+        "observed": 27,
+        "p_bonf_182": 1.1767756698321112e-26,
+        "p_bonf_91": 5.883878349160556e-27,
+        "p_lower": 6.465800383692919e-29,
+        "pair": [
+          "s",
+          "al"
+        ],
+        "q_bh_91": 1.9612927830535187e-27
+      },
+      {
+        "expected": 64.57842314544394,
+        "observed": 17,
+        "p_bonf_182": 1.787881514380141e-21,
+        "p_bonf_91": 8.939407571900705e-22,
+        "p_lower": 9.823524804286488e-24,
+        "pair": [
+          "al",
+          "sa"
+        ],
+        "q_bh_91": 2.1465739606195033e-22
+      },
+      {
+        "expected": 43.736940351395035,
+        "observed": 4,
+        "p_bonf_182": 2.1465739606195034e-21,
+        "p_bonf_91": 1.0732869803097517e-21,
+        "p_lower": 1.1794362420986282e-23,
+        "pair": [
+          "s",
+          "m"
+        ],
+        "q_bh_91": 2.1465739606195033e-22
+      },
+      {
+        "expected": 132.35210977888278,
+        "observed": 66,
+        "p_bonf_182": 1.252326117866144e-17,
+        "p_bonf_91": 6.26163058933072e-18,
+        "p_lower": 6.880912735528264e-20,
+        "pair": [
+          "s",
+          "sa"
+        ],
+        "q_bh_91": 1.0436050982217866e-18
+      },
+      {
+        "expected": 53.16907309125412,
+        "observed": 16,
+        "p_bonf_182": 9.115088880872338e-13,
+        "p_bonf_91": 4.557544440436169e-13,
+        "p_lower": 5.0082905938859e-15,
+        "pair": [
+          "l",
+          "sa"
+        ],
+        "q_bh_91": 6.257044933873037e-14
+      },
+      {
+        "expected": 56.923135428745,
+        "observed": 17,
+        "p_bonf_182": 1.0011271894196859e-12,
+        "p_bonf_91": 5.005635947098429e-13,
+        "p_lower": 5.500698842965307e-15,
+        "pair": [
+          "s",
+          "na"
+        ],
+        "q_bh_91": 6.257044933873037e-14
+      },
+      {
+        "expected": 41.119574860897686,
+        "observed": 13,
+        "p_bonf_182": 7.271328633775708e-10,
+        "p_bonf_91": 3.635664316887854e-10,
+        "p_lower": 3.995235513063576e-12,
+        "pair": [
+          "al",
+          "na"
+        ],
+        "q_bh_91": 4.039627018764282e-11
+      },
+      {
+        "expected": 20.716781787577652,
+        "observed": 2,
+        "p_bonf_182": 4.469152308937854e-09,
+        "p_bonf_91": 2.234576154468927e-09,
+        "p_lower": 2.4555781917240956e-11,
+        "pair": [
+          "al",
+          "c"
+        ],
+        "q_bh_91": 2.2345761544689272e-10
+      },
+      {
+        "expected": 18.781601552271493,
+        "observed": 1,
+        "p_bonf_182": 8.008297438830255e-09,
+        "p_bonf_91": 4.004148719415128e-09,
+        "p_lower": 4.400163427928712e-11,
+        "pair": [
+          "al",
+          "ce"
+        ],
+        "q_bh_91": 3.640135199468298e-10
+      },
+      {
+        "expected": 31.36120550743856,
+        "observed": 8,
+        "p_bonf_182": 1.7270454943864672e-07,
+        "p_bonf_91": 8.635227471932336e-08,
+        "p_lower": 9.489260958167402e-10,
+        "pair": [
+          "s",
+          "c"
+        ],
+        "q_bh_91": 7.196022893276947e-09
+      },
+      {
+        "expected": 39.159240971080536,
+        "observed": 14,
+        "p_bonf_182": 4.3574722014751576e-07,
+        "p_bonf_91": 2.1787361007375788e-07,
+        "p_lower": 2.3942154953160205e-09,
+        "pair": [
+          "ial",
+          "na"
+        ],
+        "q_bh_91": 1.6759508467212145e-08
+      },
+      {
+        "expected": 17.1879888310204,
+        "observed": 2,
+        "p_bonf_182": 6.003438288419737e-06,
+        "p_bonf_91": 3.0017191442098685e-06,
+        "p_lower": 3.2985924661646907e-08,
+        "pair": [
+          "l",
+          "c"
+        ],
+        "q_bh_91": 2.144085103007049e-07
+      },
+      {
+        "expected": 74.15844970642394,
+        "observed": 46,
+        "p_bonf_182": 1.607716878461448e-05,
+        "p_bonf_91": 8.03858439230724e-06,
+        "p_lower": 8.833609222315649e-08,
+        "pair": [
+          "al",
+          "ial"
+        ],
+        "q_bh_91": 5.35905626153816e-07
+      },
+      {
+        "expected": 50.85384186554094,
+        "observed": 27,
+        "p_bonf_182": 2.4681830328971483e-05,
+        "p_bonf_91": 1.2340915164485741e-05,
+        "p_lower": 1.3561445235698618e-07,
+        "pair": [
+          "ial",
+          "ei"
+        ],
+        "q_bh_91": 7.713071977803588e-07
+      },
+      {
+        "expected": 34.67317114737418,
+        "observed": 14,
+        "p_bonf_182": 2.6451974655860026e-05,
+        "p_bonf_91": 1.3225987327930013e-05,
+        "p_lower": 1.45340520087143e-07,
+        "pair": [
+          "ial",
+          "us"
+        ],
+        "q_bh_91": 7.779992545841184e-07
+      },
+      {
+        "expected": 23.85099298249086,
+        "observed": 6,
+        "p_bonf_182": 2.8352105435807436e-05,
+        "p_bonf_91": 1.4176052717903718e-05,
+        "p_lower": 1.5578079909784305e-07,
+        "pair": [
+          "l",
+          "na"
+        ],
+        "q_bh_91": 7.875584843279843e-07
+      },
+      {
+        "expected": 13.057710248579513,
+        "observed": 2,
+        "p_bonf_182": 5.5946384239625126e-05,
+        "p_bonf_91": 2.7973192119812563e-05,
+        "p_lower": 3.0739771560233586e-07,
+        "pair": [
+          "us",
+          "isa"
+        ],
+        "q_bh_91": 1.4722732694638191e-06
+      },
+      {
+        "expected": 17.502360651006583,
+        "observed": 4,
+        "p_bonf_182": 9.828657609800819e-05,
+        "p_bonf_91": 4.9143288049004096e-05,
+        "p_lower": 5.400361324066384e-07,
+        "pair": [
+          "l",
+          "al"
+        ],
+        "q_bh_91": 2.457164402450205e-06
+      }
+    ],
+    "two_direction_bonferroni_182_lt_05": 30,
+    "universe_stems": 4264
+  },
+  "operator_validation_by_provenance": {
+    "CIEP_multiword": {
+      "bonferroni_significant": 1,
+      "inferential_status": "descriptive extraction/translation QA only: record-level units, overlapping provenance subsets, and no artifact clustering",
+      "multiple_testing_scope": "Bonferroni only within this subset",
+      "records": 234,
+      "tests": [
+        {
+          "base_rate": 0.0,
+          "both": 0,
+          "n_keyword": 0,
+          "n_operator": 11,
+          "n_records": 234,
+          "operator": "mi",
+          "p_hypergeom": 1.0,
+          "precision": 0.0,
+          "precision_wilson95": [
+            0.0,
+            0.2588329669680317
+          ],
+          "risk_ratio_precision_over_base": 0.0
+        },
+        {
+          "base_rate": 0.017094017094017096,
+          "both": 0,
+          "n_keyword": 4,
+          "n_operator": 5,
+          "n_records": 234,
+          "operator": "puia",
+          "p_hypergeom": 1.0,
+          "precision": 0.0,
+          "precision_wilson95": [
+            0.0,
+            0.43448246478317476
+          ],
+          "risk_ratio_precision_over_base": 0.0
+        },
+        {
+          "base_rate": 0.004273504273504274,
+          "both": 0,
+          "n_keyword": 1,
+          "n_operator": 3,
+          "n_records": 234,
+          "operator": "zilath",
+          "p_hypergeom": 1.0,
+          "precision": 0.0,
+          "precision_wilson95": [
+            5.551115123125783e-17,
+            0.5614970317550454
+          ],
+          "risk_ratio_precision_over_base": 0.0
+        },
+        {
+          "base_rate": 0.01282051282051282,
+          "both": 3,
+          "n_keyword": 3,
+          "n_operator": 3,
+          "n_records": 234,
+          "operator": "tular",
+          "p_hypergeom": 4.743418980506445e-07,
+          "precision": 1.0,
+          "precision_wilson95": [
+            0.4385029682449546,
+            1.0
+          ],
+          "risk_ratio_precision_over_base": 78.0
+        },
+        {
+          "base_rate": 0.0,
+          "both": 0,
+          "n_keyword": 0,
+          "n_operator": 4,
+          "n_records": 234,
+          "operator": "itun",
+          "p_hypergeom": 1.0,
+          "precision": 0.0,
+          "precision_wilson95": [
+            0.0,
+            0.4898908364545973
+          ],
+          "risk_ratio_precision_over_base": 0.0
+        }
+      ]
+    },
+    "CIEP_singleton_glosses": {
+      "bonferroni_significant": 3,
+      "inferential_status": "descriptive extraction/translation QA only: record-level units, overlapping provenance subsets, and no artifact clustering",
+      "multiple_testing_scope": "Bonferroni only within this subset",
+      "records": 1793,
+      "tests": [
+        {
+          "base_rate": 0.002788622420524261,
+          "both": 0,
+          "n_keyword": 5,
+          "n_operator": 6,
+          "n_records": 1793,
+          "operator": "mi",
+          "p_hypergeom": 1.0,
+          "precision": 0.0,
+          "precision_wilson95": [
+            2.7755575615628914e-17,
+            0.3903342879021653
+          ],
+          "risk_ratio_precision_over_base": 0.0
+        },
+        {
+          "base_rate": 0.009481316229782488,
+          "both": 2,
+          "n_keyword": 17,
+          "n_operator": 5,
+          "n_records": 1793,
+          "operator": "turce",
+          "p_hypergeom": 0.0008324491080035688,
+          "precision": 0.4,
+          "precision_wilson95": [
+            0.11762077423264783,
+            0.769275718723987
+          ],
+          "risk_ratio_precision_over_base": 42.188235294117646
+        },
+        {
+          "base_rate": 0.0033463469046291134,
+          "both": 3,
+          "n_keyword": 6,
+          "n_operator": 5,
+          "n_records": 1793,
+          "operator": "thui",
+          "p_hypergeom": 2.0800543283154092e-07,
+          "precision": 0.6,
+          "precision_wilson95": [
+            0.2307242812760128,
+            0.882379225767352
+          ],
+          "risk_ratio_precision_over_base": 179.29999999999998
+        },
+        {
+          "base_rate": 0.0033463469046291134,
+          "both": 4,
+          "n_keyword": 6,
+          "n_operator": 4,
+          "n_records": 1793,
+          "operator": "tular",
+          "p_hypergeom": 3.494906722013225e-11,
+          "precision": 1.0,
+          "precision_wilson95": [
+            0.5101091635454027,
+            1.0
+          ],
+          "risk_ratio_precision_over_base": 298.8333333333333
+        }
+      ]
+    },
+    "ETP_full_translations": {
+      "bonferroni_significant": 18,
+      "inferential_status": "descriptive extraction/translation QA only: record-level units, overlapping provenance subsets, and no artifact clustering",
+      "multiple_testing_scope": "Bonferroni only within this subset",
+      "records": 211,
+      "tests": [
+        {
+          "base_rate": 0.35545023696682465,
+          "both": 57,
+          "n_keyword": 75,
+          "n_operator": 57,
+          "n_records": 211,
+          "operator": "mi",
+          "p_hypergeom": 5.3620607665401025e-36,
+          "precision": 1.0,
+          "precision_wilson95": [
+            0.9368611651470209,
+            0.9999999999999998
+          ],
+          "risk_ratio_precision_over_base": 2.8133333333333335
+        },
+        {
+          "base_rate": 0.11374407582938388,
+          "both": 19,
+          "n_keyword": 24,
+          "n_operator": 19,
+          "n_records": 211,
+          "operator": "mini",
+          "p_hypergeom": 8.220226490904297e-23,
+          "precision": 1.0,
+          "precision_wilson95": [
+            0.8318207759473837,
+            1.0
+          ],
+          "risk_ratio_precision_over_base": 8.791666666666668
+        },
+        {
+          "base_rate": 0.2559241706161137,
+          "both": 13,
+          "n_keyword": 54,
+          "n_operator": 13,
+          "n_records": 211,
+          "operator": "clan",
+          "p_hypergeom": 6.123921210424909e-09,
+          "precision": 1.0,
+          "precision_wilson95": [
+            0.7719046276458016,
+            0.9999999999999999
+          ],
+          "risk_ratio_precision_over_base": 3.907407407407408
+        },
+        {
+          "base_rate": 0.037914691943127965,
+          "both": 5,
+          "n_keyword": 8,
+          "n_operator": 5,
+          "n_records": 211,
+          "operator": "sec",
+          "p_hypergeom": 1.6853401086702247e-08,
+          "precision": 1.0,
+          "precision_wilson95": [
+            0.5655175352168251,
+            1.0
+          ],
+          "risk_ratio_precision_over_base": 26.374999999999996
+        },
+        {
+          "base_rate": 0.04739336492890995,
+          "both": 4,
+          "n_keyword": 10,
+          "n_operator": 4,
+          "n_records": 211,
+          "operator": "puia",
+          "p_hypergeom": 2.6164905187105242e-06,
+          "precision": 1.0,
+          "precision_wilson95": [
+            0.5101091635454027,
+            1.0
+          ],
+          "risk_ratio_precision_over_base": 21.1
+        },
+        {
+          "base_rate": 0.07109004739336493,
+          "both": 7,
+          "n_keyword": 15,
+          "n_operator": 7,
+          "n_records": 211,
+          "operator": "lupu",
+          "p_hypergeom": 1.9260887282665573e-09,
+          "precision": 1.0,
+          "precision_wilson95": [
+            0.6456695649333126,
+            1.0
+          ],
+          "risk_ratio_precision_over_base": 14.066666666666666
+        },
+        {
+          "base_rate": 0.04265402843601896,
+          "both": 5,
+          "n_keyword": 9,
+          "n_operator": 5,
+          "n_records": 211,
+          "operator": "svalce",
+          "p_hypergeom": 3.792015244508006e-08,
+          "precision": 1.0,
+          "precision_wilson95": [
+            0.5655175352168251,
+            1.0
+          ],
+          "risk_ratio_precision_over_base": 23.444444444444443
+        },
+        {
+          "base_rate": 0.09004739336492891,
+          "both": 14,
+          "n_keyword": 19,
+          "n_operator": 14,
+          "n_records": 211,
+          "operator": "avils",
+          "p_hypergeom": 4.54348064832346e-18,
+          "precision": 1.0,
+          "precision_wilson95": [
+            0.7846891972623643,
+            1.0
+          ],
+          "risk_ratio_precision_over_base": 11.105263157894736
+        },
+        {
+          "base_rate": 0.07109004739336493,
+          "both": 4,
+          "n_keyword": 15,
+          "n_operator": 4,
+          "n_records": 211,
+          "operator": "avil",
+          "p_hypergeom": 1.7007188371618405e-05,
+          "precision": 1.0,
+          "precision_wilson95": [
+            0.5101091635454027,
+            1.0
+          ],
+          "risk_ratio_precision_over_base": 14.066666666666666
+        },
+        {
+          "base_rate": 0.18009478672985782,
+          "both": 14,
+          "n_keyword": 38,
+          "n_operator": 14,
+          "n_records": 211,
+          "operator": "turce",
+          "p_hypergeom": 3.778244920129581e-12,
+          "precision": 1.0,
+          "precision_wilson95": [
+            0.7846891972623643,
+            1.0
+          ],
+          "risk_ratio_precision_over_base": 5.552631578947368
+        },
+        {
+          "base_rate": 0.16113744075829384,
+          "both": 12,
+          "n_keyword": 34,
+          "n_operator": 12,
+          "n_records": 211,
+          "operator": "muluvanice",
+          "p_hypergeom": 4.638649794605098e-11,
+          "precision": 1.0,
+          "precision_wilson95": [
+            0.7575059933447592,
+            1.0
+          ],
+          "risk_ratio_precision_over_base": 6.205882352941177
+        },
+        {
+          "base_rate": 0.052132701421800945,
+          "both": 3,
+          "n_keyword": 11,
+          "n_operator": 3,
+          "n_records": 211,
+          "operator": "zinace",
+          "p_hypergeom": 0.00010690232690731568,
+          "precision": 1.0,
+          "precision_wilson95": [
+            0.4385029682449546,
+            1.0
+          ],
+          "risk_ratio_precision_over_base": 19.181818181818183
+        },
+        {
+          "base_rate": 0.037914691943127965,
+          "both": 6,
+          "n_keyword": 8,
+          "n_operator": 6,
+          "n_records": 211,
+          "operator": "zilath",
+          "p_hypergeom": 2.4543787990343075e-10,
+          "precision": 1.0,
+          "precision_wilson95": [
+            0.6096657120978346,
+            1.0
+          ],
+          "risk_ratio_precision_over_base": 26.374999999999996
+        },
+        {
+          "base_rate": 0.11374407582938388,
+          "both": 11,
+          "n_keyword": 24,
+          "n_operator": 12,
+          "n_records": 211,
+          "operator": "suthi",
+          "p_hypergeom": 3.971462690722891e-11,
+          "precision": 0.9166666666666666,
+          "precision_wilson95": [
+            0.646120088858883,
+            0.9851349055950829
+          ],
+          "risk_ratio_precision_over_base": 8.059027777777779
+        },
+        {
+          "base_rate": 0.02843601895734597,
+          "both": 4,
+          "n_keyword": 6,
+          "n_operator": 5,
+          "n_records": 211,
+          "operator": "thui",
+          "p_hypergeom": 9.272380133594575e-07,
+          "precision": 0.8,
+          "precision_wilson95": [
+            0.37553462976252533,
+            0.9637758913675698
+          ],
+          "risk_ratio_precision_over_base": 28.133333333333336
+        },
+        {
+          "base_rate": 0.07109004739336493,
+          "both": 4,
+          "n_keyword": 15,
+          "n_operator": 4,
+          "n_records": 211,
+          "operator": "cver",
+          "p_hypergeom": 1.7007188371618405e-05,
+          "precision": 1.0,
+          "precision_wilson95": [
+            0.5101091635454027,
+            1.0
+          ],
+          "risk_ratio_precision_over_base": 14.066666666666666
+        },
+        {
+          "base_rate": 0.20853080568720378,
+          "both": 5,
+          "n_keyword": 44,
+          "n_operator": 6,
+          "n_records": 211,
+          "operator": "ame",
+          "p_hypergeom": 0.0016516425513236298,
+          "precision": 0.8333333333333334,
+          "precision_wilson95": [
+            0.43649717781352987,
+            0.9699466302516935
+          ],
+          "risk_ratio_precision_over_base": 3.9962121212121215
+        },
+        {
+          "base_rate": 0.23222748815165878,
+          "both": 22,
+          "n_keyword": 49,
+          "n_operator": 22,
+          "n_records": 211,
+          "operator": "itun",
+          "p_hypergeom": 1.2746567199977467e-16,
+          "precision": 1.0,
+          "precision_wilson95": [
+            0.8513451253913791,
+            1.0
+          ],
+          "risk_ratio_precision_over_base": 4.3061224489795915
+        }
+      ]
+    },
+    "all_multiword": {
+      "bonferroni_significant": 19,
+      "inferential_status": "descriptive extraction/translation QA only: record-level units, overlapping provenance subsets, and no artifact clustering",
+      "multiple_testing_scope": "Bonferroni only within this subset",
+      "records": 443,
+      "tests": [
+        {
+          "base_rate": 0.16930022573363432,
+          "both": 57,
+          "n_keyword": 75,
+          "n_operator": 68,
+          "n_records": 443,
+          "operator": "mi",
+          "p_hypergeom": 2.1752228792847098e-44,
+          "precision": 0.8382352941176471,
+          "precision_wilson95": [
+            0.733099723993876,
+            0.9071990777719586
+          ],
+          "risk_ratio_precision_over_base": 4.951176470588235
+        },
+        {
+          "base_rate": 0.05417607223476298,
+          "both": 19,
+          "n_keyword": 24,
+          "n_operator": 19,
+          "n_records": 443,
+          "operator": "mini",
+          "p_hypergeom": 3.998312961863103e-29,
+          "precision": 1.0,
+          "precision_wilson95": [
+            0.8318207759473837,
+            1.0
+          ],
+          "risk_ratio_precision_over_base": 18.458333333333332
+        },
+        {
+          "base_rate": 0.12866817155756208,
+          "both": 13,
+          "n_keyword": 57,
+          "n_operator": 13,
+          "n_records": 443,
+          "operator": "clan",
+          "p_hypergeom": 7.196022757796865e-13,
+          "precision": 1.0,
+          "precision_wilson95": [
+            0.7719046276458016,
+            0.9999999999999999
+          ],
+          "risk_ratio_precision_over_base": 7.771929824561403
+        },
+        {
+          "base_rate": 0.06997742663656885,
+          "both": 5,
+          "n_keyword": 31,
+          "n_operator": 5,
+          "n_records": 443,
+          "operator": "sec",
+          "p_hypergeom": 1.2224214451061782e-06,
+          "precision": 1.0,
+          "precision_wilson95": [
+            0.5655175352168251,
+            1.0
+          ],
+          "risk_ratio_precision_over_base": 14.290322580645162
+        },
+        {
+          "base_rate": 0.03160270880361174,
+          "both": 4,
+          "n_keyword": 14,
+          "n_operator": 9,
+          "n_records": 443,
+          "operator": "puia",
+          "p_hypergeom": 7.265613781423851e-05,
+          "precision": 0.4444444444444444,
+          "precision_wilson95": [
+            0.18877852109766452,
+            0.733348706504507
+          ],
+          "risk_ratio_precision_over_base": 14.063492063492061
+        },
+        {
+          "base_rate": 0.033860045146726865,
+          "both": 7,
+          "n_keyword": 15,
+          "n_operator": 9,
+          "n_records": 443,
+          "operator": "lupu",
+          "p_hypergeom": 3.5405705570638136e-10,
+          "precision": 0.7777777777777778,
+          "precision_wilson95": [
+            0.45258896910698887,
+            0.9367748928821533
+          ],
+          "risk_ratio_precision_over_base": 22.970370370370368
+        },
+        {
+          "base_rate": 0.020316027088036117,
+          "both": 5,
+          "n_keyword": 9,
+          "n_operator": 5,
+          "n_records": 443,
+          "operator": "svalce",
+          "p_hypergeom": 9.065045940720637e-10,
+          "precision": 1.0,
+          "precision_wilson95": [
+            0.5655175352168251,
+            1.0
+          ],
+          "risk_ratio_precision_over_base": 49.22222222222222
+        },
+        {
+          "base_rate": 0.04288939051918736,
+          "both": 14,
+          "n_keyword": 19,
+          "n_operator": 14,
+          "n_records": 443,
+          "operator": "avils",
+          "p_hypergeom": 1.1127387220770236e-22,
+          "precision": 1.0,
+          "precision_wilson95": [
+            0.7846891972623643,
+            1.0
+          ],
+          "risk_ratio_precision_over_base": 23.31578947368421
+        },
+        {
+          "base_rate": 0.033860045146726865,
+          "both": 4,
+          "n_keyword": 15,
+          "n_operator": 5,
+          "n_records": 443,
+          "operator": "avil",
+          "p_hypergeom": 4.224764660672852e-06,
+          "precision": 0.8,
+          "precision_wilson95": [
+            0.37553462976252533,
+            0.9637758913675698
+          ],
+          "risk_ratio_precision_over_base": 23.626666666666665
+        },
+        {
+          "base_rate": 0.11738148984198646,
+          "both": 14,
+          "n_keyword": 52,
+          "n_operator": 15,
+          "n_records": 443,
+          "operator": "turce",
+          "p_hypergeom": 2.329288269534498e-13,
+          "precision": 0.9333333333333333,
+          "precision_wilson95": [
+            0.7018347012621998,
+            0.9881331045067315
+          ],
+          "risk_ratio_precision_over_base": 7.9512820512820515
+        },
+        {
+          "base_rate": 0.08126410835214447,
+          "both": 12,
+          "n_keyword": 36,
+          "n_operator": 12,
+          "n_records": 443,
+          "operator": "muluvanice",
+          "p_hypergeom": 1.2197056365718342e-14,
+          "precision": 1.0,
+          "precision_wilson95": [
+            0.7575059933447592,
+            1.0
+          ],
+          "risk_ratio_precision_over_base": 12.305555555555555
+        },
+        {
+          "base_rate": 0.024830699774266364,
+          "both": 3,
+          "n_keyword": 11,
+          "n_operator": 3,
+          "n_records": 443,
+          "operator": "zinace",
+          "p_hypergeom": 1.1464908936312847e-05,
+          "precision": 1.0,
+          "precision_wilson95": [
+            0.4385029682449546,
+            1.0
+          ],
+          "risk_ratio_precision_over_base": 40.27272727272727
+        },
+        {
+          "base_rate": 0.020316027088036117,
+          "both": 6,
+          "n_keyword": 9,
+          "n_operator": 9,
+          "n_records": 443,
+          "operator": "zilath",
+          "p_hypergeom": 6.831742327802301e-10,
+          "precision": 0.6666666666666666,
+          "precision_wilson95": [
+            0.3542021355803963,
+            0.879416181613089
+          ],
+          "risk_ratio_precision_over_base": 32.81481481481482
+        },
+        {
+          "base_rate": 0.056433408577878104,
+          "both": 11,
+          "n_keyword": 25,
+          "n_operator": 12,
+          "n_records": 443,
+          "operator": "suthi",
+          "p_hypergeom": 1.8206684382762253e-14,
+          "precision": 0.9166666666666666,
+          "precision_wilson95": [
+            0.646120088858883,
+            0.9851349055950829
+          ],
+          "risk_ratio_precision_over_base": 16.243333333333332
+        },
+        {
+          "base_rate": 0.01580135440180587,
+          "both": 4,
+          "n_keyword": 7,
+          "n_operator": 5,
+          "n_records": 443,
+          "operator": "thui",
+          "p_hypergeom": 1.0993886271440639e-07,
+          "precision": 0.8,
+          "precision_wilson95": [
+            0.37553462976252533,
+            0.9637758913675698
+          ],
+          "risk_ratio_precision_over_base": 50.628571428571426
+        },
+        {
+          "base_rate": 0.033860045146726865,
+          "both": 4,
+          "n_keyword": 15,
+          "n_operator": 4,
+          "n_records": 443,
+          "operator": "cver",
+          "p_hypergeom": 8.622369530615447e-07,
+          "precision": 1.0,
+          "precision_wilson95": [
+            0.5101091635454027,
+            1.0
+          ],
+          "risk_ratio_precision_over_base": 29.53333333333333
+        },
+        {
+          "base_rate": 0.011286681715575621,
+          "both": 4,
+          "n_keyword": 5,
+          "n_operator": 4,
+          "n_records": 443,
+          "operator": "tular",
+          "p_hypergeom": 3.1583771174415556e-09,
+          "precision": 1.0,
+          "precision_wilson95": [
+            0.5101091635454027,
+            1.0
+          ],
+          "risk_ratio_precision_over_base": 88.6
+        },
+        {
+          "base_rate": 0.10835214446952596,
+          "both": 5,
+          "n_keyword": 48,
+          "n_operator": 7,
+          "n_records": 443,
+          "operator": "ame",
+          "p_hypergeom": 0.00021811599493185032,
+          "precision": 0.7142857142857143,
+          "precision_wilson95": [
+            0.35893445183261935,
+            0.9177810759959433
+          ],
+          "risk_ratio_precision_over_base": 6.592261904761905
+        },
+        {
+          "base_rate": 0.11060948081264109,
+          "both": 22,
+          "n_keyword": 49,
+          "n_operator": 26,
+          "n_records": 443,
+          "operator": "itun",
+          "p_hypergeom": 6.618420041579687e-20,
+          "precision": 0.8461538461538461,
+          "precision_wilson95": [
+            0.6646880067178652,
+            0.9384996627642165
+          ],
+          "risk_ratio_precision_over_base": 7.649921507064364
+        }
+      ]
+    }
+  },
+  "prosopography_cluster_null": {
+    "artifact_proxy_clusters": 1347,
+    "cluster_global_null_mean": 0.910256893991341,
+    "cluster_global_p": 0.0004997501249375312,
+    "cluster_source_stratified_null_mean": 1.0682757224710244,
+    "cluster_source_stratified_p": 0.0004997501249375312,
+    "name_occurrences": 1898,
+    "observed_mi": 1.3577649020980167
+  },
+  "seed": 20260710,
+  "semantic_cross_provenance": {
+    "etp_pos_labels_in_corpus": 523,
+    "etp_to_hill_exclusive": {
+      "accuracy": 0.628158844765343,
+      "balanced_accuracy": 0.37688694208090756,
+      "classes": [
+        "NAME-F",
+        "NAME-M",
+        "THEO",
+        "VERB"
+      ],
+      "confusion": [
+        [
+          135,
+          93,
+          0,
+          3
+        ],
+        [
+          111,
+          384,
+          0,
+          27
+        ],
+        [
+          12,
+          45,
+          0,
+          5
+        ],
+        [
+          2,
+          11,
+          0,
+          3
+        ]
+      ],
+      "macro_f1": 0.3472428408563195,
+      "majority_accuracy": 0.628158844765343,
+      "n_test_exclusive": 831,
+      "n_train_exclusive": 433,
+      "permutation_null_mean": 0.5738700361010831,
+      "permutation_p": 0.001996007984031936
+    },
+    "four_class_exact_overlap": 58,
+    "four_class_overlap_agreement": 0.7241379310344828,
+    "hill_ciep_labels": 1303,
+    "hill_to_etp_exclusive": {
+      "accuracy": 0.5935334872979214,
+      "balanced_accuracy": 0.34172011380624007,
+      "classes": [
+        "NAME-F",
+        "NAME-M",
+        "THEO",
+        "VERB"
+      ],
+      "confusion": [
+        [
+          38,
+          51,
+          0,
+          0
+        ],
+        [
+          14,
+          219,
+          0,
+          0
+        ],
+        [
+          4,
+          31,
+          0,
+          0
+        ],
+        [
+          3,
+          73,
+          0,
+          0
+        ]
+      ],
+      "macro_f1": 0.308773765528296,
+      "majority_accuracy": 0.5381062355658198,
+      "n_test_exclusive": 433,
+      "n_train_exclusive": 831,
+      "permutation_null_mean": 0.506133949191686,
+      "permutation_p": 0.001996007984031936
+    },
+    "project_random_split_stem_proxy_in_train": 18,
+    "project_random_split_stem_proxy_leak_share": 0.05142857142857143,
+    "project_random_split_test_types": 350
+  },
+  "stratigraphy_record_null": {
+    "date_interval_imputation_mi_95": [
+      0.5403269494856938,
+      0.6074795395553381
+    ],
+    "date_interval_imputation_mi_median": 0.5683015026417574,
+    "dated_records": 310,
+    "early_vs_mid_bin_changes": 31,
+    "geography_stratified_record_null_mean": 0.46121501647642543,
+    "geography_stratified_record_p": 0.022488755622188907,
+    "intervals_crossing_bin_boundary": 52,
+    "mi_early_bound": 0.5608033486496701,
+    "mi_midpoint": 0.6216983517278762,
+    "record_level_null_mean": 0.35378179186517345,
+    "record_level_p": 0.0004997501249375312,
+    "tested_occurrences": 196,
+    "tested_stems": 41
+  }
+}

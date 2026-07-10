@@ -59,8 +59,7 @@ def main():
     assert corpus['meta'].get('freeze_version') == '0.6'
     in_corpus = {t['ascii'] for r in corpus['records'] for t in r['toks']
                  if t['kind'] == 'W'}
-    lab = {}
-    both = 0
+    votes = {}
     with open(os.path.join('data', 'ETP_POS.csv'), encoding='utf-8') as f:
         for row in csv.DictReader(f):
             w = to_ascii_word(row.get('Etruscan'))
@@ -68,18 +67,19 @@ def main():
                 continue
             p = (row.get('prae') or '').strip() == '1'
             n = (row.get('nomen') or '').strip() == '1'
-            if p and n:
-                both += 1
-                continue
             if p:
-                lab[w] = 0
-            elif n:
-                lab[w] = 1
+                votes.setdefault(w, set()).add(0)
+            if n:
+                votes.setdefault(w, set()).add(1)
+    both_words = sorted(w for w, labs in votes.items() if len(labs) > 1)
+    lab = {w: next(iter(labs)) for w, labs in votes.items()
+           if len(labs) == 1}
     words = sorted(lab)
     y = np.array([lab[w] for w in words])
     log('=== §3.7 (v3): преномен vs гентилиций по форме слова ===')
     log(f'типов: {len(words)} (prae {int((y == 0).sum())}, '
-        f'nomen {int((y == 1).sum())}; с обеими метками отброшено {both})')
+        f'nomen {int((y == 1).sum())}; с обеими метками отброшено '
+        f'{len(both_words)}: {both_words})')
 
     fi = {}
     rows = []
@@ -132,7 +132,7 @@ def main():
     log('топ признаков ЗА преномен: '
         + ', '.join(f'{names[i]}({diff[i]:+.1f})' for i in order[:8]
                     if names[i].startswith(('suf', 'pre'))))
-    with open(OUT_LOG, 'w', encoding='utf-8') as f:
+    with open(OUT_LOG, 'w', encoding='utf-8', newline='\n') as f:
         f.write('\n'.join(LOG) + '\n')
     print(f'\nлог записан: {OUT_LOG}')
 

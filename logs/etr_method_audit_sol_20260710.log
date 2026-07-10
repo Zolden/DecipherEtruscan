@@ -1,0 +1,109 @@
+=== 1. Corpus units, duplication, and uncertainty ===
+canonical view: 6795 records, 12450 tokens, 7384 source-form / 7152 ASCII types, but only 5242 best-available artifact clusters
+CIEP: 5363 concordance rows -> 4203 CIE ids / 2130 known TM ids
+single-word records: 4798/6795 (70.6%); translated singletons: 1795/2238 (80.2%)
+exact duplicated multiword sequences: 25 groups / 51 records; cross-source 7, cross-artifact-proxy 12
+epistemically uncertain tokens: 2582/12450 (20.7%); types attested only in uncertain tokens: 1470
+ascii projection merges distinct source forms for 212 types (expected normalization, but uncertainty must be propagated)
+known same-monument aliases Liber_Linteus: 285 records / 1460 tokens across {'ETP': 12, 'CIEP': 49, 'CIEW': 224}
+known same-monument aliases Tabula_Capuana: 97 records / 547 tokens across {'CIEP': 23, 'CIEW': 74}
+
+=== 2. Concept convergence: corrected null and multiplicity ===
+observed concepts with score>=2: 16; coverage-preserving null mean 0.2, 95% quantile 1, global-count p=0.0005
+conditional raw p<.05: 16; BH q<.05 across 290: 14; max-stat FWER<.05: 2
+  shekel-weight      score=6 langs=5 p=0.0005 q=0.0161 p_FWER=0.0010
+  cumin              score=5 langs=6 p=0.0005 q=0.0161 p_FWER=0.0010
+  heart              score=3 langs=5 p=0.0005 q=0.0161 p_FWER=0.0530
+  garlic             score=3 langs=5 p=0.0010 q=0.0242 p_FWER=0.0530
+  cedar              score=2 langs=5 p=0.0005 q=0.0161 p_FWER=0.1869
+  cup                score=2 langs=5 p=0.0005 q=0.0161 p_FWER=0.1869
+  cypress            score=2 langs=5 p=0.0005 q=0.0161 p_FWER=0.1869
+  father             score=2 langs=4 p=0.0005 q=0.0161 p_FWER=0.1869
+
+=== 3. Supervised semantics: cross-provenance evaluation ===
+Hill/CIEP labels: 1303; ETP_POS labels in corpus: 523; 4-class overlap 58, agreement 72.4%
+Hill-only -> ETP-only: n=433, acc=59.4%, balanced=34.2%, macro-F1=0.309, p=0.0020
+ETP-only -> Hill-only: n=831, acc=62.8%, balanced=37.7%, macro-F1=0.347, p=0.0020
+in the project-style fixed random split, 18/350 (5.1%) test types share a crude case-stripped stem with train
+
+=== 3b. Operator/gloss association split by translation provenance ===
+  ETP_full_translations: records=211, tests=18, Bonferroni-significant=18
+    mi           57/57 precision=100% base=35.5% RR=2.8 p=5.36e-36
+    clan         13/13 precision=100% base=25.6% RR=3.9 p=6.12e-09
+    lupu         7/7 precision=100% base=7.1% RR=14.1 p=1.93e-09
+    turce        14/14 precision=100% base=18.0% RR=5.6 p=3.78e-12
+    muluvanice   12/12 precision=100% base=16.1% RR=6.2 p=4.64e-11
+  CIEP_singleton_glosses: records=1793, tests=4, Bonferroni-significant=3
+    mi           0/6 precision=0% base=0.3% RR=0.0 p=1
+    turce        2/5 precision=40% base=0.9% RR=42.2 p=0.000832
+    tular        4/4 precision=100% base=0.3% RR=298.8 p=3.49e-11
+  CIEP_multiword: records=234, tests=5, Bonferroni-significant=1
+    mi           0/11 precision=0% base=0.0% RR=0.0 p=1
+    tular        3/3 precision=100% base=1.3% RR=78.0 p=4.74e-07
+  all_multiword: records=443, tests=19, Bonferroni-significant=19
+    mi           57/68 precision=84% base=16.9% RR=5.0 p=2.18e-44
+    clan         13/13 precision=100% base=12.9% RR=7.8 p=7.2e-13
+    lupu         7/9 precision=78% base=3.4% RR=23.0 p=3.54e-10
+    turce        14/15 precision=93% base=11.7% RR=8.0 p=2.33e-13
+    muluvanice   12/12 precision=100% base=8.1% RR=12.3 p=1.22e-14
+    tular        4/4 precision=100% base=1.1% RR=88.6 p=3.16e-09
+
+=== 3c. New approach pilot: context-only anchor transfer ===
+excluding CIEP: 1249 multiword records; 181 labeled freq>=2 types ({'FUNC': 17, 'THEO': 10, 'NAME-M': 90, 'NAME-F': 27, 'VERB': 37})
+family-blocked PPMI centroid CV: acc=51.9% (majority=49.7%), balanced=39.1%, macro-F1=0.391; permutation balanced mean=19.8%, p=0.0005
+
+=== 4. Morphology: selection family and source replication ===
+all 91 candidate pairs retested with exact final+length-stratified null: 35 survive lower-tail Bonferroni, 30 survive the two-direction family
+  -s/-al obs=27 E=89.9 p=6.47e-29 pBonf182=1.18e-26
+  -s/-l obs=55 E=281.2 p=1.12e-154 pBonf182=2.04e-152
+  -l/-al obs=4 E=17.5 p=5.4e-07 pBonf182=9.83e-05
+  -s/-ial obs=17 E=95.0 p=1.46e-39 pBonf182=2.66e-37
+  -l/-ial obs=13 E=24.7 p=0.000755 pBonf182=0.137
+  -al/-sa obs=17 E=64.6 p=9.82e-24 pBonf182=1.79e-21
+  -s/-na obs=17 E=56.9 p=5.5e-15 pBonf182=1e-12
+  -l/-sa obs=16 E=53.2 p=5.01e-15 pBonf182=9.12e-13
+  -ial/-sa obs=7 E=24.4 p=2.67e-06 pBonf182=0.000485
+  -s/-isa obs=2 E=7.6 p=0.00173 pBonf182=0.315
+longest-match ablation: 28/91 pairs survive Bonferroni; after excluding nested endings, 27/86
+  longest -s/-al nested=False obs=5 E=21.4 p=1.83e-07 pBonf91=1.67e-05
+  longest -s/-l nested=False obs=6 E=22.9 p=9.85e-08 pBonf91=8.97e-06
+  longest -l/-al nested=True obs=4 E=6.8 p=0.135 pBonf91=1
+  longest -s/-ial nested=False obs=14 E=93.6 p=4.94e-46 pBonf91=4.49e-44
+  longest -l/-ial nested=True obs=6 E=12.3 p=0.0158 pBonf91=1
+  longest -al/-sa nested=False obs=8 E=9.8 p=0.309 pBonf91=1
+  longest -s/-na nested=False obs=15 E=68.8 p=1.82e-26 pBonf91=1.65e-24
+  longest -l/-sa nested=False obs=1 E=8.0 p=0.000713 pBonf91=0.0649
+  longest -ial/-sa nested=False obs=7 E=29.0 p=1.7e-08 pBonf91=1.54e-06
+  longest -s/-isa nested=False obs=2 E=7.1 p=0.0033 pBonf91=0.3
+clean-reading sensitivity (exclude ocr? records and damaged/uncertain/restored/emended tokens): 5/10 reported pairs, 27/91 all pairs survive Bonferroni
+  clean longest -s/-al obs=4 E=15.8 p=1.96e-05 pBonf91=0.00178
+  clean longest -s/-l obs=5 E=19.2 p=1.56e-06 pBonf91=0.000142
+  clean longest -l/-al obs=3 E=5.6 p=0.13 pBonf91=1
+  clean longest -s/-ial obs=14 E=88.9 p=1.81e-43 pBonf91=1.65e-41
+  clean longest -l/-ial obs=6 E=10.6 p=0.0532 pBonf91=1
+  clean longest -al/-sa obs=7 E=8.9 p=0.292 pBonf91=1
+  clean longest -s/-na obs=13 E=61.8 p=3.09e-24 pBonf91=2.81e-22
+  clean longest -l/-sa obs=1 E=6.5 p=0.00423 pBonf91=0.385
+  clean longest -ial/-sa obs=6 E=29.0 p=2.42e-09 pBonf91=2.2e-07
+  clean longest -s/-isa obs=2 E=7.0 p=0.00327 pBonf91=0.297
+  ETP: -ial/-ei exact shared stems 0 (14 x 14); -c support 15/45, E=5.9, p=0.000306
+  CIEP: -ial/-ei exact shared stems 15 (447 x 74); -c support 9/60, E=5.3, p=0.0805
+  CIEW: -ial/-ei exact shared stems 0 (1 x 6); -c support 21/63, E=11.4, p=0.00171
+  CIEW-CIE: -ial/-ei exact shared stems 1 (49 x 46); -c support 1/3, E=0.7, p=0.53
+  all: -ial/-ei exact shared stems 27 (487 x 129); -c support 63/152, E=27.0, p=3.87e-12
+
+=== 5. Prosopography: artifact-cluster permutation ===
+MI=1.3578 on 1898 name occurrences in 1347 clusters; cluster-null mean=0.9103, p=0.0005; source-stratified cluster-null mean=1.0683, p=0.0005
+
+=== 5b. Stratigraphy: record-level null and date intervals ===
+310 dated records; 52 intervals cross a bin boundary; 31 assignments change using midpoint
+MI early=0.5608, midpoint=0.6217; record-null mean=0.3538, p=0.0005; geography-stratified null mean=0.4612, p=0.0225
+interval-imputed MI median=0.5683, 95% [0.5403, 0.6075]
+
+=== 6. Lemnian classifier: exact-type leakage and type-disjoint rerun ===
+  original etr holdout exact-token leakage: 642/10115 (6.3%)
+  original lat holdout exact-token leakage: 19/80 (23.8%)
+  original umb holdout exact-token leakage: 20/57 (35.1%)
+  type-disjoint present_only_project: 5983/6000 bags correct (99.7%); Lemnian over 100 splits: {'lat': 70, 'etr': 30}
+  type-disjoint bernoulli: 5983/6000 bags correct (99.7%); Lemnian over 100 splits: {'lat': 67, 'etr': 33}
+  type-disjoint multinomial: 5984/6000 bags correct (99.7%); Lemnian over 100 splits: {'lat': 69, 'etr': 31}

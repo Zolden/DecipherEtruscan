@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 """§6: Лемносская стела — количественная проверка тирренской параллели.
 
-Данные: записи lang='lemn' (источник CIEW 9002, v0.4) и — контроли —
-токены lang='lat' и lang='umb' записей корпуса.
+Данные: полная чистая транслитерация lang='lemn' из supplement v0.6
+(CIEP 15999 содержит частичные варианты того же памятника и исключён из
+этого анализа во избежание двойного счёта); контроли — токены lang='lat'
+и lang='umb' записей корпуса.
 
 Тест «этрусковидности концовок»: статистика — доля словоформ-токенов
 языка L, чья финальная биграмма входит в инвентарь финальных биграмм
@@ -31,6 +33,7 @@ sys.stdout.reconfigure(encoding='utf-8')
 R = 10000
 SEED = 42
 OUT_LOG = os.path.join('logs', 'etr_lemnos.log')
+LEMNOS_SRC = 'SUPP:lemnos_wikipedia.csv'
 LOG = []
 
 
@@ -41,16 +44,21 @@ def log(msg=''):
 
 def main():
     os.makedirs('logs', exist_ok=True)
+    log('RETRACT 2026-07-10: прежняя положительная атрибуция имела target '
+        'leakage. Даже после очистки forced closed-set score не доказывает '
+        'родство; см. §8 и audit type-disjoint result.')
+    log()
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
     assert corpus['meta'].get('freeze_version') == '0.6'
     recs = corpus['records']
 
-    def toks_of(lang):
+    def toks_of(lang, src=None):
         out = []
         for r in recs:
             if r['lang'] == lang and r['kind'] == 'text' \
                     and 'forgery?' not in r['flags'] \
-                    and r.get('variant_of') is None:
+                    and r.get('variant_of') is None \
+                    and (src is None or r['src'] == src):
                 for t in r['toks']:
                     if t['kind'] == 'W' and '-' not in t['ascii'] \
                             and len(t['ascii']) >= 3:
@@ -69,7 +77,9 @@ def main():
     log(f'этрусский словарь: {len(vocab)} типов; инвентарь финальных '
         f'биграмм (≥5 типов): {len(END2)}')
 
-    lemn = toks_of('lemn')
+    # CIEP 15999 contains two partial/variant readings of the same stele.
+    # Use only the declared clean, complete supplement to avoid double count.
+    lemn = toks_of('lemn', LEMNOS_SRC)
     log(f'лемнийских токенов: {len(lemn)}: {lemn}')
 
     rng = np.random.default_rng(SEED)
@@ -96,7 +106,7 @@ def main():
 
     log()
     log('--- тест этрусковидности концовок (нуль: скрэмбл букв в слове) ---')
-    test_lang(lemn, 'лемнийский (CIEW)')
+    test_lang(lemn, 'лемнийский (supplement)')
     test_lang(toks_of('lat'), 'латынь (контроль)')
     test_lang(toks_of('umb'), 'умбрский (контроль)')
     test_lang(toks_of('cel'), 'кельтский (контроль)')
@@ -138,7 +148,7 @@ def main():
             seen.add(w)
             log(f'  {w:<14} ~ {", ".join(cands)}')
 
-    with open(OUT_LOG, 'w', encoding='utf-8') as f:
+    with open(OUT_LOG, 'w', encoding='utf-8', newline='\n') as f:
         f.write('\n'.join(LOG) + '\n')
     print(f'\nлог записан: {OUT_LOG}')
 

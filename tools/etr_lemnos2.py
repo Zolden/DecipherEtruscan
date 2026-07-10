@@ -3,13 +3,15 @@
 лемнийский НАБОР токенов?
 
 Модель: наивный Байес по признакам формы (финальные 1–3-граммы,
-начальные 1–2) на ТОКЕНАХ трёх языков корпуса v0.5: этрусский (выборка),
+начальные 1–2) на ТОКЕНАХ трёх языков корпуса v0.6: этрусский (выборка),
 латынь, умбрский. Атрибуция НАБОРА: сумма лог-правдоподобий по токенам.
 Калибровка: бутстрэп — наборы размера n_lemn из отложенных токенов
 каждого языка (R=2000, seed=42) → матрица «истина × атрибуция»; затем
-атрибутируется лемнийский набор (31 токен) и сообщается маржа
-лог-правдоподобий. Оговорки: OCR-шум стелы; этрусская выборка доминирует
-корпус — берём сбалансированные обучающие пулы.
+атрибутируется лемнийский набор (33 токена) и сообщается маржа
+лог-правдоподобий. Лемнийский набор — 33 токена чистого supplement;
+частичные варианты CIEP 15999 исключены во избежание двойного счёта.
+Оговорки: этрусская выборка доминирует корпус — берём сбалансированные
+обучающие пулы.
 
 Запуск:
   PYTHONIOENCODING=utf-8 PYTHONHASHSEED=0 .venv/Scripts/python.exe tools/etr_lemnos2.py
@@ -26,6 +28,7 @@ sys.stdout.reconfigure(encoding='utf-8')
 SEED = 42
 R_BOOT = 2000
 OUT_LOG = os.path.join('logs', 'etr_lemnos2.log')
+LEMNOS_SRC = 'SUPP:lemnos_wikipedia.csv'
 LOG = []
 
 
@@ -47,16 +50,20 @@ def feats(w):
 
 def main():
     os.makedirs('logs', exist_ok=True)
+    log('RETRACT 2026-07-10: closed-set NB вынужденно относит отдельный OOD '
+        'язык к etr/lat/umb и не атрибутирует Лемнос. См. §8 отчёта.')
+    log()
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
     assert corpus['meta'].get('freeze_version') == '0.6'
     recs = corpus['records']
 
-    def toks_of(lang):
+    def toks_of(lang, src=None):
         out = []
         for r in recs:
             if r['lang'] == lang and r['kind'] == 'text' \
                     and 'forgery?' not in r['flags'] \
-                    and r.get('variant_of') is None:
+                    and r.get('variant_of') is None \
+                    and (src is None or r['src'] == src):
                 for t in r['toks']:
                     if t['kind'] == 'W' and '-' not in t['ascii'] \
                             and len(t['ascii']) >= 3:
@@ -65,7 +72,8 @@ def main():
 
     pools = {'etr': toks_of('etr'), 'lat': toks_of('lat'),
              'umb': toks_of('umb')}
-    lemn = toks_of('lemn')
+    # CIEP 15999 is a partial/variant reading of this same monument.
+    lemn = toks_of('lemn', LEMNOS_SRC)
     rng = np.random.default_rng(SEED)
     log('=== §6.1: языковая атрибуция лемнийского набора ===')
     log(f'пулы токенов: '
@@ -145,7 +153,7 @@ def main():
     log(f'бутстрэп лемнийского набора (500): атрибуция «{best[0][0]}» '
         f'устойчива в {np.mean(margins > 0):.0%} ресемплов')
 
-    with open(OUT_LOG, 'w', encoding='utf-8') as f:
+    with open(OUT_LOG, 'w', encoding='utf-8', newline='\n') as f:
         f.write('\n'.join(LOG) + '\n')
     print(f'\nлог записан: {OUT_LOG}')
 

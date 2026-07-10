@@ -45,6 +45,9 @@ def log(m=''):
 
 def main():
     os.makedirs('logs', exist_ok=True)
+    log('RETRACT 2026-07-10: семейные p̃ ниже невалидны; turce не отличается '
+        'от других dedicatory verbs (Fisher p=.358). См. §8 отчёта.')
+    log()
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
     assert corpus['meta'].get('freeze_version') == '0.6'
     view = [r for r in corpus['records']
@@ -120,7 +123,7 @@ def main():
         f'нуль (обмен внутри пар): p={p_open:.4f}')
     log(f'топ слов позиции 2: {Counter(p2).most_common(8)}')
 
-    with open(OUT_LOG, 'w', encoding='utf-8') as f:
+    with open(OUT_LOG, 'w', encoding='utf-8', newline='\n') as f:
         f.write('\n'.join(LOG) + '\n')
     print(f'\nлог записан: {OUT_LOG}')
 

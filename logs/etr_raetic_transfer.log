@@ -1,0 +1,32 @@
+=== Raetic -> Etruscan case transfer (strict) ===
+TIR train=90 {'GEN': 15, 'PERT': 24, 'NOM': 51}; ETP gold=480 {'NOM': 234, 'GEN': 222, 'PERT': 24}
+evidence coverage=356/480 (0.742); abstained=124
+covered accuracy=0.624; balanced=0.719 (cluster bootstrap 95% 0.671..0.761); macro-F1=0.585
+confusion rows=('GEN', 'NOM', 'PERT'), cols=('GEN', 'NOM', 'PERT'): [[93, 62, 4], [10, 106, 57], [0, 1, 23]]
+  GEN: n=159 precision=0.903 recall=0.585 F1=0.710
+  NOM: n=173 precision=0.627 recall=0.613 F1=0.620
+  PERT: n=24 precision=0.274 recall=0.958 F1=0.426
+train lemma-block null R=10000: mean=0.397, q95=0.634, p_raw=0.00300, p_Bonf4=0.01200
+target family-block null (346 families): mean=0.335, q95=0.391, p_raw=0.00010, p_Bonf4=0.00040
+checklevel=0 sensitivity: train=66, coverage=342/480 (0.713), balanced=0.711
+POST-HOC longest k=2..4: coverage=176/480 (0.367), accuracy=0.886, balanced=0.911
+POST-HOC candidate-like freq>=2: n=68, accuracy=0.926, balanced=0.946
+empirical-prior sensitivity: accuracy=0.663, balanced=0.746
+
+=== Raetic -> Etruscan case transfer (minimal) ===
+TIR train=90 {'GEN': 15, 'PERT': 24, 'NOM': 51}; ETP gold=506 {'NOM': 250, 'GEN': 232, 'PERT': 24}
+evidence coverage=435/506 (0.860); abstained=71
+covered accuracy=0.676; balanced=0.756 (cluster bootstrap 95% 0.714..0.795); macro-F1=0.613
+confusion rows=('GEN', 'NOM', 'PERT'), cols=('GEN', 'NOM', 'PERT'): [[158, 57, 4], [22, 113, 57], [0, 1, 23]]
+  GEN: n=219 precision=0.878 recall=0.721 F1=0.792
+  NOM: n=192 precision=0.661 recall=0.589 F1=0.623
+  PERT: n=24 precision=0.274 recall=0.958 F1=0.426
+train lemma-block null R=10000: mean=0.394, q95=0.646, p_raw=0.00070, p_Bonf4=0.00280
+target family-block null (412 families): mean=0.347, q95=0.399, p_raw=0.00010, p_Bonf4=0.00040
+checklevel=0 sensitivity: train=66, coverage=420/506 (0.830), balanced=0.723
+POST-HOC longest k=2..4: coverage=258/506 (0.510), accuracy=0.888, balanced=0.896
+POST-HOC candidate-like freq>=2: n=102, accuracy=0.931, balanced=0.939
+empirical-prior sensitivity: accuracy=0.708, balanced=0.780
+
+candidates=265 -> results\raetic_transfer_candidates.csv
+validation -> results\raetic_transfer_validation.json; log -> logs\etr_raetic_transfer.log

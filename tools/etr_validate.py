@@ -209,7 +209,7 @@ def main():
                     if all(verdicts) else
                     'ЕСТЬ НЕОБЪЯСНЁННЫЕ РАСХОЖДЕНИЯ — разобрать до этапа 2'))
 
-    with open(OUT_LOG, 'w', encoding='utf-8') as f:
+    with open(OUT_LOG, 'w', encoding='utf-8', newline='\n') as f:
         f.write('\n'.join(LOG) + '\n')
     print(f'\nлог записан: {OUT_LOG}')
 

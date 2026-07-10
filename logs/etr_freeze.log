@@ -2,6 +2,8 @@
 вход: etruscan_larth.csv  sha256=e00bbff1858dbfd2…
 вход: ETP_fix.csv  sha256=8565fb95af147f35…
 вход: CIEP_pymupdf.csv  sha256=8ab2d7b7ba1102af…
+вход: supplements/lemnos_wikipedia.csv  sha256=048161b5f669f398…
+вход: supplements/pyrgi_wikipedia.csv  sha256=adedd947acd6b61c…
 
 larth: 7139 строк = ETP-часть 561 + CIEP-часть 6578
 сверка ETP_fix ⊆ larth(ETP-часть): не найдено 0 из 561 (ожидание: 0)
@@ -25,7 +27,7 @@ ETP-часть: dash-split не применялся (конвенция); CIEP-
 
 === состав корпуса ===
 src: {'CIEP': 5833, 'CIEW': 347, 'CIEW-CIE': 618, 'ETP': 528, 'SUPP': 12}
-lang: {'cel': 11, 'etr': 6919, 'etr-lat': 2, 'fal': 127, 'lat': 174, 'lemn': 10, 'umb': 95}
+lang: {'cel': 11, 'etr': 6917, 'etr-lat': 2, 'fal': 127, 'lat': 174, 'lemn': 12, 'umb': 95}
 kind: {'abecedarium?': 2, 'text': 7336}
 seg: {'long-unseg': 662, 'multi': 2139, 'single': 4537}
 reading: {'': 1505, 'C': 3005, 'T': 2828}
@@ -33,15 +35,15 @@ region: {'∅': 3910, 'Cl': 1372, 'Pe': 555, 'Ta': 215, 'AS': 183, 'Vs': 174, 'A
 записей с флагом forgery?: 95
 
 === канонические числа (lang=etr, kind=text, без forgery?, без variant_of) ===
-записей: 6797; словоформ-токенов: 12455; типов: 7389; гапаксов: 5988 (81%)
+записей: 6795; словоформ-токенов: 12450; типов: 7384; гапаксов: 5983 (81%)
 числительных-токенов: 189; лакун-токенов: 444
 записей с переводом: 2238 (33%)
   ETP: записей 491, токенов 2030, типов 1271, с переводом 211
-  CIEP: записей 5365, токенов 6497, типов 4670, с переводом 2027
+  CIEP: записей 5363, токенов 6492, типов 4665, с переводом 2027
   SUPP: записей 2, токенов 58, типов 53, с переводом 0
 записей вида с регионом или городом: 3658 (54%)
 флаги токенов: {'braced': 11, 'caps': 1, 'damaged': 856, 'emended': 819, 'expanded': 1804, 'line_split': 124, 'restored': 529, 'scribal_extra': 126, 'stripped_chars': 16, 'uncertain': 50}
-ascii-типов: ETP 1219, CIEP 4670, общих 292 — сопоставимость частей
+ascii-типов: ETP 1219, CIEP 4665, общих 292 — сопоставимость частей
 
-записан data\etr_corpus.pkl: 7338 записей, sha256=d31ef483fee880ac430303f3f39ab68e9c1b8c54b9359258744e0b0670e9adca
-записана выборка для ручной сверки: validation\sample50.md
+записан data\etr_corpus.pkl: 7338 записей, sha256=f5cba35eff9bf560a65bff7e63212e67d88e4cb896c267dc4ed66ea469770790
+записана выборка для ручной сверки: validation\sample50.md; предыдущих rid: 50; сохранено ручных отметок по rid: 0
