@@ -80,7 +80,7 @@ def main():
         'вложены. Использовать source-form longest-match audit, не 10/10 ниже.')
     log()
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
-    assert corpus['meta'].get('freeze_version') == '0.7'
+    assert corpus['meta'].get('freeze_version') == '0.8'
     view = view_of(corpus)
     vocab = {w for w in Counter(t['ascii'] for r in view for t in r['toks']
                                 if t['kind'] == 'W')

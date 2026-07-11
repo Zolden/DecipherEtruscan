@@ -1,10 +1,10 @@
 === 1. Corpus units, duplication, and uncertainty ===
-canonical view: 6795 records, 12450 tokens, 7384 source-form / 7152 ASCII types, but only 5242 best-available artifact clusters
+canonical view: 6788 records, 12409 tokens, 7360 source-form / 7129 ASCII types, but only 5235 best-available artifact clusters
 CIEP: 5363 concordance rows -> 4203 CIE ids / 2130 known TM ids
-single-word records: 4798/6795 (70.6%); translated singletons: 1795/2238 (80.2%)
-exact duplicated multiword sequences: 25 groups / 51 records; cross-source 7, cross-artifact-proxy 12
-epistemically uncertain tokens: 2582/12450 (20.7%); types attested only in uncertain tokens: 1470
-ascii projection merges distinct source forms for 212 types (expected normalization, but uncertainty must be propagated)
+single-word records: 4796/6788 (70.7%); translated singletons: 1795/2238 (80.2%)
+exact duplicated multiword sequences: 26 groups / 53 records; cross-source 7, cross-artifact-proxy 13
+epistemically uncertain tokens: 2562/12409 (20.6%); types attested only in uncertain tokens: 1455
+ascii projection merges distinct source forms for 211 types (expected normalization, but uncertainty must be propagated)
 known same-monument aliases Liber_Linteus: 285 records / 1460 tokens across {'ETP': 12, 'CIEP': 49, 'CIEW': 224}
 known same-monument aliases Tabula_Capuana: 97 records / 547 tokens across {'CIEP': 23, 'CIEW': 74}
 
@@ -49,33 +49,33 @@ in the project-style fixed random split, 18/350 (5.1%) test types share a crude 
     tular        4/4 precision=100% base=1.1% RR=88.6 p=3.16e-09
 
 === 3c. New approach pilot: context-only anchor transfer ===
-excluding CIEP: 1249 multiword records; 181 labeled freq>=2 types ({'FUNC': 17, 'THEO': 10, 'NAME-M': 90, 'NAME-F': 27, 'VERB': 37})
+excluding CIEP: 1244 multiword records; 181 labeled freq>=2 types ({'FUNC': 17, 'THEO': 10, 'NAME-M': 90, 'NAME-F': 27, 'VERB': 37})
 family-blocked PPMI centroid CV: acc=51.9% (majority=49.7%), balanced=39.1%, macro-F1=0.391; permutation balanced mean=19.8%, p=0.0005
 
 === 4. Morphology: selection family and source replication ===
 all 91 candidate pairs retested with exact final+length-stratified null: 35 survive lower-tail Bonferroni, 30 survive the two-direction family
-  -s/-al obs=27 E=89.9 p=6.47e-29 pBonf182=1.18e-26
-  -s/-l obs=55 E=281.2 p=1.12e-154 pBonf182=2.04e-152
-  -l/-al obs=4 E=17.5 p=5.4e-07 pBonf182=9.83e-05
-  -s/-ial obs=17 E=95.0 p=1.46e-39 pBonf182=2.66e-37
-  -l/-ial obs=13 E=24.7 p=0.000755 pBonf182=0.137
-  -al/-sa obs=17 E=64.6 p=9.82e-24 pBonf182=1.79e-21
-  -s/-na obs=17 E=56.9 p=5.5e-15 pBonf182=1e-12
-  -l/-sa obs=16 E=53.2 p=5.01e-15 pBonf182=9.12e-13
-  -ial/-sa obs=7 E=24.4 p=2.67e-06 pBonf182=0.000485
-  -s/-isa obs=2 E=7.6 p=0.00173 pBonf182=0.315
+  -s/-al obs=27 E=89.9 p=5.96e-29 pBonf182=1.08e-26
+  -s/-l obs=55 E=280.8 p=2.26e-154 pBonf182=4.12e-152
+  -l/-al obs=4 E=17.5 p=5.37e-07 pBonf182=9.77e-05
+  -s/-ial obs=17 E=95.1 p=1.21e-39 pBonf182=2.2e-37
+  -l/-ial obs=13 E=24.7 p=0.000747 pBonf182=0.136
+  -al/-sa obs=17 E=64.6 p=9.7e-24 pBonf182=1.77e-21
+  -s/-na obs=17 E=56.5 p=9.54e-15 pBonf182=1.74e-12
+  -l/-sa obs=16 E=53.2 p=4.73e-15 pBonf182=8.62e-13
+  -ial/-sa obs=7 E=24.4 p=2.6e-06 pBonf182=0.000473
+  -s/-isa obs=2 E=7.7 p=0.00171 pBonf182=0.311
 longest-match ablation: 28/91 pairs survive Bonferroni; after excluding nested endings, 27/86
-  longest -s/-al nested=False obs=5 E=21.4 p=1.83e-07 pBonf91=1.67e-05
-  longest -s/-l nested=False obs=6 E=22.9 p=9.85e-08 pBonf91=8.97e-06
+  longest -s/-al nested=False obs=5 E=21.4 p=1.78e-07 pBonf91=1.62e-05
+  longest -s/-l nested=False obs=6 E=22.9 p=9.85e-08 pBonf91=8.96e-06
   longest -l/-al nested=True obs=4 E=6.8 p=0.135 pBonf91=1
-  longest -s/-ial nested=False obs=14 E=93.6 p=4.94e-46 pBonf91=4.49e-44
-  longest -l/-ial nested=True obs=6 E=12.3 p=0.0158 pBonf91=1
-  longest -al/-sa nested=False obs=8 E=9.8 p=0.309 pBonf91=1
-  longest -s/-na nested=False obs=15 E=68.8 p=1.82e-26 pBonf91=1.65e-24
-  longest -l/-sa nested=False obs=1 E=8.0 p=0.000713 pBonf91=0.0649
-  longest -ial/-sa nested=False obs=7 E=29.0 p=1.7e-08 pBonf91=1.54e-06
-  longest -s/-isa nested=False obs=2 E=7.1 p=0.0033 pBonf91=0.3
-clean-reading sensitivity (exclude ocr? records and damaged/uncertain/restored/emended tokens): 5/10 reported pairs, 27/91 all pairs survive Bonferroni
+  longest -s/-ial nested=False obs=14 E=93.7 p=4.76e-46 pBonf91=4.33e-44
+  longest -l/-ial nested=True obs=6 E=12.3 p=0.0157 pBonf91=1
+  longest -al/-sa nested=False obs=8 E=9.9 p=0.304 pBonf91=1
+  longest -s/-na nested=False obs=15 E=68.8 p=1.83e-26 pBonf91=1.67e-24
+  longest -l/-sa nested=False obs=1 E=8.0 p=0.000704 pBonf91=0.0641
+  longest -ial/-sa nested=False obs=7 E=29.0 p=1.51e-08 pBonf91=1.38e-06
+  longest -s/-isa nested=False obs=2 E=7.1 p=0.00329 pBonf91=0.299
+clean-reading sensitivity (exclude ocr? records and damaged/uncertain/restored/emended tokens): 5/10 reported pairs, 26/91 all pairs survive Bonferroni
   clean longest -s/-al obs=4 E=15.8 p=1.96e-05 pBonf91=0.00178
   clean longest -s/-l obs=5 E=19.2 p=1.56e-06 pBonf91=0.000142
   clean longest -l/-al obs=3 E=5.6 p=0.13 pBonf91=1
@@ -89,11 +89,11 @@ clean-reading sensitivity (exclude ocr? records and damaged/uncertain/restored/e
   ETP: -ial/-ei exact shared stems 0 (14 x 14); -c support 15/45, E=5.9, p=0.000306
   CIEP: -ial/-ei exact shared stems 15 (447 x 74); -c support 9/60, E=5.3, p=0.0805
   CIEW: -ial/-ei exact shared stems 0 (1 x 6); -c support 21/63, E=11.4, p=0.00171
-  CIEW-CIE: -ial/-ei exact shared stems 1 (49 x 46); -c support 1/3, E=0.7, p=0.53
-  all: -ial/-ei exact shared stems 27 (487 x 129); -c support 63/152, E=27.0, p=3.87e-12
+  CIEW-CIE: -ial/-ei exact shared stems 1 (49 x 44); -c support 1/2, E=0.4, p=0.393
+  all: -ial/-ei exact shared stems 27 (487 x 127); -c support 62/151, E=26.5, p=6.11e-12
 
 === 5. Prosopography: artifact-cluster permutation ===
-MI=1.3578 on 1898 name occurrences in 1347 clusters; cluster-null mean=0.9103, p=0.0005; source-stratified cluster-null mean=1.0683, p=0.0005
+MI=1.3587 on 1897 name occurrences in 1346 clusters; cluster-null mean=0.9075, p=0.0005; source-stratified cluster-null mean=1.0691, p=0.0005
 
 === 5b. Stratigraphy: record-level null and date intervals ===
 310 dated records; 52 intervals cross a bin boundary; 31 assignments change using midpoint
@@ -101,9 +101,9 @@ MI early=0.5608, midpoint=0.6217; record-null mean=0.3538, p=0.0005; geography-s
 interval-imputed MI median=0.5683, 95% [0.5403, 0.6075]
 
 === 6. Lemnian classifier: exact-type leakage and type-disjoint rerun ===
-  original etr holdout exact-token leakage: 642/10115 (6.3%)
-  original lat holdout exact-token leakage: 19/80 (23.8%)
-  original umb holdout exact-token leakage: 20/57 (35.1%)
-  type-disjoint present_only_project: 5983/6000 bags correct (99.7%); Lemnian over 100 splits: {'lat': 70, 'etr': 30}
-  type-disjoint bernoulli: 5983/6000 bags correct (99.7%); Lemnian over 100 splits: {'lat': 67, 'etr': 33}
-  type-disjoint multinomial: 5984/6000 bags correct (99.7%); Lemnian over 100 splits: {'lat': 69, 'etr': 31}
+  original etr holdout exact-token leakage: 490/10093 (4.9%)
+  original lat holdout exact-token leakage: 14/73 (19.2%)
+  original umb holdout exact-token leakage: 16/57 (28.1%)
+  type-disjoint present_only_project: 5989/6000 bags correct (99.8%); Lemnian over 100 splits: {'etr': 32, 'lat': 68}
+  type-disjoint bernoulli: 5986/6000 bags correct (99.8%); Lemnian over 100 splits: {'etr': 37, 'lat': 63}
+  type-disjoint multinomial: 5989/6000 bags correct (99.8%); Lemnian over 100 splits: {'etr': 31, 'lat': 69}

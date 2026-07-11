@@ -33,7 +33,9 @@ import numpy as np
 
 sys.stdout.reconfigure(encoding='utf-8')
 PDF = os.path.join('data', 'external', 'cie_online', 'Supplementum_I.pdf')
-OUT_IDX = os.path.join('data', 'supplements', 'herbig_ll_index.csv')
+OUT_IDX = os.path.join('data', 'external', 'cie_online',
+                       'herbig_ll_index.csv')  # НЕ в supplements: freeze
+# всасывает supplements/*.csv как записи, а это словарный слой
 OUT_ALN = os.path.join('results', 'herbig_fw_alignment.csv')
 OUT_LOG = os.path.join('logs', 'etr_herbig_index.log')
 PAGES = range(35, 41)  # Index verborum

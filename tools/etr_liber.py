@@ -66,7 +66,7 @@ FORMULA = {
 def main():
     os.makedirs('logs', exist_ok=True)
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
-    assert corpus['meta'].get('freeze_version') == '0.7'
+    assert corpus['meta'].get('freeze_version') == '0.8'
     ll = [r for r in corpus['records']
           if r['src'] == 'CIEW' and r['eid'] == '9001']
     lines = []

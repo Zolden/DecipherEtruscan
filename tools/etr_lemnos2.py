@@ -54,7 +54,7 @@ def main():
         'язык к etr/lat/umb и не атрибутирует Лемнос. См. §8 отчёта.')
     log()
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
-    assert corpus['meta'].get('freeze_version') == '0.7'
+    assert corpus['meta'].get('freeze_version') == '0.8'
     recs = corpus['records']
 
     def toks_of(lang, src=None):

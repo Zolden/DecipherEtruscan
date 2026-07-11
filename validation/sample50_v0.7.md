@@ -39,10 +39,10 @@
 | 33 | CIEP:9996:1 | t(it)i | titi⟨expanded⟩ | — | да |
 | 34 | CIEP:15342:1C | zi(lchus) | zilchus⟨expanded⟩ | — | да |
 | 35 | CIEP:4800:1 | arnthlatin | arnthlatin | mr-arnthlatinie | да |
-| 36 | CIEW-CIE:3776 | peonei • ceisis | peonei ceisis | — |  |
+| 36 | CIEW-CIE:3769 | ar - vip i . alfa . | ar - vip i alfa | — | нет: парсер CIEW — F&W: ar • vipi • alfa; ложная лакуна и split vipi |
 | 37 | ETP:Vs 1.178 | vel leinies : larθial : ruva : arnθialum ¦ clan : velusum : prumaθσ :  | vel leinies larθial ruva arnθialum clan velusum prumaθσ avils semφσ lupuce | Vel Leinies, brother of Larth (and) son o f Arnth (and) grea | да |
-| 38 | CIEW-CIE:119 | [θ]<a>na mi<nia avles cai>n<al> | θana⟨emended,restored⟩ minia⟨emended⟩ avles cainal⟨emended⟩ | — |  |
-| 39 | CIEW-CIE:3480 | lθ . cincuni [a] -<l>a • <rafl--> | lθ cincuni a⟨restored⟩ -la⟨damaged,emended⟩ rafl--⟨damaged,emended⟩ | — |  |
+| 38 | CIEW-CIE:113 | ls • flave • ls • curial • ril • 48 | ls flave ls curial ril 48 | — | да |
+| 39 | CIEW-CIE:3426 | la • pu • atrane<s> • | la pu atranes⟨emended⟩ | — | да |
 | 40 | CIEP:1944:1 | fastia crmartnei(al) rutmate(s)a | fastia crmartneial⟨expanded⟩ rutmatesa⟨expanded⟩ | — | да |
 | 41 | CIEP:17334:2L | vesvnae | vesvnae | — | да |
 | 42 | CIEP:9183:4 | dextrorsvms | dextrorsvms | — | да |
@@ -50,7 +50,7 @@
 | 44 | CIEP:4797:2 | purnei(al) | purneial⟨expanded⟩ | mrs-purneis | да |
 | 45 | CIEP:1872:1 | fastiacainei----minasa | fastiacainei----minasa⟨damaged⟩ | — | да |
 | 46 | CIEP:3160:2 | rav(a)e | ravae⟨expanded⟩ | — | да |
-| 47 | CIEW-CIE:475 | zerapiu > lautni fraucnal | zerapiu lautni fraucnal | — |  |
+| 47 | CIEW-CIE:340 | 1 arnt > fanak- | 1 arnt fanak-⟨damaged⟩ | — | нет: парсер CIEW — текст CIE 3402 ошибочно присвоен CIE 340 |
 | 48 | CIEP:6214:2 | muca | muca | — | да |
 | 49 | CIEP:733:1 | artnei(al) l(ar)th(us) | artneial⟨expanded⟩ larthus⟨expanded⟩ | mr-thanamrs-artneismr-larths | да |
 | 50 | CIEP:531:2 | etrual | etrual | — | да |

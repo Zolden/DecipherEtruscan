@@ -97,7 +97,7 @@ from collections import Counter
 sys.stdout.reconfigure(encoding='utf-8')
 
 NORM_VERSION = '0.1'
-FREEZE_VERSION = '0.7'
+FREEZE_VERSION = '0.8'  # CIEW-парсер v4: монотонность CIE-номеров, dash/join (sample50)
 CIEW_CIE_CSV = os.path.join('data', 'external', 'fowler_wolfe',
                             'ciew_cie_entries.csv')
 CIEW_CSV = os.path.join('data', 'external', 'fowler_wolfe',

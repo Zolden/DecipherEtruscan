@@ -146,7 +146,7 @@ def main():
     log('FIXED 2026-07-10: совместный нуль — одна общая перестановка порядка слов в записи на replicate (R=5000); прежние p̃ отозваны в §8.')
     log()
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
-    assert corpus['meta'].get('freeze_version') == '0.7'
+    assert corpus['meta'].get('freeze_version') == '0.8'
     view = view_of(corpus)
     log(f'=== Реестр операторов v1 (этап 1) ===')
     log(f'вид: {len(view)} записей (lang=etr, text, без forgery?); '

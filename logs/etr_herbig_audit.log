@@ -1,0 +1,38 @@
+=== §11.2: аудит свидетелей F&W ↔ Herbig (LL) ===
+выровненных пар строк: 54
+токенов F&W в выровненных строках: 309
+  exact         130
+  soft            8
+  disagree       24
+  fw_only       147
+  herbig_only    69
+согласие свидетелей на сопоставимых словах: 85.2%
+
+кандидаты расхождений (реестр для ручной сверки):
+  поз.49   92.49    III 20  F&W=huslne         Herbig=zusle
+  поз.49   92.49    III 20  F&W=muera          Herbig=nuera
+  поз.59   92.59    IV 5   F&W=ruze           Herbig=ruxe
+  поз.71   92.71    IV 17  F&W=an             Herbig=cs
+  поз.73   92.73    IV 19  F&W=meslumeric     Herbig=methlumeric
+  поз.125  93.125   VII 2   F&W=ceia           Herbig=celi
+  поз.126  93.126   VII 3   F&W=ceia           Herbig=celi
+  поз.128  93.128   VII 5   F&W=ceia           Herbig=celi
+  поз.131  93.131   VII 8   F&W=ceus           Herbig=celi
+  поз.131  93.131   VII 8   F&W=cepen          Herbig=celipen
+  поз.136  93.136   VII 13  F&W=usli           Herbig=usti
+  поз.138  93.138   VII 15  F&W=cepen          Herbig=celipen
+  поз.180  94.180   IX 5   F&W=sacnicleri     Herbig=sacnieleri
+  поз.182  94.182   IX 7   F&W=negunsl        Herbig=nethunsl
+  поз.183  94.183   IX 8   F&W=nungen         Herbig=nunthen
+  поз.191  94.191   IX 16  F&W=rache          Herbig=rachth
+  поз.192  94.192   IX 17  F&W=nuntheno       Herbig=nunthenth
+  поз.196  94.196   IX 21  F&W=sacnicleri     Herbig=sacnieleri
+  поз.203  94.203   X 2   F&W=capen          Herbig=pen
+  поз.204  94.204   X 3   F&W=cepen          Herbig=celipen
+  поз.220  95.220   X 19  F&W=vuvcnics       Herbig=vuvenies
+  поз.220  95.220   X 19  F&W=tei            Herbig=celi
+  поз.223  95.223   X 22  F&W=veisna         Herbig=yeisna
+  поз.224  95.224   X 23  F&W=fanufie        Herbig=fanuse
+
+реестр записан: results\herbig_witness_flags.csv
+чтение: fw_only/herbig_only — неполнота свидетелей (норма); disagree — очередь ручной сверки; правки корпуса ТОЛЬКО через supplement/erratum-механизм после сверки с изданием.

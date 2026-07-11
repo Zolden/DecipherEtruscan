@@ -85,7 +85,7 @@ amfnia,1,,vineyard,виноградник,geo,grc,ampelon,0.750,B
 aminth,1,theboygodamorgodoflove,mint,мята,plantfood,grc,minthe,1.000,B
 amrthi,1,,husband,муж,kinship,lat,maritus,0.750,B
 amthnes,1,,measure-unit,мера,tech,grc,metron,0.750,B
-amthni,2,,measure-unit,мера,tech,grc,metron,0.750,B
+amthni,1,,measure-unit,мера,tech,grc,metron,0.750,B
 amthnial,2,,measure-unit,мера,tech,grc,metron,0.750,B
 amtniez,1,mr-amtnies,hand,рука,body,lat,manus,0.750,B
 anainies,1,mr-anainies,year,год,time,lat,annus,1.000,B
@@ -291,7 +291,6 @@ avulnas,1,,wine,вино,trade,grc,woinos,0.750,B
 azaletnia,1,mr-fastias,moon,луна,ritual,grc,selene,0.750,B
 azlsnial,1,,three,три,measure,akk,shalash,0.750,A
 bans,1,,oven,печь,tech,grc,ipnos,1.000,A
-barba,1,,fibula-pin,фибула,adorn,grc,porpe,1.000,B
 barnaes,1,,fibula-pin,фибула,adorn,grc,perone,1.000,B
 boneis,1,--------with-the-goodsand-estatesof-that,oven,печь,tech,grc,ipnos,1.000,A
 bums,1,,altar,алтарь,social,grc,bomos,1.000,B
@@ -369,7 +368,6 @@ caprasial,1,,cypress,кипарис,plantfood,heb,berosh,0.750,A
 caprasis,1,,cypress,кипарис,plantfood,lat,cupressus,0.833,A
 capriai,1,themonthofapriliscalledcapriaiinthelangu,goat,коза,animal,lat,capra,1.000,B
 caprinal,2,,copper,медь,trade,lat,cuprum,0.750,B
-capruna,1,,copper,медь,trade,lat,cuprum,0.750,B
 caprunas,1,,oven,печь,tech,lat,furnus,0.800,A
 capsna,3,,sword,меч,tech,grc,xiphos,0.750,B
 capsneial,1,,sword,меч,tech,grc,xiphos,0.750,B
@@ -458,7 +456,6 @@ celutu,1,,knife,нож,tech,lat,culter,0.750,B
 cemnac,3,,cumin,тмин,plantfood,akk,kamunu,1.000,A
 cemnach,1,,cumin,тмин,plantfood,lat,cuminum,0.750,A
 cemnil,1,cemni,cumin,тмин,plantfood,akk,kamunu,1.000,A
-cemtiui,1,,three,три,measure,egy,khmt,1.000,A
 cemtiuial,1,,three,три,measure,egy,khmt,1.000,A
 cemulm,1,,cumin,тмин,plantfood,lat,cuminum,0.750,A
 cencial,1,,five,пять,measure,lat,quinque,1.000,B
@@ -796,7 +793,6 @@ fapile,1,mr-fapile,fibula-pin,фибула,adorn,lat,fibula,1.000,B
 fapirnial,1,,to-drink,пить,action,lat,bibere,0.750,B
 fapres,1,,to-drink,пить,action,lat,bibere,1.000,B
 faprnas,1,mr-aulemr-faprnasslave,oven,печь,tech,lat,furnus,0.800,A
-farari,1,,to-carry,нести,action,lat,ferre,1.000,B
 farfan,2,,sheep,овца,animal,grc,probaton,0.800,B
 farpitia,1,,sheep,овца,animal,grc,probaton,0.800,B
 farpitias,1,,sheep,овца,animal,grc,probaton,0.800,B
@@ -987,8 +983,7 @@ hanusa,2,,mule,мул,animal,grc,hemionos,0.750,B
 haprna,1,,temple,храм,social,grc,hieron,0.750,B
 harispex,1,,liver-divination,гадание-печень,ritual,lat,haruspicina,0.833,B
 hasmuni,1,hashmuni,eight,восемь,measure,akk,samane,0.750,A
-hast,1,,spear,копьё,tech,lat,hasta,1.000,B
-hasti,7,hasti,spear,копьё,tech,lat,hasta,1.000,B
+hasti,8,hasti,spear,копьё,tech,lat,hasta,1.000,B
 hastia,6,,spear,копьё,tech,lat,hasta,1.000,B
 hathles,1,,salt,соль,trade,grc,hals,0.750,B
 hathrthi,2,,festival-day,праздник,time,grc,heorte,0.750,B
@@ -2175,7 +2170,6 @@ setmanal,1,,cypress,кипарис,plantfood,akk,shurmenu,0.750,A
 setra,1,,star,звезда,ritual,grc,aster,1.000,B
 setre,1,,star,звезда,ritual,grc,aster,1.000,B
 setres,1,,iron,железо,trade,grc,sideros,1.000,B
-setri,1,,star,звезда,ritual,grc,aster,1.000,B
 setria,1,shetria,star,звезда,ritual,grc,aster,1.000,B
 setrial,2,,star,звезда,ritual,grc,aster,1.000,B
 setrias,1,,iron,железо,trade,grc,sideros,1.000,B
@@ -2204,7 +2198,6 @@ slanzu,1,shlanzu,three,три,measure,akk,shalash,0.750,A
 slapinas,1,slapinas,trumpet,труба,music,grc,salpinx,0.800,B
 slathnu,1,,moon,луна,ritual,grc,selene,0.750,B
 sleparies,1,,letter-missive,письмо,tech,heb,sefer,0.750,A
-slevai,1,,forest,лес,geo,lat,silva,1.000,B
 snenaz,1,,donkey,осёл,animal,lat,asinus,0.750,B
 snitla,1,mr-sunitslave,sandal,сандалия,cloth,grc,sandalon,0.800,B
 snute,1,,libation,возлияние,social,grc,sponde,0.750,B
@@ -2805,7 +2798,6 @@ velthies,1,velthies,sword,меч,tech,lat,gladius,0.750,B
 velthina,1,of-ancestorsthree-alsochambers-for-use-o,rose,роза,plantfood,grc,wrodon,0.750,B
 velthinal,2,vêlthinei,rose,роза,plantfood,grc,wrodon,0.750,B
 velthinas,3,mr-velthinas,rose,роза,plantfood,grc,wrodon,0.750,B
-velthinei,1,,rose,роза,plantfood,grc,wrodon,0.750,B
 velthnei,1,,rose,роза,plantfood,grc,wrodon,0.750,B
 velthre,2,,knife,нож,tech,lat,culter,0.750,B
 velthries,1,,knife,нож,tech,lat,culter,0.750,B
@@ -2944,7 +2936,6 @@ vulunice,1,,king,царь,social,grc,wanax,0.750,B
 vurses,1,removethefiretorch,queen,царица,social,grc,wanassa,0.750,B
 vusis,1,,queen,царица,social,grc,wanassa,0.750,B
 vxor,2,,to-sail,плыть,action,lat,navigare,0.750,B
-want,1,,wind,ветер,geo,lat,ventus,0.750,B
 wspe,1,,evening,вечер,nature,lat,vesper,0.750,B
 xlx,1,,cup,чаша,vessel,lat,calix,1.000,A
 xviriasi,1,,cedar,кедр,plantfood,grc,kedros,0.750,A

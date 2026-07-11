@@ -175,7 +175,7 @@ def main():
 
     # --- 2. зонд на этрусском ----------------------------------------------
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
-    assert corpus['meta'].get('freeze_version') == '0.7'
+    assert corpus['meta'].get('freeze_version') == '0.8'
     view = [r for r in corpus['records']
             if r['lang'] == 'etr' and r['kind'] == 'text'
             and 'forgery?' not in r['flags'] and r.get('variant_of') is None]

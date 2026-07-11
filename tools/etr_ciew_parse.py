@@ -139,14 +139,47 @@ def decode_token(tok, lexicon, stats):
     return lowered, 'ocr?'
 
 
-def decode_line(line, lexicon, stats):
+def decode_line(line, lexicon, stats, cie_mode=False):
+    """cie_mode (v4): для CIE-записей — изолированное одиночное «-» это
+    деградировавший интерпункт F&W (не лакуна), а огрызок-буква
+    приклеивается к соседу, только если склейка есть в лексиконе, а
+    огрызок — нет (sample50 #36: «vip i» → «vipi»)."""
     toks = []
     flags = set()
-    for tok in line.split():
+    raw_toks = line.split()
+    if cie_mode:
+        kept = []
+        for tok in raw_toks:
+            if tok == '-':
+                stats['dash_dropped'] += 1
+            else:
+                kept.append(tok)
+        raw_toks = kept
+    for tok in raw_toks:
         d, fl = decode_token(tok, lexicon, stats)
         toks.append(d)
         if fl and fl != 'num':
             flags.add(fl)
+    if cie_mode:
+        marks = re.compile(r'[\[\]<>•.\-/ ]')
+        i = 0
+        joined = []
+        while i < len(toks):
+            a = toks[i]
+            b = toks[i + 1] if i + 1 < len(toks) else None
+            if b is not None and len(marks.sub('', b)) == 1 \
+                    and b.isalpha() and len(marks.sub('', a)) >= 3:
+                ca, cab = to_ascii(marks.sub('', a)), to_ascii(
+                    marks.sub('', a + b))
+                if cab in lexicon and ca not in lexicon:
+                    joined.append(a + b)
+                    flags.add('ocr-join')
+                    stats['ocr_joined'] += 1
+                    i += 2
+                    continue
+            joined.append(a)
+            i += 1
+        toks = joined
     return ' '.join(toks), sorted(flags)
 
 
@@ -320,16 +353,40 @@ def main():
     log('--- валидация: CIE-записи CIEW ↔ CIEP-часть (совпадающие номера) ---')
     cie_rows = {}
     row_re = re.compile(r'^\s*(\d{1,4})\s+(\d{1,2})\s+(\S.*)$')
+    # v4 (sample50 #47): CIE-номера в листинге F&W монотонны; OCR рвёт
+    # номер («3402» → «340 2»). Машина состояний: (а) склейка num+line,
+    # если она возвращает номер в локальное окно порядка; (б) мелкий
+    # отступ назад (<=50) терпим (не двигаем prev); (в) крупное нарушение
+    # без лечения — сброс строки (иначе огрызки липнут к малым номерам).
+    prev = 0
+    n_heal = n_drop = 0
+
+    def in_range(x):
+        return 1 <= x <= 5606 or 8001 <= x <= 8464
+
     for raw in body.split('\n'):
         m = row_re.match(raw)
         if not m:
             continue
-        num = int(m.group(1))
-        if 1 <= num <= 5606 or 8001 <= num <= 8464:
-            cie_rows.setdefault(str(num), []).append(
-                (int(m.group(2)), m.group(3).strip()))
+        num, ln, txt = int(m.group(1)), m.group(2), m.group(3).strip()
+        if not in_range(num):
+            continue
+        if num < prev and not (prev <= 5606 and num >= 8001):
+            rejoin = num * 10 ** len(ln) + int(ln)
+            m2 = re.match(r'^(\d{1,2})\s+(\S.*)$', txt)
+            if prev <= rejoin <= prev + 300 and in_range(rejoin) and m2:
+                num, ln, txt = rejoin, m2.group(1), m2.group(2).strip()
+                n_heal += 1
+            elif num >= prev - 50:
+                pass  # мелкий отступ: принимаем, prev не откатываем
+            else:
+                n_drop += 1
+                continue
+        cie_rows.setdefault(str(num), []).append((int(ln), txt))
+        prev = max(prev, num)
     log(f'CIE-записей извлечено (паттерн «номер строка текст»): '
-        f'{len(cie_rows)}')
+        f'{len(cie_rows)}; склеено рваных номеров: {n_heal}; '
+        f'сброшено внепорядковых огрызков: {n_drop}')
     ciep_by_eid = {}
     for r in corpus['records']:
         if r['src'] == 'CIEP':
@@ -389,7 +446,8 @@ def main():
         w.writeheader()
         for num in sorted(cie_rows, key=int):
             s = ' '.join(txt for _, txt in sorted(cie_rows[num]))
-            dec, fl = decode_line(pre_clean(s), lexicon, stats)
+            dec, fl = decode_line(pre_clean(s), lexicon, stats,
+                                  cie_mode=True)
             if len(re.sub(r'[^a-zθχśê]', '', dec)) < 3:
                 continue
             sh = num in shared
