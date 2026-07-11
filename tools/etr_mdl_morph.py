@@ -246,7 +246,7 @@ def main():
             if r['lang'] == 'etr' and r['kind'] == 'text'
             and 'forgery?' not in r['flags'] and r.get('variant_of') is None]
     log('=== Аудит Sol №2: held-out продуктивная морфология (MDL) ===')
-    log(f'корпус v0.7; канонический вид: {len(view)} записей')
+    log(f'корпус v{corpus["meta"]["freeze_version"]}; канонический вид: {len(view)} записей')
 
     # --- сплит по памятникам ---
     arts = sorted({r['artifact_id'] for r in view})
