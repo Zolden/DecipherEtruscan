@@ -6,7 +6,7 @@ position,kind,key,classes,text
 46,exact,92.46,VERB-R,ara nunthene sasas nachve hetum ale
 47,exact,92.47,OFFER THEO VERB-R,vinum usi trinum flere in crapst
 48,exact,92.48,—,un mlach nunsen thaclthi thachthiv cialchus
-49,exact,92.49,OFFER,huslne vinum esis esera muera cuse
+49,exact,92.49,OFFER,huslne vinum esis esera nuera cuse
 50,exact,92.50,OFFER,fasei spurestres enas ethrse ns
 51,exact,92.51,CAL,tiurim avils chis cisum pute tul thans
 52,exact,92.52,—,hantec repinec spureri meslumeri
@@ -25,7 +25,7 @@ position,kind,key,classes,text
 68,herbig,92.902,CAL OFFER VERB-R,var celi sue hechsth vinm trin fler
 70,herbig,92.904,OFFER,fasei cisum pute tul sans hatec rep
 71,exact,92.71,—,meleri sveleric svec an cfi mele sun
-72,exact,92.72,—,mutince sezine ruze luzlchnec spurer
+72,exact,92.72,—,mutince sezine ruze nuzlchne spurer
 73,exact,92.73,OFFER THEO VERB-R,meslumeric enas sin flere in crap ati
 74,exact,92.74,THEO VERB-R,chis esvisc fase sin aiser fase si
 75,exact,92.75,—,is cemnac faseis rachth sutanas
@@ -51,12 +51,12 @@ position,kind,key,classes,text
 129,exact,93.129,VERB-R,staile itrile hia ciz trinthasa sacnit
 130,exact,93.130,—,an cilth cechane sal sucivn firin arth
 131,exact,93.131,CAL,vachr celi cilthcval svem cepen tutin
-132,exact,93.132,CONJ,reuchzua etnam cepen ceren sucic firin
+132,exact,93.132,CONJ,renchzua etnam cepen ceren sucic firin
 133,exact,93.133,CONJ,tesim etnam celucum caitim caperchva
 134,exact,93.134,—,hecia aisna clevanth chim enac usil
 135,exact,93.135,—,repine
 136,exact,93.136,CONJ,zelvth murss etnam thacac usli nechs
-137,exact,93.137,CONJ VERB-R,acil ame etnam cilfcveti hilare cil
+137,exact,93.137,CONJ VERB-R,acil ame etnam cilthcveti hilare cil
 138,exact,93.138,CONJ VACL VERB-R,vacl cepen oaurch cerene acil etnam
 139,exact,93.139,CONJ VERB-R,ic clevanth sucich iri nvene acil etnam
 140,exact,93.140,CONJ VACL VERB-R,tesim etnam celucn vacl ara euml
@@ -121,7 +121,7 @@ position,kind,key,classes,text
 221,exact,95.221,VERB-R,ara ratum aisna leitrum zutheva zal
 222,exact,95.222,—,efilc ci halchza thu es zal mula antic
 223,exact,95.223,OFFER,thapna thapn zac lena esera eec veisna
-224,exact,95.224,—,hausti fanufie neris sane lpa eu neri
+224,exact,95.224,—,hausti fanuse neris sane lpa eu neri
 225,exact,95.225,—,qqqj
 226,exact,95.226,OFFER,santic vinum thu thapnai thuiarafi mucum
 227,exact,95.227,VACL,halchze thui eil vacl cesasin thumsa cisva

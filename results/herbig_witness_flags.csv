@@ -33,8 +33,8 @@ fw_position,fw_key,herbig_col,herbig_line,fw_word,herbig_word,kind
 49,92.49,III,20,vinum,vinum,exact
 49,92.49,III,20,esis,esis,exact
 49,92.49,III,20,esera,esera,exact
+49,92.49,III,20,nuera,nuera,exact
 49,92.49,III,20,huslne,zusle,disagree
-49,92.49,III,20,muera,nuera,disagree
 49,92.49,III,20,cuse,,fw_only
 50,92.50,III,21,enas,enas,exact
 50,92.50,III,21,ethrse,ethrse,exact
@@ -119,8 +119,8 @@ fw_position,fw_key,herbig_col,herbig_line,fw_word,herbig_word,kind
 71,92.71,IV,17,,sacnicn,herbig_only
 71,92.71,IV,17,,zusle,herbig_only
 72,92.72,IV,18,mutince,mutince,exact
+72,92.72,IV,18,nuzlchne,nuzlchne,exact
 72,92.72,IV,18,ruze,ruxe,disagree
-72,92.72,IV,18,luzlchnec,nuzlchne,disagree
 72,92.72,IV,18,sezine,,fw_only
 72,92.72,IV,18,spurer,,fw_only
 72,92.72,IV,18,,sacnicn,herbig_only
@@ -239,8 +239,8 @@ fw_position,fw_key,herbig_col,herbig_line,fw_word,herbig_word,kind
 131,93.131,VII,8,svem,,fw_only
 131,93.131,VII,8,tutin,,fw_only
 131,93.131,VII,8,,pen,herbig_only
+132,93.132,VII,9,renchzua,renchzua,exact
 132,93.132,VII,9,etnam,etnam,exact
-132,93.132,VII,9,reuchzua,renchzua,disagree
 132,93.132,VII,9,cepen,celipen,disagree
 132,93.132,VII,9,ceren,,fw_only
 132,93.132,VII,9,sucic,,fw_only
@@ -270,7 +270,7 @@ fw_position,fw_key,herbig_col,herbig_line,fw_word,herbig_word,kind
 136,93.136,VII,13,thacac,,fw_only
 136,93.136,VII,13,,zusle,herbig_only
 137,93.137,VII,14,etnam,etnam,exact
-137,93.137,VII,14,cilfcveti,cilthcveti,disagree
+137,93.137,VII,14,cilthcveti,cilthcveti,exact
 137,93.137,VII,14,acil,,fw_only
 137,93.137,VII,14,ame,,fw_only
 137,93.137,VII,14,hilare,,fw_only
@@ -479,9 +479,9 @@ fw_position,fw_key,herbig_col,herbig_line,fw_word,herbig_word,kind
 223,95.223,X,22,thapn,,fw_only
 223,95.223,X,22,eec,,fw_only
 223,95.223,X,22,,zusle,herbig_only
+224,95.224,X,23,fanuse,fanuse,exact
 224,95.224,X,23,neris,neris,exact
 224,95.224,X,23,neri,neri,exact
-224,95.224,X,23,fanufie,fanuse,disagree
 224,95.224,X,23,hausti,,fw_only
 224,95.224,X,23,sane,,fw_only
 224,95.224,X,23,lpa,,fw_only

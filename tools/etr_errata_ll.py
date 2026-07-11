@@ -135,6 +135,31 @@ def main():
         if k not in seen:
             seen.add(k)
             uniq.append(row)
+
+    # --- ручной оверрайд-слой (§24: сверка по Textus/аппарату/таблицам) ----
+    man_path = os.path.join('data', 'supplements', 'errata_ll_manual.csv')
+    if os.path.exists(man_path):
+        man = {}
+        with open(man_path, encoding='utf-8') as f:
+            for r in csv.DictReader(f):
+                man[(r['token'], r['corrected'])] = (r['verdict'],
+                                                     r['evidence'])
+        out2 = []
+        n_over = 0
+        for row in uniq:
+            k = (row[2], row[3])
+            if k in man:
+                v, ev = man[k]
+                if v == 'rejected':
+                    n_over += 1
+                    continue  # отклонено ручной сверкой — вон из реестра
+                row = (row[0], row[1], row[2], row[3],
+                       row[4] + '+manual', v)
+                n_over += 1
+            out2.append(row)
+        uniq = out2
+        log(f'ручной оверрайд: применён к {n_over} строкам '
+            f'({man_path}); rejected удалены из реестра')
     st_cnt = Counter(r[5] for r in uniq)
     log(f'\nреестр: {len(uniq)} уникальных строк; статусы: '
         + ', '.join(f'{k}:{v}' for k, v in sorted(st_cnt.items())))

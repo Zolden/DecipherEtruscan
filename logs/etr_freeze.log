@@ -2,7 +2,7 @@
 вход: etruscan_larth.csv  sha256=e00bbff1858dbfd2…
 вход: ETP_fix.csv  sha256=8565fb95af147f35…
 вход: CIEP_pymupdf.csv  sha256=8ab2d7b7ba1102af…
-вход: supplements/errata_ll_v1.csv  sha256=2e912bebb90effaf…
+вход: supplements/errata_ll_manual.csv  sha256=e7468b29a6845ccb…
 вход: supplements/lemnos_wikipedia.csv  sha256=048161b5f669f398…
 вход: supplements/pyrgi_wikipedia.csv  sha256=adedd947acd6b61c…
 
@@ -17,7 +17,7 @@ CIEW: записей 347 (из data\external\fowler_wolfe\ciew_bigtexts.csv; 902
 CIEW-CIE (v0.5): записей 608, языки {'lat': 4, 'etr': 593, 'fal': 11}
 artifact_id (v0.7): 5572 памятников на 7328 записей
 варианты чтения (v0.3): помечено variant_of 28 записей
-errata v0.9: применено 9 поправок ascii (реестр 9 confirmed; form/raw не тронуты)
+errata v0.9: применено 15 поправок ascii (реестр 14 confirmed; form/raw не тронуты)
 
 === внутренние проверки ===
 уникальность rid: дублей 0 (ожидание: 0)
@@ -45,8 +45,8 @@ region: {'∅': 3907, 'Cl': 1372, 'Pe': 555, 'Ta': 215, 'AS': 180, 'Vs': 174, 'A
   CIEP: записей 5363, токенов 6492, типов 4665, с переводом 2027
   SUPP: записей 2, токенов 58, типов 53, с переводом 0
 записей вида с регионом или городом: 3651 (54%)
-флаги токенов: {'braced': 11, 'caps': 1, 'damaged': 852, 'emended': 815, 'erratum': 9, 'expanded': 1804, 'line_split': 123, 'restored': 529, 'scribal_extra': 125, 'stripped_chars': 16, 'uncertain': 50}
+флаги токенов: {'braced': 11, 'caps': 1, 'damaged': 852, 'emended': 815, 'erratum': 15, 'expanded': 1804, 'line_split': 123, 'restored': 529, 'scribal_extra': 125, 'stripped_chars': 16, 'uncertain': 50}
 ascii-типов: ETP 1219, CIEP 4665, общих 292 — сопоставимость частей
 
-записан data\etr_corpus.pkl: 7328 записей, sha256=6ea6fe590bd641701d6764455f36fad4f30c149e0ebbb52e6e8ff353b0b7b993
+записан data\etr_corpus.pkl: 7328 записей, sha256=cd886c19475d0642d895305e9f8333847b7c58528c52f4a7f48c791642978b26
 записана выборка для ручной сверки: validation\sample50.md; предыдущих rid: 50; сохранено ручных отметок по rid: 46

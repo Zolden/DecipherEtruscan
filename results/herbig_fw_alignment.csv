@@ -3,7 +3,7 @@ fw_position,fw_key,herbig_col,herbig_line,jaccard,kind
 45,92.45,III,16,0.375,exact
 46,92.46,III,17,0.300,exact
 47,92.47,III,18,0.375,exact
-49,92.49,III,20,0.444,exact
+49,92.49,III,20,0.625,exact
 50,92.50,III,21,0.429,exact
 51,92.51,III,22,0.875,exact
 52,92.52,III,23,0.333,exact
@@ -16,7 +16,7 @@ fw_position,fw_key,herbig_col,herbig_line,jaccard,kind
 63,92.63,IV,9,0.429,exact
 64,92.64,IV,10,0.429,exact
 71,92.71,IV,17,0.250,exact
-72,92.72,IV,18,0.200,exact
+72,92.72,IV,18,0.333,exact
 74,92.74,IV,20,0.375,exact
 108,93.108,VI,5,0.200,exact
 110,93.110,VI,7,0.400,exact
@@ -33,11 +33,11 @@ fw_position,fw_key,herbig_col,herbig_line,jaccard,kind
 128,93.128,VII,5,0.667,exact
 129,93.129,VII,6,0.364,exact
 131,93.131,VII,8,0.375,exact
-132,93.132,VII,9,0.455,exact
+132,93.132,VII,9,0.600,exact
 133,93.133,VII,10,0.444,exact
 134,93.134,VII,11,0.333,exact
 136,93.136,VII,13,0.444,exact
-137,93.137,VII,14,0.500,exact
+137,93.137,VII,14,0.714,exact
 138,93.138,VII,15,0.333,exact
 139,93.139,VII,16,0.250,exact
 141,93.141,VII,18,0.200,exact
@@ -66,7 +66,7 @@ fw_position,fw_key,herbig_col,herbig_line,jaccard,kind
 220,95.220,X,19,0.273,exact
 221,95.221,X,20,0.667,exact
 223,95.223,X,22,0.333,exact
-224,95.224,X,23,0.200,exact
+224,95.224,X,23,0.333,exact
 234,95.234,XI,17,0.200,exact
 44–75,92.901,II,10,0.250,interval-candidate
 44–75,92.902,IV,14,0.400,interval-candidate

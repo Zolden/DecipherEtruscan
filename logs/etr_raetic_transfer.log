@@ -28,5 +28,5 @@ POST-HOC longest k=2..4: coverage=258/506 (0.510), accuracy=0.888, balanced=0.89
 POST-HOC candidate-like freq>=2: n=102, accuracy=0.931, balanced=0.939
 empirical-prior sensitivity: accuracy=0.708, balanced=0.780
 
-candidates=265 -> results\raetic_transfer_candidates.csv
+candidates=264 -> results\raetic_transfer_candidates.csv
 validation -> results\raetic_transfer_validation.json; log -> logs\etr_raetic_transfer.log

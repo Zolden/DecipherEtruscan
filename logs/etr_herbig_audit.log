@@ -1,30 +1,26 @@
 === §11.2: аудит свидетелей F&W ↔ Herbig (LL) ===
 выровненных пар строк: 69
 токенов F&W в выровненных строках: 394
-  exact         151
+  exact         156
   soft            7
-  disagree       31
+  disagree       26
   fw_only       205
   herbig_only   105
-согласие свидетелей на сопоставимых словах: 83.6%
+согласие свидетелей на сопоставимых словах: 86.2%
 
 кандидаты расхождений (реестр для ручной сверки):
   поз.49   92.49    III 20  F&W=huslne         Herbig=zusle
-  поз.49   92.49    III 20  F&W=muera          Herbig=nuera
   поз.59   92.59    IV 5   F&W=ruze           Herbig=ruxe
   поз.71   92.71    IV 17  F&W=an             Herbig=cs
   поз.72   92.72    IV 18  F&W=ruze           Herbig=ruxe
-  поз.72   92.72    IV 18  F&W=luzlchnec      Herbig=nuzlchne
   поз.125  93.125   VII 2   F&W=ceia           Herbig=celi
   поз.126  93.126   VII 3   F&W=ceia           Herbig=celi
   поз.127  93.127   VII 4   F&W=ceia           Herbig=celi
   поз.128  93.128   VII 5   F&W=ceia           Herbig=celi
   поз.129  93.129   VII 6   F&W=sacnit         Herbig=sacnicn
   поз.131  93.131   VII 8   F&W=cepen          Herbig=celipen
-  поз.132  93.132   VII 9   F&W=reuchzua       Herbig=renchzua
   поз.132  93.132   VII 9   F&W=cepen          Herbig=celipen
   поз.136  93.136   VII 13  F&W=usli           Herbig=usti
-  поз.137  93.137   VII 14  F&W=cilfcveti      Herbig=cilthcveti
   поз.138  93.138   VII 15  F&W=cepen          Herbig=celipen
   поз.141  93.141   VII 18  F&W=sacnicleri     Herbig=sacnieleri
   поз.141  93.141   VII 18  F&W=cepen          Herbig=celipen
@@ -39,7 +35,6 @@
   поз.220  95.220   X 19  F&W=vuvcnics       Herbig=vuvenies
   поз.220  95.220   X 19  F&W=tei            Herbig=celi
   поз.223  95.223   X 22  F&W=veisna         Herbig=yeisna
-  поз.224  95.224   X 23  F&W=fanufie        Herbig=fanuse
 
 реестр записан: results\herbig_witness_flags.csv
 чтение: fw_only/herbig_only — неполнота свидетелей (норма); disagree — очередь ручной сверки; правки корпуса ТОЛЬКО через supplement/erratum-механизм после сверки с изданием.

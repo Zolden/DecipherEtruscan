@@ -764,13 +764,15 @@ def main():
     # применяются к ascii (form/raw сохраняют свидетельство источника);
     # только status=confirmed; токен уникален в CIEW-слое по построению
     # критерия (исходное почти неаттестовано)
-    err_path = os.path.join(DATA, 'supplements', 'errata_ll_v1.csv')
+    # КУМУЛЯТИВНЫЙ ручной реестр (авто-очередь в results/ регенерируется
+    # из исправленного корпуса и применённые правки не содержит — §25)
+    err_path = os.path.join(DATA, 'supplements', 'errata_ll_manual.csv')
     n_err = 0
     if os.path.exists(err_path):
         err_map = {}
         with open(err_path, encoding='utf-8') as f:
             for r in csv.DictReader(f):
-                if r['status'] == 'confirmed':
+                if r['verdict'] == 'confirmed':
                     err_map[r['token']] = r['corrected']
         for rec in records:
             if rec['src'] != 'CIEW':

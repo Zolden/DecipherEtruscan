@@ -785,6 +785,7 @@ fanacnal,1,fanacnei,tablet,табличка,tech,grc,pinax,0.750,B
 fanacnial,1,,tablet,табличка,tech,grc,pinax,0.750,B
 fansi,1,,oven,печь,tech,grc,ipnos,1.000,A
 fanunias,1,,cumin,тмин,plantfood,egy,tpnn?,0.750,A
+fanuse,1,,oven,печь,tech,grc,ipnos,1.000,A
 fanusialisa,1,,king,царь,social,grc,basileus,0.800,B
 fapial,1,mr-aulemrs-fapis,fibula-pin,фибула,adorn,lat,fibula,1.000,B
 fapile,1,mr-fapile,fibula-pin,фибула,adorn,lat,fibula,1.000,B
@@ -1929,6 +1930,7 @@ remzna,9,,oar,весло,tech,lat,remus,0.750,B
 remznal,2,,oar,весло,tech,lat,remus,0.750,B
 remznei,1,,oar,весло,tech,lat,remus,0.750,B
 remzneial,4,,oar,весло,tech,lat,remus,0.750,B
+renchzua,1,,jug,кувшин,vessel,lat,urceus,0.750,B
 renethich,1,,divination,гадание,ritual,grc,mantike,0.750,B
 renines,2,,bird,птица,animal,grc,ornis,0.750,B
 renthnas,1,,rose,роза,plantfood,grc,rhodon,0.750,B
@@ -1944,7 +1946,6 @@ restias,1,,wheat,пшеница,plantfood,grc,sitos,0.750,B
 restmc,1,,mouth,рот,body,grc,stoma,0.750,B
 resucusa,1,,jug,кувшин,vessel,lat,urceus,0.750,B
 reuchzina,1,,purple dye,пурпур,trade,heb,argaman,0.750,A
-reuchzua,1,,jug,кувшин,vessel,lat,urceus,1.000,B
 reuscesc,1,,jug,кувшин,vessel,lat,urceus,0.750,B
 reustial,1,,letter-missive,письмо,tech,grc,epistole,0.750,A
 reuthnial,1,,rose,роза,plantfood,grc,rhodon,0.750,B

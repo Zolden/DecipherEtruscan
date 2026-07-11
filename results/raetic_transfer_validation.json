@@ -6,12 +6,12 @@
     "python": "3.12.13",
     "numpy": "2.5.1",
     "input_sha256": {
-      "corpus": "6ea6fe590bd641701d6764455f36fad4f30c149e0ebbb52e6e8ff353b0b7b993",
+      "corpus": "cd886c19475d0642d895305e9f8333847b7c58528c52f4a7f48c791642978b26",
       "tir_words": "719b7604d44f35dfb446d256cf7fa7ef317cf5e9ba2a4971c6847e260372d304",
       "etp_pos": "4f9d5875d7ed0899a4d98cc579a08fedb5611825841cfce45f7504dbd48918ce",
       "script": "765ad024d0f2c8e910aa050082585b1735f1978161deb521277f47f1239c9d5e"
     },
-    "declared_corpus_sha256": "6ea6fe590bd641701d6764455f36fad4f30c149e0ebbb52e6e8ff353b0b7b993"
+    "declared_corpus_sha256": "cd886c19475d0642d895305e9f8333847b7c58528c52f4a7f48c791642978b26"
   },
   "strict": {
     "accuracy": 0.6235955056179775,
@@ -830,12 +830,12 @@
   },
   "candidate_output": {
     "path": "results\\raetic_transfer_candidates.csv",
-    "n": 265,
+    "n": 264,
     "n_already_present_in_etp_pos": 23,
     "predicted_class_counts": {
       "PERT": 20,
       "GEN": 127,
-      "NOM": 118
+      "NOM": 117
     },
     "n_tir_suffix_support_ge_2": 132,
     "n_artifact_clusters_ge_2": 206,
