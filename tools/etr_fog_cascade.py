@@ -37,7 +37,7 @@ def main():
     fog_rows = list(csv.DictReader(open(
         os.path.join('results', 'concept_fog_v1.csv'), encoding='utf-8')))
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
-    assert corpus['meta'].get('freeze_version') == '0.9'
+    assert corpus['meta'].get('freeze_version') == '0.10'
     view = [r for r in corpus['records']
             if r['lang'] == 'etr' and r['kind'] == 'text'
             and 'forgery?' not in r['flags'] and r.get('variant_of') is None]

@@ -1,0 +1,13 @@
+rid_or_key,locus,token,corrected,evidence,status
+92.59,IV 5,ruze,ruxe,apparatus,both-attested
+92.71,IV 17,an,cs,apparatus,both-attested
+93.125,VII 2,ceia,celi,apparatus+vocab8,both-attested
+93.129,VII 6,sacnit,sacnicn,index-only+manual,candidate
+93.131,VII 8,cepen,celipen,apparatus,both-attested
+93.141,VII 18,cepen,pen,apparatus,both-attested
+93.141,VII 18,sacnicleri,sacnieleri,apparatus,both-attested
+93.142,VII 19,in,pen,apparatus,both-attested
+94.184,IX 9,sacnics,sacnicn,index-only+manual,candidate
+95.220,X 19,tei,celi,apparatus+vocab8,both-attested
+95.220,X 19,vuvcnics,vuvenies,apparatus+manual,candidate
+CIEW:7002:83.16,83.16,rionai,rithnai,alphabet+vocab+manual,candidate

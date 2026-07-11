@@ -507,7 +507,7 @@
     "uncertain_token_share": 0.20646305101136272,
     "uncertain_tokens": 2562
   },
-  "corpus_sha256_declared_file": "cd886c19475d0642d895305e9f8333847b7c58528c52f4a7f48c791642978b26  etr_corpus.pkl  norm_v0.1",
+  "corpus_sha256_declared_file": "d969788b72cab7f032421f7e72eed6270bc42582ca41caf7135205efe7fd4a5f  etr_corpus.pkl  norm_v0.1",
   "distributional_anchor_pilot": {
     "accuracy": 0.5248618784530387,
     "balanced_accuracy": 0.39812989460048287,
@@ -684,13 +684,13 @@
     "type_disjoint_train_types_per_language": 69
   },
   "meta": {
-    "declared_corpus_sha256": "cd886c19475d0642d895305e9f8333847b7c58528c52f4a7f48c791642978b26",
+    "declared_corpus_sha256": "d969788b72cab7f032421f7e72eed6270bc42582ca41caf7135205efe7fd4a5f",
     "input_sha256": {
       "concept_fog_v1": "aa34e72410b35bce4e31747abcd56c1e30e748c7d5a29f57cf79e4ece67ca8e7",
       "concept_lexicon": "7c53aff1e5fded5f43e588dfd3d9edb5ea40bd5cb27a26145b68160529b6a7be",
-      "corpus": "cd886c19475d0642d895305e9f8333847b7c58528c52f4a7f48c791642978b26",
+      "corpus": "d969788b72cab7f032421f7e72eed6270bc42582ca41caf7135205efe7fd4a5f",
       "etp_pos": "4f9d5875d7ed0899a4d98cc579a08fedb5611825841cfce45f7504dbd48918ce",
-      "script": "7c2d685fe62227742b2963c32d29717f548cc55e7bebbfd7d7842e7d19fe30f6",
+      "script": "672d1c64822f4665982c7dd395504a2fff72421131312ea6cbc11b95a8d3b0ce",
       "semantic_hypotheses_v2": "ec4fcf3330f642807f07720201f18cd52f40736fd6a41a14c539e674f6543b5a"
     },
     "numpy": "2.5.1",
@@ -2370,20 +2370,20 @@
   },
   "stratigraphy_record_null": {
     "date_interval_imputation_mi_95": [
-      0.5403269494856938,
-      0.6074795395553381
+      0.5303788802901315,
+      0.597286413497434
     ],
-    "date_interval_imputation_mi_median": 0.5683015026417574,
-    "dated_records": 310,
-    "early_vs_mid_bin_changes": 31,
-    "geography_stratified_record_null_mean": 0.46121501647642543,
-    "geography_stratified_record_p": 0.022488755622188907,
-    "intervals_crossing_bin_boundary": 52,
-    "mi_early_bound": 0.5608033486496701,
-    "mi_midpoint": 0.6216983517278762,
-    "record_level_null_mean": 0.35378179186517345,
+    "date_interval_imputation_mi_median": 0.5610882928055216,
+    "dated_records": 338,
+    "early_vs_mid_bin_changes": 40,
+    "geography_stratified_record_null_mean": 0.45787850892410153,
+    "geography_stratified_record_p": 0.015992003998001,
+    "intervals_crossing_bin_boundary": 66,
+    "mi_early_bound": 0.5587990336072253,
+    "mi_midpoint": 0.6126243918118799,
+    "record_level_null_mean": 0.34764665985462134,
     "record_level_p": 0.0004997501249375312,
-    "tested_occurrences": 196,
+    "tested_occurrences": 197,
     "tested_stems": 41
   }
 }

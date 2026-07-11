@@ -1553,7 +1553,7 @@ def main() -> None:
     )
     with open(corpus_path, "rb") as handle:
         corpus = pickle.load(handle)
-    assert corpus["meta"].get("freeze_version") == "0.9"
+    assert corpus["meta"].get("freeze_version") == "0.10"
     view = canonical_view(corpus)
     input_paths = {
         "corpus": corpus_path,

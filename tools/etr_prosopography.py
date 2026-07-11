@@ -112,7 +112,7 @@ def main():
     os.makedirs('logs', exist_ok=True)
     os.makedirs('results', exist_ok=True)
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
-    assert corpus['meta'].get('freeze_version') == '0.9'
+    assert corpus['meta'].get('freeze_version') == '0.10'
     view = view_of(corpus)
     names = name_types(view)
     log('=== Просопографический каркас (§4) ===')

@@ -30,7 +30,7 @@ from collections import Counter
 
 sys.stdout.reconfigure(encoding='utf-8')
 PDF = os.path.join('data', 'external', 'cie_online', 'Supplementum_I.pdf')
-OUT_CSV = os.path.join('data', 'supplements', 'errata_ll_v1.csv')
+OUT_CSV = os.path.join('results', 'errata_ll_queue.csv')  # ОЧЕРЕДЬ обнаружения; авторитет для freeze — errata_ll_manual.csv
 OUT_LOG = os.path.join('logs', 'etr_errata_ll.log')
 LOG = []
 
@@ -54,7 +54,7 @@ def main():
     herbig_flat = re.sub(r'[^a-zϑχφśçθα-ω]', '', herbig_txt)
 
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
-    assert corpus['meta'].get('freeze_version') == '0.9'
+    assert corpus['meta'].get('freeze_version') == '0.10'
     view = [r for r in corpus['records']
             if r['lang'] == 'etr' and r['kind'] == 'text'
             and 'forgery?' not in r['flags'] and r.get('variant_of') is None]

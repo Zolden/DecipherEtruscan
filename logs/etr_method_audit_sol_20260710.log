@@ -96,9 +96,9 @@ clean-reading sensitivity (exclude ocr? records and damaged/uncertain/restored/e
 MI=1.3575 on 1898 name occurrences in 1346 clusters; cluster-null mean=0.9070, p=0.0005; source-stratified cluster-null mean=1.0685, p=0.0005
 
 === 5b. Stratigraphy: record-level null and date intervals ===
-310 dated records; 52 intervals cross a bin boundary; 31 assignments change using midpoint
-MI early=0.5608, midpoint=0.6217; record-null mean=0.3538, p=0.0005; geography-stratified null mean=0.4612, p=0.0225
-interval-imputed MI median=0.5683, 95% [0.5403, 0.6075]
+338 dated records; 66 intervals cross a bin boundary; 40 assignments change using midpoint
+MI early=0.5588, midpoint=0.6126; record-null mean=0.3476, p=0.0005; geography-stratified null mean=0.4579, p=0.0160
+interval-imputed MI median=0.5611, 95% [0.5304, 0.5973]
 
 === 6. Lemnian classifier: exact-type leakage and type-disjoint rerun ===
   original etr holdout exact-token leakage: 491/10093 (4.9%)

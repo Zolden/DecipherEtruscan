@@ -97,7 +97,7 @@ from collections import Counter
 sys.stdout.reconfigure(encoding='utf-8')
 
 NORM_VERSION = '0.1'
-FREEZE_VERSION = '0.9'  # errata v1: 9 подтверждённых поправок чтений CIEW (§18)
+FREEZE_VERSION = '0.10'  # + датировки Адрии из CIE Vol IV.1.1 (§26/§29)
 CIEW_CIE_CSV = os.path.join('data', 'external', 'fowler_wolfe',
                             'ciew_cie_entries.csv')
 CIEW_CSV = os.path.join('data', 'external', 'fowler_wolfe',
@@ -786,6 +786,45 @@ def main():
                     n_err += 1
         log(f'errata v0.9: применено {n_err} поправок ascii '
             f'(реестр {len(err_map)} confirmed; form/raw не тронуты)')
+
+    # --- датировки Адрии (v0.10): факты CIE Vol IV.1.1, §26 -----------------
+    v4_path = os.path.join(DATA, 'external', 'cie_online',
+                           'vol4_1_tituli.csv')
+    if os.path.exists(v4_path):
+        def _cent(mod, rn):
+            n = {'I': 1, 'II': 2, 'III': 3, 'IV': 4, 'V': 5, 'VI': 6,
+                 'VII': 7}[rn]
+            hi, lo = 100 * n, 100 * (n - 1) + 1
+            if mod == 'ineunti':
+                return hi, hi - 24
+            if mod == 'exeunti':
+                return lo + 24, lo
+            if mod == 'medio':
+                return hi - 25, lo + 25
+            return hi, lo
+
+        v4_dates = {}
+        with open(v4_path, encoding='utf-8') as f:
+            for r in csv.DictReader(f):
+                d = (r['dating_latin'] or '').strip()
+                m = re.match(
+                    r'(?:(ineunti|exeunti|medio)\s+)?([IVX]+)'
+                    r'(?:\s*[-–]\s*(?:(ineunti|exeunti|medio)\s+)?([IVX]+))?'
+                    r'\s*saec', d)
+                if not m:
+                    continue
+                y_from = _cent(m.group(1), m.group(2))[0]
+                y_to = _cent(m.group(3), m.group(4) or m.group(2))[1]                     if m.group(4) else _cent(m.group(1), m.group(2))[1]
+                v4_dates[r['titulus']] = (y_from, y_to)
+        n_dated = 0
+        for rec in records:
+            if rec['src'] == 'CIEP' and rec['eid'] in v4_dates                     and rec.get('y_from') is None:
+                rec['y_from'], rec['y_to'] = v4_dates[rec['eid']]
+                rec['note'] = ((rec.get('note') or '')
+                               + ' [дата: CIE IV.1.1]').strip()
+                n_dated += 1
+        log(f'датировки Адрии (v0.10): формул распознано {len(v4_dates)}; '
+            f'датировано CIEP-записей: {n_dated}')
 
     # --- внутренние проверки ---------------------------------------------
     log()

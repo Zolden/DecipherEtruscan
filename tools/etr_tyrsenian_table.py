@@ -62,7 +62,7 @@ def main():
     topk = S[:K]
     log(f'top-{K}: ' + ' '.join('-' + s for s in topk))
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
-    assert corpus['meta'].get('freeze_version') == '0.9'
+    assert corpus['meta'].get('freeze_version') == '0.10'
     allrec = corpus['records']
     view = [r for r in allrec
             if r['lang'] == 'etr' and r['kind'] == 'text'

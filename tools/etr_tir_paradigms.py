@@ -63,7 +63,7 @@ def main():
             S.append(r['suffix'])
     S_set = set(S)
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
-    assert corpus['meta'].get('freeze_version') == '0.9'
+    assert corpus['meta'].get('freeze_version') == '0.10'
     view = [r for r in corpus['records']
             if r['lang'] == 'etr' and r['kind'] == 'text'
             and 'forgery?' not in r['flags'] and r.get('variant_of') is None]
