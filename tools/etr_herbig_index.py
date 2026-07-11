@@ -113,6 +113,69 @@ def read_entries():
     return entries
 
 
+# --- 1b. разбор Textus (PDF-стр. 25-27) — второй источник слов строк -------
+TEXTUS_PAGES = range(25, 28)
+XT_SPLIT = 370.0          # граница печатных колонок Textus
+NUM_X = {'L': 95.0, 'R': 400.0}   # маргинальный номер левее этого x
+
+
+def read_textus():
+    """(col, line) -> set(word_norm) из самого Textus: колонные заголовки
+    'Col. N.' задают колонку зоны, маргинальные числа — номера строк,
+    слова банда — текст строки (разрежённая печать склеивается внутри
+    сегментов между интерпунктами)."""
+    import fitz
+    doc = fitz.open(PDF)
+    out = {}
+    for pno in TEXTUS_PAGES:
+        words = doc[pno].get_text('words')
+        for zone, (xlo, xhi) in (('L', (0, XT_SPLIT)), ('R', (XT_SPLIT, 1e9))):
+            zw = sorted([w for w in words if xlo <= w[0] < xhi and w[1] > 90],
+                        key=lambda w: (w[1], w[0]))
+            bands = []
+            for w in zw:
+                if bands and abs(w[1] - bands[-1][0]) <= 3.5:
+                    bands[-1][1].append(w)
+                else:
+                    bands.append([w[1], [w]])
+            headers = []  # (y, col)
+            for y, bw in bands:
+                toks = [w[4] for w in sorted(bw, key=lambda w: w[0])]
+                for i, t in enumerate(toks):
+                    if t.rstrip('.').lower() == 'col' and i + 1 < len(toks):
+                        rc = fix_roman(toks[i + 1].strip('.'))
+                        if rc:
+                            headers.append((y, rc))
+            if not headers:
+                continue
+            # маргинальные номера с текстом того же банда (или банда ниже)
+            for bi, (y, bw) in enumerate(bands):
+                col = None
+                for hy, hc in headers:
+                    if hy <= y + 1:
+                        col = hc
+                nums = [w for w in bw if w[0] < NUM_X[zone]
+                        and re.fullmatch(r'\d{1,2}', w[4])]
+                if col is None or not nums:
+                    continue
+                line = int(nums[0][4])
+                if not (1 <= line <= 24):
+                    continue
+                text_ws = [w for w in bw if w[0] >= NUM_X[zone]]
+                if not text_ws and bi + 1 < len(bands) \
+                        and bands[bi + 1][0] - y <= 8:
+                    text_ws = [w for w in bands[bi + 1][1]
+                               if w[0] >= NUM_X[zone]]
+                raw = ' '.join(w[4] for w in
+                               sorted(text_ws, key=lambda w: w[0]))
+                # сегменты между интерпунктами; пробелы внутри склеиваются
+                for seg in re.split(r'[·.•\-/,;:~]+', raw):
+                    wn = norm_word(seg.replace(' ', ''))
+                    if len(wn) >= 3:
+                        out.setdefault((col, line), set()).add(wn)
+    return out
+
+
 # --- 2. разбор статьи: слово + ссылки --------------------------------------
 def parse_entry(entry):
     """Возвращает (words_norm:set, refs:[(col,line,flags)], ok:bool)."""
@@ -218,7 +281,20 @@ def main():
         f'ссылок (слово,кол,строка): {len(rows)}')
     col_order = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII',
                  'IX', 'X', 'XI', 'XII']
-    log(f'строк Herbig с ≥1 словом (без γ/FN): {len(line_words)}; '
+    log(f'строк Herbig с ≥1 словом (индекс, без γ/FN): {len(line_words)}; '
+        f'по колонкам: ' + ', '.join(
+            f'{c}:{sum(1 for (cc, _) in line_words if cc == c)}'
+            for c in col_order))
+    # --- Textus как второй источник слов строк (v2) -------------------------
+    tx = read_textus()
+    n_new_lines = sum(1 for k in tx if k not in line_words)
+    n_added = 0
+    for k, ws in tx.items():
+        cur = line_words.setdefault(k, set())
+        n_added += len(ws - cur)
+        cur |= ws
+    log(f'Textus-разбор: {len(tx)} строк, новых строк {n_new_lines}, '
+        f'добавлено слов {n_added}; итого строк: {len(line_words)}; '
         f'по колонкам: ' + ', '.join(
             f'{c}:{sum(1 for (cc, _) in line_words if cc == c)}'
             for c in col_order))
