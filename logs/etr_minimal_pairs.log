@@ -1,0 +1,51 @@
+=== §13: минимальные пары формул (план Sol №5) ===
+записей 3–8 слов: 1071
+корзин-контекстов с >=2 записями: 102; пар замещения (разные памятники): 56
+пар, где оба слова размечены ETP_POS: 7
+одноклассовых рёбер: 71.4% против нуля 56.1%±15.6%; p=0.4406
+классовые сочетания рёбер: NAME-M+NAME-M:4, NAME-F+NAME-M:2, NAME-F+NAME-F:1
+
+топ-20 пар замещения по числу контекстов:
+  ar           ~ la           контекстов 2  [·/·]
+  achuni       ~ tite         контекстов 1  [·/NAME-M]
+  ae           ~ ltth         контекстов 1  [·/·]
+  ar           ~ vel          контекстов 1  [·/NAME-M]
+  arathiale    ~ arnthusi     контекстов 1  [NAME-M/·]
+  arathiale    ~ velchainasi  контекстов 1  [NAME-M/NAME-M]
+  ariodantes   ~ succursale   контекстов 1  [·/·]
+  arnth        ~ velia        контекстов 1  [NAME-M/NAME-F]
+  arnthial     ~ arnties      контекстов 1  [NAME-M/·]
+  arnthial     ~ carpnatial   контекстов 1  [NAME-M/·]
+  arnthial     ~ ramthas      контекстов 1  [NAME-M/NAME-F]
+  arnthusi     ~ velchainasi  контекстов 1  [·/NAME-M]
+  as           ~ ath          контекстов 1  [·/NAME-M]
+  athnusa      ~ rafis        контекстов 1  [·/·]
+  aul          ~ titial       контекстов 1  [·/NAME-F]
+  aule         ~ vel          контекстов 1  [NAME-M/NAME-M]
+  aules        ~ hele         контекстов 1  [NAME-M/·]
+  aules        ~ setre        контекстов 1  [NAME-M/·]
+  caial        ~ felmu        контекстов 1  [·/·]
+  calisnas     ~ suthi        контекстов 1  [·/·]
+
+замещения, где оба слова размечены и НЕ имена: 0
+
+--- часть 2: скелетные минимальные пары (слоты операторов) ---
+реестр операторов: 48 форм, классы ['DEIX', 'KIN', 'MEAS', 'OBJ', 'TIT', 'VERB']
+событий замещения оператор↔оператор: 657
+одноклассовых замещений: 50.7% против нуля 18.4%±2.1%; p=0.0010
+топ замещений операторов:
+  mi         ~ mini       120  [DEIX/DEIX]
+  eca        ~ mi          57  [DEIX/DEIX]
+  mi         ~ turce       53  [DEIX/VERB]
+  mi         ~ ta          49  [DEIX/DEIX]
+  clan       ~ sec         29  [KIN/KIN]
+  avils      ~ clan        16  [MEAS/KIN]
+  avils      ~ sec         14  [MEAS/KIN]
+  puia       ~ ril         14  [KIN/MEAS]
+  clan       ~ sech        13  [KIN/KIN]
+  fler       ~ mi          12  [OBJ/DEIX]
+  maru       ~ mi          12  [TIT/DEIX]
+  sec        ~ sech        11  [KIN/KIN]
+
+csv записан: results\minimal_pairs_v1.csv (56 пар)
+чтение: замещаемость в идентичной формуле — слабый парадигматический сигнал; классовый тест несёт p, списки — разведочные.
