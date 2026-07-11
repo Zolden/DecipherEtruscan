@@ -143,6 +143,29 @@ def main():
     log(f'тест 2 (чище): доля ретийских словоформ с окончанием из S: '
         f'{100 * obs2:.1f}%; нуль {100 * sims2.mean():.1f}%'
         f'±{100 * sims2.std():.1f}%; p={p2:.4f}')
+
+    # --- тест 2b (v2, §19): top-K против потолка -----------------------------
+    K = 10
+    topk = set(S[:K])  # S в порядке DL-выигрыша из csv
+    need_k = Counter(len(s) for s in topk)
+    rng = np.random.default_rng(SEED + 2)
+
+    def null_sets_k():
+        for _ in range(R):
+            cur = set()
+            for k in sorted(need_k):
+                idx = rng.choice(len(pool_by_len[k]), size=need_k[k],
+                                 replace=False)
+                cur.update(pool_by_len[k][i] for i in idx)
+            yield cur
+
+    obs2b = end_share(topk)
+    sims2b = np.array([end_share(ns) for ns in null_sets_k()])
+    p2b = float((1 + (sims2b >= obs2b).sum()) / (R + 1))
+    log(f'тест 2b (top-{K} по DL-выигрышу: '
+        + ' '.join('-' + s for s in S[:K]) + f'): доля ретийских '
+        f'словоформ {100 * obs2b:.1f}%; нуль {100 * sims2b.mean():.1f}%'
+        f'±{100 * sims2b.std():.1f}%; p={p2b:.4f}')
     log('\nчтение: разведочный слой; тест 1 не независим от этрускологии '
         '(морфемы TIR выделялись со взглядом на этрусский); тест 2 — '
         'слабое независимое свидетельство общей суффиксальной фонотактики/'
