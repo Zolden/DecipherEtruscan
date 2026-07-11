@@ -1,0 +1,30 @@
+=== §18: errata LL v1 (аппарат Herbig + алфавитная систематика) ===
+кандидатов расхождений из аудита: 37
+
+--- алфавитная развёртка: g/o (букв нет в этрусском) ---
+алфавитных кандидатов с поддержкой: 7
+
+реестр: 30 уникальных строк; статусы: both-attested:8, candidate:13, confirmed:9
+confirmed (все):
+  clletram       → cletram        [apparatus+vocab6] 92.64
+  ceus           → celi           [apparatus+vocab7] 93.131
+  negunsl        → nethunsl       [apparatus+vocab7] 94.182
+  nungen         → nunthen        [apparatus+vocab7] 94.183
+  rache          → rachth         [apparatus+vocab11] 94.191
+  nuntheno       → nunthenth      [apparatus+vocab9] 94.192
+  largal         → larthal        [alphabet+apparatus+vocab] CIEW:7002:83.1
+  suo            → suth           [alphabet+apparatus+vocab] CIEW:9001:94.188
+  egrse          → ethrse         [alphabet+apparatus+vocab+herbig-index] CIEW:9001:94.933
+both-attested (свидетели видят разные реальные слова, не erratum):
+  ruze           ↔ ruxe           92.59
+  an             ↔ cs             92.71
+  ceia           ↔ celi           93.125
+  cepen          ↔ celipen        93.131
+  sacnicleri     ↔ sacnieleri     93.141
+  cepen          ↔ pen            93.141
+  in             ↔ pen            93.142
+  tei            ↔ celi           95.220
+
+валидация: исправленная форма аттестована (корпус>=2 или Herbig-индекс) у 30/30; исходная — у 11/30 (поправки уводят в ИЗВЕСТНЫЙ словарь)
+реестр записан: data\supplements\errata_ll_v1.csv
+дисциплина: корпус не правится; интеграция — erratum-флагами при заморозке v0.9 (только confirmed).
