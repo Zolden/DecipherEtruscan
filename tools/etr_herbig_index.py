@@ -176,6 +176,41 @@ def read_textus():
     return out
 
 
+# --- 1c. разбор Adnotationes (PDF-стр. 28-34) — леммы аппарата --------------
+ADNOT_PAGES = range(28, 35)
+
+
+def read_adnotationes():
+    """(col, line) -> set(word_norm) из лемм аппарата: строки вида
+    'N lemma ] variant Kr., …' — lemma есть чтение издания для строки N
+    текущей колонки ('Col. N.'-заголовки). Даёт чтения и для слабых
+    колонок, отсутствующих в точных парах F&W."""
+    import fitz
+    doc = fitz.open(PDF)
+    out = {}
+    col = None
+    for pno in ADNOT_PAGES:
+        for raw in doc[pno].get_text().split('\n'):
+            line = raw.strip()
+            m = re.match(r'Col\.\s*([IVXL]+)', line)
+            if m:
+                rc = fix_roman(m.group(1).rstrip('.'))
+                if rc:
+                    col = rc
+                continue
+            m = re.match(r'^(\d{1,2})\s+([^\]]{2,60})\]', line)
+            if not m or col is None:
+                continue
+            ln = int(m.group(1))
+            if not (1 <= ln <= 24):
+                continue
+            for seg in re.split(r'[·.•\-/,;:~\s]+', m.group(2)):
+                wn = norm_word(seg)
+                if len(wn) >= 3 and not re.fullmatch(r'x+', wn):
+                    out.setdefault((col, ln), set()).add(wn)
+    return out
+
+
 # --- 2. разбор статьи: слово + ссылки --------------------------------------
 def parse_entry(entry):
     """Возвращает (words_norm:set, refs:[(col,line,flags)], ok:bool)."""
@@ -295,6 +330,19 @@ def main():
         cur |= ws
     log(f'Textus-разбор: {len(tx)} строк, новых строк {n_new_lines}, '
         f'добавлено слов {n_added}; итого строк: {len(line_words)}; '
+        f'по колонкам: ' + ', '.join(
+            f'{c}:{sum(1 for (cc, _) in line_words if cc == c)}'
+            for c in col_order))
+    # --- Adnotationes как третий источник (v3) ------------------------------
+    ad = read_adnotationes()
+    n_new3 = sum(1 for k in ad if k not in line_words)
+    n_add3 = 0
+    for k, ws in ad.items():
+        cur = line_words.setdefault(k, set())
+        n_add3 += len(ws - cur)
+        cur |= ws
+    log(f'Adnotationes-разбор: {len(ad)} строк, новых {n_new3}, '
+        f'добавлено слов {n_add3}; итого строк: {len(line_words)}; '
         f'по колонкам: ' + ', '.join(
             f'{c}:{sum(1 for (cc, _) in line_words if cc == c)}'
             for c in col_order))

@@ -29,6 +29,7 @@ position,kind,key,classes,text
 73,exact,92.73,OFFER THEO VERB-R,meslumeric enas sin flere in crap ati
 74,exact,92.74,THEO VERB-R,chis esvisc fase sin aiser fase si
 75,exact,92.75,—,is cemnac faseis rachth sutanas
+78,herbig-geo,94.934,OFFER,zusleve zarve ecn zer lecin in
 80,herbig-geo,94.925,CAL THEO,ethrse tinsi tiurim avils chis hetrn
 108,exact,93.108,CONJ,etnam laeti anc thachs
 109,exact,93.109,—,theusnua caperc hec nach va tinthsa
@@ -62,21 +63,19 @@ position,kind,key,classes,text
 140,exact,93.140,CONJ VACL VERB-R,tesim etnam celucn vacl ara euml
 141,exact,93.141,—,sacnicleri cilthl cepen cilec va cepen
 142,exact,93.142,—,cnticnth in ceren cepar nac amce
-144,herbig,94.906,VACL,vacl ar var scun zeri ceren cepe
 145,herbig,94.905,CONJ,suci firin etnam etnam ais
-148,herbig-geo,94.908,CONJ VERB-R,cereni enas ara eunl etnam ceren
+146,herbig,94.908,CONJ VERB-R,cereni enas ara eunl etnam ceren
+147,herbig-geo,94.910,—,ic esvitn
+148,herbig-geo,94.912,CONJ,culscva spetri etnam
 149,herbig-geo,94.913,CAL THEO,celi huthis zathrumis flerchva nethunsl
 150,herbig-geo,94.914,VERB-R,sucri thezeric scara prithas rach tei
 151,herbig-geo,94.915,OFFER,menas cltral mulach husina vinum
 152,herbig-geo,94.916,VERB-R,paiveism acilth ame ranem scare
-153,herbig-geo,94.917,OFFER,reuchzina caveth zuslevac maera sur
 154,herbig-geo,94.918,OFFER VERB-R,reuchzineti ramueth vinum acilth ame
 155,herbig-geo,94.919,VACL,mula hursi puruthn vacl us clucthras
 156,herbig-geo,94.909,—,vacltnam in
 158,herbig-geo,94.922,—,mlach puths oaclth sar tei zivas fle
 159,herbig-geo,94.923,VERB-R,thezine ruze nuzlchne zati zatlchne
-160,herbig-geo,94.933,THEO,cilths spurestres enas ethrse tinsi
-178,herbig,94.924,—,sacnicstres ci los spurestres enas
 179,exact,94.179,—,ec
 180,exact,94.180,—,repinec sacnicleri cilthl spureri
 181,exact,94.181,VERB-R,methlumeric enas rachth tur hechsth
