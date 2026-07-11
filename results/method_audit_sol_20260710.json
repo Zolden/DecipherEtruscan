@@ -320,9 +320,9 @@
         "σ'uθi"
       ]
     },
-    "ascii_collision_types": 215,
-    "ascii_hapax_types": 5709,
-    "ascii_types": 7120,
+    "ascii_collision_types": 216,
+    "ascii_hapax_types": 5708,
+    "ascii_types": 7119,
     "by_source": {
       "CIEP": {
         "artifact_proxy_clusters": 4191,
@@ -426,13 +426,13 @@
     "downstream_rows_only_uncertain": {
       "results/concept_fog_v1.csv": {
         "only_uncertain_rows": 270,
-        "rows": 3003,
-        "share": 0.0899100899100899
+        "rows": 3004,
+        "share": 0.08988015978695073
       },
       "results/semantic_hypotheses_v2.csv": {
-        "only_uncertain_rows": 577,
-        "rows": 4328,
-        "share": 0.13331792975970425
+        "only_uncertain_rows": 576,
+        "rows": 4327,
+        "share": 0.13311763346429398
       }
     },
     "editorially_marked_token_share": 0.3559513256507374,
@@ -490,7 +490,7 @@
       "caps": 1,
       "damaged": 852,
       "emended": 815,
-      "erratum": 9,
+      "erratum": 15,
       "expanded": 1804,
       "line_split": 123,
       "restored": 529,
@@ -501,13 +501,13 @@
     "tokens": 12409,
     "translated_records": 2238,
     "translated_single_word": 1795,
-    "types": 7120,
+    "types": 7119,
     "types_measure": "ASCII-projected forms",
-    "types_only_in_uncertain_tokens": 1450,
+    "types_only_in_uncertain_tokens": 1449,
     "uncertain_token_share": 0.20646305101136272,
     "uncertain_tokens": 2562
   },
-  "corpus_sha256_declared_file": "6ea6fe590bd641701d6764455f36fad4f30c149e0ebbb52e6e8ff353b0b7b993  etr_corpus.pkl  norm_v0.1",
+  "corpus_sha256_declared_file": "cd886c19475d0642d895305e9f8333847b7c58528c52f4a7f48c791642978b26  etr_corpus.pkl  norm_v0.1",
   "distributional_anchor_pilot": {
     "accuracy": 0.5248618784530387,
     "balanced_accuracy": 0.39812989460048287,
@@ -651,50 +651,47 @@
       "umb": 177
     },
     "pool_unique_types": {
-      "etr": 6111,
+      "etr": 6110,
       "lat": 154,
       "umb": 138
     },
     "type_disjoint_models": {
       "bernoulli": {
-        "calibration_bag_accuracy": 0.998,
+        "calibration_bag_accuracy": 0.9983333333333333,
         "calibration_bags": 6000,
         "lemnian_prediction_across_100_splits": {
-          "etr": 39,
-          "lat": 60,
-          "umb": 1
+          "etr": 40,
+          "lat": 60
         }
       },
       "multinomial": {
-        "calibration_bag_accuracy": 0.998,
+        "calibration_bag_accuracy": 0.9985,
         "calibration_bags": 6000,
         "lemnian_prediction_across_100_splits": {
           "etr": 34,
-          "lat": 65,
-          "umb": 1
+          "lat": 66
         }
       },
       "present_only_project": {
-        "calibration_bag_accuracy": 0.9981666666666666,
+        "calibration_bag_accuracy": 0.9983333333333333,
         "calibration_bags": 6000,
         "lemnian_prediction_across_100_splits": {
-          "etr": 32,
-          "lat": 67,
-          "umb": 1
+          "etr": 34,
+          "lat": 66
         }
       }
     },
     "type_disjoint_train_types_per_language": 69
   },
   "meta": {
-    "declared_corpus_sha256": "6ea6fe590bd641701d6764455f36fad4f30c149e0ebbb52e6e8ff353b0b7b993",
+    "declared_corpus_sha256": "cd886c19475d0642d895305e9f8333847b7c58528c52f4a7f48c791642978b26",
     "input_sha256": {
-      "concept_fog_v1": "52d0247be558056d54b65875e252ce365548ef2e2d85fbfcdead2dcd4ebc70c6",
+      "concept_fog_v1": "aa34e72410b35bce4e31747abcd56c1e30e748c7d5a29f57cf79e4ece67ca8e7",
       "concept_lexicon": "7c53aff1e5fded5f43e588dfd3d9edb5ea40bd5cb27a26145b68160529b6a7be",
-      "corpus": "6ea6fe590bd641701d6764455f36fad4f30c149e0ebbb52e6e8ff353b0b7b993",
+      "corpus": "cd886c19475d0642d895305e9f8333847b7c58528c52f4a7f48c791642978b26",
       "etp_pos": "4f9d5875d7ed0899a4d98cc579a08fedb5611825841cfce45f7504dbd48918ce",
       "script": "7c2d685fe62227742b2963c32d29717f548cc55e7bebbfd7d7842e7d19fe30f6",
-      "semantic_hypotheses_v2": "ac7c38c24fad7d505af36a1b811b66f54595ad0eac13ff470eef54752e3b8188"
+      "semantic_hypotheses_v2": "ec4fcf3330f642807f07720201f18cd52f40736fd6a41a14c539e674f6543b5a"
     },
     "numpy": "2.5.1",
     "permutations": {

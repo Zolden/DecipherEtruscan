@@ -1,10 +1,10 @@
 === 1. Corpus units, duplication, and uncertainty ===
-canonical view: 6788 records, 12409 tokens, 7360 source-form / 7120 ASCII types, but only 5235 best-available artifact clusters
+canonical view: 6788 records, 12409 tokens, 7360 source-form / 7119 ASCII types, but only 5235 best-available artifact clusters
 CIEP: 5363 concordance rows -> 4203 CIE ids / 2130 known TM ids
 single-word records: 4796/6788 (70.7%); translated singletons: 1795/2238 (80.2%)
 exact duplicated multiword sequences: 26 groups / 54 records; cross-source 7, cross-artifact-proxy 13
-epistemically uncertain tokens: 2562/12409 (20.6%); types attested only in uncertain tokens: 1450
-ascii projection merges distinct source forms for 215 types (expected normalization, but uncertainty must be propagated)
+epistemically uncertain tokens: 2562/12409 (20.6%); types attested only in uncertain tokens: 1449
+ascii projection merges distinct source forms for 216 types (expected normalization, but uncertainty must be propagated)
 known same-monument aliases Liber_Linteus: 285 records / 1460 tokens across {'ETP': 12, 'CIEP': 49, 'CIEW': 224}
 known same-monument aliases Tabula_Capuana: 97 records / 547 tokens across {'CIEP': 23, 'CIEW': 74}
 
@@ -104,6 +104,6 @@ interval-imputed MI median=0.5683, 95% [0.5403, 0.6075]
   original etr holdout exact-token leakage: 491/10093 (4.9%)
   original lat holdout exact-token leakage: 14/73 (19.2%)
   original umb holdout exact-token leakage: 16/57 (28.1%)
-  type-disjoint present_only_project: 5989/6000 bags correct (99.8%); Lemnian over 100 splits: {'lat': 67, 'etr': 32, 'umb': 1}
-  type-disjoint bernoulli: 5988/6000 bags correct (99.8%); Lemnian over 100 splits: {'lat': 60, 'etr': 39, 'umb': 1}
-  type-disjoint multinomial: 5988/6000 bags correct (99.8%); Lemnian over 100 splits: {'lat': 65, 'etr': 34, 'umb': 1}
+  type-disjoint present_only_project: 5990/6000 bags correct (99.8%); Lemnian over 100 splits: {'lat': 66, 'etr': 34}
+  type-disjoint bernoulli: 5990/6000 bags correct (99.8%); Lemnian over 100 splits: {'lat': 60, 'etr': 40}
+  type-disjoint multinomial: 5991/6000 bags correct (99.9%); Lemnian over 100 splits: {'lat': 66, 'etr': 34}

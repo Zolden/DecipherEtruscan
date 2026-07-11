@@ -1,0 +1,53 @@
+=== §28: карта глав Liber Linteus (структурное чтение) ===
+единица — датная секция (§10); LL читается как циклический обряд (§24), карта фиксирует датные проходы и их наполнение
+
+секция  0 (поз. 1–50, строк 9)
+  зачин: (до первой точной даты)
+
+секция  1 (поз. 51–55, строк 3)
+  зачин: tiurim avils chis cisum pute tul thans
+
+секция  2 (поз. 56–66, строк 11)
+  зачин: ethrse tinsi tiurim avils chis ecn zer
+  сигнатура: zusleves×2
+
+секция  3 (поз. 68–75, строк 7)
+  зачин: var celi sue hechsth vinm trin fler
+  сигнатура: fase×2
+
+секция  4 (поз. 80–111, строк 5)
+  зачин: ethrse tinsi tiurim avils chis hetrn
+
+секция  5 (поз. 112–116, строк 5)
+  зачин: zathrumsne lusas fler thezeri
+  теонимы: lusas
+  сигнатура: thezeri×2
+
+секция  6 (поз. 117–130, строк 11)
+  зачин: eslem zafrumis acale tinsin sarve
+  сигнатура: ceia×5 hia×5 ciz×5 male×3
+
+секция  7 (поз. 131–148, строк 15)
+  зачин: vachr celi cilthcval svem cepen tutin
+  сигнатура: ceren×4 clevanth×2
+
+секция  8 (поз. 149–185, строк 19)
+  зачин: celi huthis zathrumis flerchva nethunsl
+  теонимы: nethunsl
+  сигнатура: acilth×2 cilths×2
+
+секция  9 (поз. 186–232, строк 45)
+  зачин: tiurim avils chis cisum ute tul thans
+  теонимы: nethunsl
+  сигнатура: nunthenth×4 ipa×3 nacum×2 hinthu×2 ciem×2
+  рукопись: красная линия писца (Herbig XI 13/14)
+
+секция 10 (поз. 233–239, строк 7)
+  зачин: acale etnam
+  сигнатура: hanthin×2
+
+секция 11 (поз. 240–242, строк 3)
+  зачин: pethereni eslem zathrum mur veleinefi
+
+карта записана: results\ll_chapter_map.csv
+чтение: дескриптив по подтверждённым слоям; интерпретации уровня «глава посвящена богу X» НЕ делаются (§24: секции не тематические); карта — навигационный инструмент.
