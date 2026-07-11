@@ -1,7 +1,7 @@
 RETRACT 2026-07-10: прежняя положительная атрибуция имела target leakage. Даже после очистки forced closed-set score не доказывает родство; см. §8 и audit type-disjoint result.
 
 === §6: Лемносская стела — тирренская параллель ===
-этрусский словарь: 6120 типов; инвентарь финальных биграмм (≥5 типов): 131
+этрусский словарь: 6111 типов; инвентарь финальных биграмм (≥5 типов): 131
 лемнийских токенов: 33: ['holaies', 'naphoth', 'siasi', 'maras', 'mav', 'sialchveis', 'avis', 'evistho', 'seronaith', 'sivai', 'aker', 'tavarsio', 'vanalasial', 'seronai', 'morinail', 'holaiesi', 'phokiasiale', 'seronaith', 'evistho', 'toverona', 'rom', 'haralio', 'sivai', 'eptesio', 'arai', 'tis', 'phoke', 'sivai', 'avis', 'sialchvis', 'marasm', 'avis', 'aomai']
 
 --- тест этрусковидности концовок (нуль: скрэмбл букв в слове) ---

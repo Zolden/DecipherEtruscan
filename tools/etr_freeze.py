@@ -97,7 +97,7 @@ from collections import Counter
 sys.stdout.reconfigure(encoding='utf-8')
 
 NORM_VERSION = '0.1'
-FREEZE_VERSION = '0.8'  # CIEW-парсер v4: монотонность CIE-номеров, dash/join (sample50)
+FREEZE_VERSION = '0.9'  # errata v1: 9 подтверждённых поправок чтений CIEW (§18)
 CIEW_CIE_CSV = os.path.join('data', 'external', 'fowler_wolfe',
                             'ciew_cie_entries.csv')
 CIEW_CSV = os.path.join('data', 'external', 'fowler_wolfe',
@@ -511,6 +511,9 @@ def build_records():
 
     # --- supplement-механизм ---------------------------------------------
     supp_files = sorted(glob.glob(os.path.join(DATA, 'supplements', '*.csv')))
+    # errata_*.csv — реестры поправок (v0.9), не записи-supplement
+    supp_files = [p for p in supp_files
+                  if not os.path.basename(p).startswith('errata_')]
     n_supp = 0
     for path in supp_files:
         fname = os.path.basename(path)
@@ -756,6 +759,31 @@ def main():
     log(f'artifact_id (v0.7): {n_art} памятников на {len(records)} записей')
     n_var = merge_variants(records)
     log(f'варианты чтения (v0.3): помечено variant_of {n_var} записей')
+
+    # --- errata v0.9: подтверждённые поправки чтений CIEW (реестр §18) -----
+    # применяются к ascii (form/raw сохраняют свидетельство источника);
+    # только status=confirmed; токен уникален в CIEW-слое по построению
+    # критерия (исходное почти неаттестовано)
+    err_path = os.path.join(DATA, 'supplements', 'errata_ll_v1.csv')
+    n_err = 0
+    if os.path.exists(err_path):
+        err_map = {}
+        with open(err_path, encoding='utf-8') as f:
+            for r in csv.DictReader(f):
+                if r['status'] == 'confirmed':
+                    err_map[r['token']] = r['corrected']
+        for rec in records:
+            if rec['src'] != 'CIEW':
+                continue
+            for t in rec['toks']:
+                if t['kind'] == 'W' and t.get('ascii') in err_map:
+                    t['ascii_orig'] = t['ascii']
+                    t['ascii'] = err_map[t['ascii']]
+                    t['flags'] = tuple(sorted(set(t['flags'])
+                                              | {'erratum'}))
+                    n_err += 1
+        log(f'errata v0.9: применено {n_err} поправок ascii '
+            f'(реестр {len(err_map)} confirmed; form/raw не тронуты)')
 
     # --- внутренние проверки ---------------------------------------------
     log()

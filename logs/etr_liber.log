@@ -2,20 +2,20 @@
 строк LL в корпусе: 224; пригодных (≥2 чистых словоформ): 207; словоформ 1237 ≈ 93% опубликованного объёма (~1330 слов); выравнивание строк частичное (флаг unaligned)
 
 --- 1. формульный словарь ---
-строк с ≥1 формульным элементом: 112/207 (54%)
+строк с ≥1 формульным элементом: 114/207 (55%)
   etnam      в 29 строках
-  теонимы    в 22 строках
+  теонимы    в 23 строках
+  календ.    в 21 строках
   vacl       в 20 строках
-  календ.    в 20 строках
+  nunthen-   в 16 строках
   fler       в 15 строках
-  nunthen-   в 14 строках
   cilth-     в 14 строках
   spur-      в 13 строках
   sacni-     в 12 строках
   trin       в 9 строках
   methlum-   в 7 строках
+  cletram    в 6 строках
   thez-      в 5 строках
-  cletram    в 5 строках
   hia        в 5 строках
   ciz        в 5 строках
   srenchve   в 4 строках
@@ -23,7 +23,7 @@
   male       в 3 строках
 
 --- 2. рефренные семейства (Жаккар ≥0.5) ---
-семейств размера ≥2: 7; крупнейшие: [4, 4, 4, 4, 2, 2]
+семейств размера ≥2: 8; крупнейшие: [4, 4, 4, 4, 2, 2]
 нуль (перестановка токенов, R=1000): max семейство 1.1±, максимум 3; наблюдаемое 4; p=0.0010
   семейство ×4:
     92.51: tiurim avils chis cisum pute tul thans
@@ -38,7 +38,7 @@
   семейство ×4:
     93.905: enas ethrse tinsi tiurim avils ch is
     94.185: cilths spurestres enas ethrse tinsi
-    94.933: cilths spurestres enas egrse tinsi
+    94.933: cilths spurestres enas ethrse tinsi
     94.936: spurestres enas ethrse tinsi tiurim
 
 --- 3. слот «(male) ceia hia etnam ciz vacl X» ---
@@ -48,15 +48,15 @@
 vacl: 20 вхождений, начальная позиция 5 (25%); нуль равномерный: p=0.2259
 
 --- 5. календарные метки ---
-строк с календарными метками: 20
+строк с календарными метками: 21
   92.51: tiurim avils chis cisum pute tul thans
   92.56: ethrse tinsi tiurim avils chis ecn zer
   92.902: var celi sue hechsth vinm trin fler
   93.112: zathrumsne lusas fler thezeri
   93.117: eslem zafrumis acale tinsin sarve
+  93.131: vachr celi cilthcval svem cepen tutin
   93.905: enas ethrse tinsi tiurim avils ch is
   93.911: var celi sub nunthenth eiser sic seuc
-  93.917: celi sue vacl thesnin rach cresverae
 
 --- 6. календарная сетка v3 (только нумерованные строки) ---
 нумерованных строк: 112; max номер: 242; сквозная нумерация (страницы монотонны по номерам): ДА
@@ -65,12 +65,13 @@ vacl: 20 вхождений, начальная позиция 5 (25%); нуль
   стр. 56  tiur                   ethrse tinsi tiurim avils chis ecn zer
   стр.112  zathrum-20             zathrumsne lusas fler thezeri
   стр.117  acale+eslem            eslem zafrumis acale tinsin sarve
+  стр.131  celi                   vachr celi cilthcval svem cepen tutin
   стр.186  tiur                   tiurim avils chis cisum ute tul thans
   стр.233  acale                  acale etnam
   стр.234  celi                   vacl vinum santisas celi pen tr utum
   стр.235  celi                   thapnests tritanasa hanthin celi
   стр.240  eslem+zathrum-20       pethereni eslem zathrum mur in veleinefi
-порядок месяцев по свитку: acale @ [117, 233], celi @ [234, 235] — acale < celi (июнь<сентябрь, ожидаемо)
+порядок месяцев по свитку: acale @ [117, 233], celi @ [131, 234, 235] — смешанный
   семейство ceia-hia: строки [125, 126, 127, 128]
   семейство датировочная: строки [51, 57, 186, 195]
   семейство община: строки [50, 141, 180, 185, 187, 196]

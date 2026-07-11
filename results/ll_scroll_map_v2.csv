@@ -19,7 +19,7 @@ position,kind,key,classes,text
 61,exact,92.61,OFFER,tei fasei zarfnef zusleves nunsen
 62,exact,92.62,THEO,farfan flleres in crapst cletram
 63,exact,92.63,OFFER VERB-R,srenchve rachth tura hechsth vinum
-64,exact,92.64,—,nunsen clletram srenchve rachth suth
+64,exact,92.64,—,nunsen cletram srenchve rachth suth
 65,exact,92.65,OFFER,izarfneth zusleves nunsen estrei
 66,exact,92.66,—,alazei cletram srencve eim tul
 68,herbig,92.902,CAL OFFER VERB-R,var celi sue hechsth vinm trin fler
@@ -50,7 +50,7 @@ position,kind,key,classes,text
 128,exact,93.128,CONJ VACL,male ceia hia etnam ciz vacl vile vale
 129,exact,93.129,VERB-R,staile itrile hia ciz trinthasa sacnit
 130,exact,93.130,—,an cilth cechane sal sucivn firin arth
-131,exact,93.131,—,vachr ceus cilthcval svem cepen tutin
+131,exact,93.131,CAL,vachr celi cilthcval svem cepen tutin
 132,exact,93.132,CONJ,reuchzua etnam cepen ceren sucic firin
 133,exact,93.133,CONJ,tesim etnam celucum caitim caperchva
 134,exact,93.134,—,hecia aisna clevanth chim enac usil
@@ -75,22 +75,22 @@ position,kind,key,classes,text
 156,herbig-geo,94.909,—,vacltnam in
 158,herbig-geo,94.922,—,mlach puths oaclth sar tei zivas fle
 159,herbig-geo,94.923,VERB-R,thezine ruze nuzlchne zati zatlchne
-160,herbig-geo,94.933,THEO,cilths spurestres enas egrse tinsi
+160,herbig-geo,94.933,THEO,cilths spurestres enas ethrse tinsi
 178,herbig,94.924,—,sacnicstres ci los spurestres enas
 179,exact,94.179,—,ec
 180,exact,94.180,—,repinec sacnicleri cilthl spureri
 181,exact,94.181,VERB-R,methlumeric enas rachth tur hechsth
-182,exact,94.182,OFFER VERB-R,vinum trin flere negunsl un mlach
-183,exact,94.183,OFFER,nungen zusleve zarve faseic ecn zeri
+182,exact,94.182,OFFER THEO VERB-R,vinum trin flere nethunsl un mlach
+183,exact,94.183,OFFER VERB-R,nunthen zusleve zarve faseic ecn zeri
 184,exact,94.184,OFFER VERB-R,lecin in zec fler thezince sacnics tres
 185,exact,94.185,THEO,cilths spurestres enas ethrse tinsi
 186,exact,94.186,CAL,tiurim avils chis cisum ute tul thans
 187,exact,94.187,—,hafec rep nec sacnicleri cilthl spureri
-188,exact,94.188,VERB-R,methlumeric enas rachth suo nunthenth
+188,exact,94.188,VERB-R,methlumeric enas rachth suth nunthenth
 189,exact,94.189,OFFER THEO,zusleve faseic farthan fleres nethuns
 190,exact,94.190,VERB-R,rachth cletram srenchve nunthenth
-191,exact,94.191,OFFER,estrei alazei zusleve rache eim tul var
-192,exact,94.192,VERB-R,nuntheno estrei alazei tei fasi eim
+191,exact,94.191,OFFER,estrei alazei zusleve rachth eim tul var
+192,exact,94.192,VERB-R,nunthenth estrei alazei tei fasi eim
 193,exact,94.193,OFFER VERB-R,tul var suth nunthenth flere nethu nsl
 194,exact,94.194,OFFER VERB-R,un mlach nunthen chis esvisc fasei
 195,exact,94.195,—,cisum pute tul thans hathec repinec

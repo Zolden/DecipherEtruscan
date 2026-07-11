@@ -2,30 +2,21 @@ rid_or_key,locus,token,corrected,evidence,status
 92.49,III 20,huslne,zusle,apparatus+vocab3,candidate
 92.49,III 20,muera,nuera,apparatus,candidate
 92.59,IV 5,ruze,ruxe,apparatus,both-attested
-92.64,IV 10,clletram,cletram,apparatus+vocab6,confirmed
 92.71,IV 17,an,cs,apparatus,both-attested
 92.72,IV 18,luzlchnec,nuzlchne,apparatus,candidate
-93.125,VII 2,ceia,celi,apparatus+vocab7,both-attested
+93.125,VII 2,ceia,celi,apparatus+vocab8,both-attested
 93.129,VII 6,sacnit,sacnicn,index-only,candidate
 93.131,VII 8,cepen,celipen,apparatus,both-attested
-93.131,VII 8,ceus,celi,apparatus+vocab7,confirmed
 93.132,VII 9,reuchzua,renchzua,apparatus,candidate
 93.136,VII 13,usli,usti,apparatus,candidate
 93.137,VII 14,cilfcveti,cilthcveti,apparatus,candidate
 93.141,VII 18,cepen,pen,apparatus,both-attested
 93.141,VII 18,sacnicleri,sacnieleri,apparatus,both-attested
 93.142,VII 19,in,pen,apparatus,both-attested
-94.182,IX 7,negunsl,nethunsl,apparatus+vocab7,confirmed
-94.183,IX 8,nungen,nunthen,apparatus+vocab7,confirmed
 94.184,IX 9,sacnics,sacnicn,index-only,candidate
-94.191,IX 16,rache,rachth,apparatus+vocab11,confirmed
-94.192,IX 17,nuntheno,nunthenth,apparatus+vocab9,confirmed
 94.203,X 2,capen,pen,apparatus,candidate
-95.220,X 19,tei,celi,apparatus+vocab7,both-attested
+95.220,X 19,tei,celi,apparatus+vocab8,both-attested
 95.220,X 19,vuvcnics,vuvenies,apparatus,candidate
 95.223,X 22,veisna,yeisna,apparatus,candidate
 95.224,X 23,fanufie,fanuse,apparatus,candidate
-CIEW:7002:83.1,83.1,largal,larthal,alphabet+apparatus+vocab,confirmed
 CIEW:7002:83.16,83.16,rionai,rithnai,alphabet+vocab,candidate
-CIEW:9001:94.188,94.188,suo,suth,alphabet+apparatus+vocab,confirmed
-CIEW:9001:94.933,94.933,egrse,ethrse,alphabet+apparatus+vocab+herbig-index,confirmed

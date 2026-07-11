@@ -1,9 +1,9 @@
 === §7.2: каскад арбитров тумана (по рекомендации LA) ===
-арбитр 1 (sim=1.0, ярус A, непереведённые): 98 кандидатов из 3007 туман-строк
+арбитр 1 (sim=1.0, ярус A, непереведённые): 98 кандидатов из 3003 туман-строк
 базлайн жанров (по вхождениям слов): other:76%, ritual:14%, epit:5%, mi:5%; рядом с NUM: 4.7%
 
 слово            n концепт            домен     жанры                      NUM док.завис.
-ethrse          12 ox/bull            animal    ritual:7+other:5           0% 2 док.
+ethrse          13 ox/bull            animal    ritual:8+other:5           0% 2 док.
 turza           11 ox/bull            animal    ritual:9+other:2           9% 2 док.
 petrual          4 father             kinship   other:4                    0% 4 док.
 cemnac           3 cumin              plantfood ritual:3                   0% один-док!

@@ -91,7 +91,7 @@ def main():
         '10/10. Канон — source-form longest-match в etr_method_audit_sol.py.')
     log()
     corpus = pickle.load(open(os.path.join('data', 'etr_corpus.pkl'), 'rb'))
-    assert corpus['meta'].get('freeze_version') == '0.8'
+    assert corpus['meta'].get('freeze_version') == '0.9'
     view = view_of(corpus)
     log('=== Калибровка морфем (этап 2) ===')
     log(f'вид: {len(view)} записей; R={R}, seed={SEED}; '

@@ -565,12 +565,11 @@ clepatra,1,mr-clepatra,knife,нож,tech,lat,culter,0.800,B
 clepatras,1,clepatras,knife,нож,tech,lat,culter,0.800,B
 cles,1,son,key,ключ,tech,grc,kleis,1.000,B
 cletithe,1,,cat,кот,animal,grc,katta?,0.750,B
-cletram,6,litter,knife,нож,tech,lat,culter,1.000,B
+cletram,7,litter,knife,нож,tech,lat,culter,1.000,B
 cleusinas,2,cleusinas,oven,печь,tech,grc,klibanos,0.800,A
 cleva,2,,key,ключ,tech,lat,clavis,0.750,B
 clevsinas,1,,key,ключ,tech,lat,clavis,0.800,B
 clitram,1,litter,knife,нож,tech,lat,culter,1.000,B
-clletram,1,,knife,нож,tech,lat,culter,0.800,B
 clodis,1,,sword,меч,tech,lat,gladius,1.000,B
 clpaisu,1,,oven,печь,tech,grc,klibanos,0.800,A
 cltcu,3,,cup,чаша,vessel,lat,calix,0.750,A
@@ -711,7 +710,6 @@ ecnatnu,1,,jug,кувшин,vessel,grc,kothon,0.750,B
 ecotillie,1,,star,звезда,ritual,lat,stella,0.750,B
 eetlume,1,,jar,сосуд-пифос,vessel,lat,dolium,1.000,B
 eferavas,1,,small,малый,quality,lat,parvus,1.000,B
-egrse,1,,pig,свинья,animal,grc,choiros,1.000,B
 ehamaithi,1,,cloak,плащ,cloth,grc,himation,0.750,B
 eicezrt,1,mrs-remzneis,letter-missive,письмо,tech,akk,egertu?,0.750,A
 eiseras,1,gods,iron,железо,trade,grc,sideros,0.750,B
@@ -752,7 +750,7 @@ eteras,1,,ox/bull,бык,animal,grc,tauros,1.000,A
 etertic,2,,wheat,пшеница,plantfood,lat,triticum,0.800,B
 ethras,1,,ox/bull,бык,animal,grc,tauros,1.000,A
 ethrisna,1,,ox/bull,бык,animal,grc,tauros,0.750,A
-ethrse,12,,ox/bull,бык,animal,grc,tauros,1.000,A
+ethrse,13,,ox/bull,бык,animal,grc,tauros,1.000,A
 ethurpa,1,themuseeuterpe,table,стол,household,grc,trapeza,0.750,B
 etnam,34,,gift,дар,social,lat,donum,1.000,B
 etrias,1,,ox/bull,бык,animal,grc,tauros,1.000,A
@@ -1501,7 +1499,6 @@ nechs,1,,spear,копьё,tech,grc,enchos,1.000,B
 nefts,1,,grandson,внук,kinship,lat,nepos,1.000,B
 neftus,1,,jar,сосуд-пифос,vessel,grc,pithos,0.750,B
 nefunt,1,,libation,возлияние,social,grc,sponde,0.750,B
-negunsl,1,,dog,собака,animal,lat,canis,0.750,B
 neiatina,1,mrs-pumpneis,oracle,оракул,ritual,grc,manteion,0.750,B
 neivesa,1,mr-neives-daughters-husband,ship,корабль,tech,lat,navis,1.000,B
 nelas,1,mr-nelas,ring,кольцо,adorn,lat,anulus,1.000,B
@@ -1513,7 +1510,7 @@ nestra,1,,star,звезда,ritual,grc,aster,0.750,B
 nethsrac,2,------------of-entrailsinterpretations-t,year,год,time,grc,eniautos,0.750,B
 nethuns,1,,year,год,time,grc,eniautos,0.750,B
 nethunsial,1,of-the-goddess-neptuni,year,год,time,grc,eniautos,0.750,B
-nethunsl,7,nethuns,year,год,time,grc,eniautos,0.750,B
+nethunsl,8,nethuns,year,год,time,grc,eniautos,0.750,B
 nethunus,2,,year,год,time,grc,eniautos,0.750,B
 netsvis,2,haruspex,ship,корабль,tech,lat,navis,0.750,B
 nicipur,1,nicuss-boyms-naulisisslave,goat,коза,animal,lat,capra,0.750,B
@@ -1546,10 +1543,9 @@ nunias,1,mr-nunias,year,год,time,lat,annus,1.000,B
 nunoeri,3,,oven,печь,tech,heb,tannur,0.750,A
 nunsen,5,,year,год,time,lat,annus,0.750,B
 nunth,2,,perfume-oil,ароматное масло,trade,lat,unguentum,0.750,B
-nunthen,7,,perfume-oil,ароматное масло,trade,lat,unguentum,0.750,B
+nunthen,8,,perfume-oil,ароматное масло,trade,lat,unguentum,0.750,B
 nunthena,1,,perfume-oil,ароматное масло,trade,lat,unguentum,0.750,B
 nunthene,2,,perfume-oil,ароматное масло,trade,lat,unguentum,0.750,B
-nuntheno,1,,perfume-oil,ароматное масло,trade,lat,unguentum,0.750,B
 nuntheri,1,,to-sell,продавать,action,lat,vendere,0.750,B
 nurzi,1,,statue-image,статуя,ritual,grc,andrias,0.750,B
 nurziu,1,,statue-image,статуя,ritual,grc,andrias,0.750,B
@@ -1863,7 +1859,7 @@ qutum,2,wine pitcher,to-build,строить,action,grc,oikodomeo,1.000,B
 qutumutha,1,,three,три,measure,egy,khmt,0.750,A
 qutus,1,qutus,comb,гребень,adorn,grc,kteis,1.000,B
 rachs,1,,jug,кувшин,vessel,lat,urceus,1.000,B
-rachth,11,,bear,медведь,animal,grc,arktos,0.750,B
+rachth,12,,bear,медведь,animal,grc,arktos,0.750,B
 rachuth,1,,bear,медведь,animal,grc,arktos,0.750,B
 racth,1,,bear,медведь,animal,grc,arktos,0.750,B
 racvanies,1,,purple dye,пурпур,trade,heb,argaman,0.750,A

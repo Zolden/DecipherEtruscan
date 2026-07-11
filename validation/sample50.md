@@ -12,7 +12,7 @@
 | 6 | CIEP:3991:1 | se(th) casni(al) | seth⟨expanded⟩ casnial⟨expanded⟩ | — | да |
 | 7 | CIEP:3427:1 | serturi | serturi | ms-serturi | да |
 | 8 | CIEP:1473:1B | laut(nitha) | lautnitha⟨expanded⟩ | — | да |
-| 9 | CIEW:9001:94.188 | meθlumeric . enas • raχθ • suo • nunθenθ | meθlumeric enas raχθ suo nunθenθ | — | нет: парсер CIEW — F&W 9001.188 и Herbig: suθ, не suo |
+| 9 | CIEW:9001:94.188 | meθlumeric . enas • raχθ • suo • nunθenθ | meθlumeric enas raχθ suo⟨erratum⟩ nunθenθ | — | нет: парсер CIEW — F&W 9001.188 и Herbig: suθ, не suo |
 | 10 | CIEP:742:2B | peciania(sa) | pecianiasa⟨expanded⟩ | mr-pecianias-sons-wife | да |
 | 11 | CIEP:16936:1B | evrfia | evrfia | — | да |
 | 12 | CIEW:9001:94.910 | • ic • <e>svit<n/ | ic esvitn⟨emended,line_split⟩ | — | нет: парсер CIEW — обломок F&W 9001.151; потеряны начало строки и enas |
